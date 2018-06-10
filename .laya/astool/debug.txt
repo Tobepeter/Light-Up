@@ -12,8 +12,8 @@ Project configuration:c:\Users\58359\Desktop\workspace\git\Light-Up/.actionScrip
 1,0.00,c:/Users/58359/Desktop/workspace/git/Light-Up/src,0,Collect
 1,0.00,c:/Users/58359/Desktop/workspace/git/Light-Up/libs/laya/src,0,Collect
 1,2.00,,0,read class message
-1,89.61,,0,Disable Flash3D c:/Users/58359/Desktop/workspace/git/Light-Up/src/GameMain.as
-12,89.61,c:/Users/58359/Desktop/workspace/git/Light-Up/bin/h5/GameMain.max.js,1244557,
-11,89.61,c:/Users/58359/Desktop/workspace/git/Light-Up/bin/h5/GameMain.max.html,891,
+1,89.89,,0,Disable Flash3D c:/Users/58359/Desktop/workspace/git/Light-Up/src/GameMain.as
+12,89.89,c:/Users/58359/Desktop/workspace/git/Light-Up/bin/h5/GameMain.max.js,1245912,
+11,89.89,c:/Users/58359/Desktop/workspace/git/Light-Up/bin/h5/GameMain.max.html,891,
 ******************************************************************************
-14,89.61,,0,
+14,89.89,,0,

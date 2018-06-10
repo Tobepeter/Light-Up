@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="LayaSample">
+  <component name="FlexBuildConfigurationManager" active="GameMain">
     <configurations>
-      <configuration name="LayaSample" pure-as="true" main-class="LayaSample" output-file="LayaSample.swf" output-folder="$MODULE_DIR$/bin">
-        <dependencies target-player="11.4">
+      <configuration name="GameMain" pure-as="true" main-class="GameMain" output-file="GameMain.swf" output-folder="$MODULE_DIR$/bin">
+        <dependencies>
           <sdk name="AIRSDK" />
         </dependencies>
         <compiler-options>

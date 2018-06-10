@@ -23,7 +23,7 @@ var Laya=window.Laya=(function(window,document){
 			for (var p in b){
 				if (!b.hasOwnProperty(p)) continue;
 				var gs=Object.getOwnPropertyDescriptor(b, p);
-				var g = gs.get, s = gs.set; 
+                var g = gs.get, s = gs.set;
 				if ( g || s ) {
 					if ( g && s)
 						Object.defineProperty(d,p,gs);
@@ -73,7 +73,7 @@ var Laya=window.Laya=(function(window,document){
 		},
 		__as:function(value,type){
 			return (this.__typeof(value,type))?value:null;
-		},		
+        },
 		interface:function(name,_super){
 			Laya.__package(name,{});
 			var ins=Laya.__internals;
@@ -157,7 +157,7 @@ var Laya=window.Laya=(function(window,document){
 				getfn && (o['_$GET_'+name]=getfn);
 				setfn && (o['_$SET_'+name]=setfn);
 			}
-			if(getfn && setfn) 
+            if (getfn && setfn)
 				Object.defineProperty(o,name,{get:getfn,set:setfn,enumerable:false});
 			else{
 				getfn && Object.defineProperty(o,name,{get:getfn,enumerable:false});
@@ -166,7 +166,7 @@ var Laya=window.Laya=(function(window,document){
 		},
 		static:function(_class,def){
 				for(var i=0,sz=def.length;i<sz;i+=2){
-					if(def[i]=='length') 
+                    if (def[i] == 'length')
 						_class.length=def[i+1].call(_class);
 					else{
 						function tmp(){
@@ -179,7 +179,7 @@ var Laya=window.Laya=(function(window,document){
 						tmp();
 					}
 				}
-		},		
+        },
 		un:function(obj,name,value){
 			value || (value=obj[name]);
 			Laya.__propun.value=value;
@@ -421,9 +421,11 @@ var ___Laya=(function(){
 var GameConfig=(function(){
 	function GameConfig(){}
 	__class(GameConfig,'config.GameConfig');
-	GameConfig.H_BLCOK=10;
-	GameConfig.V_BLOCK=10;
+    GameConfig.H_BLCOK = 5;
+    GameConfig.V_BLOCK = 5;
 	GameConfig.BLOCK_SIZE=100;
+    GameConfig.GAME_WIDHT = 678;
+    GameConfig.GAME_HEIGHT = 1200;
 	return GameConfig;
 })()
 
@@ -489,7 +491,7 @@ var GameMain=(function(){
 
 	__class(GameMain,'GameMain');
 	GameMain.initStage=function(){
-		Laya.init(100 *10,100 *10);
+        Laya.init(678, 1200);
 		Laya.stage.alignH="center";
 		Laya.stage.alignV="middle";
 		Laya.stage.bgColor='#ffffff';
@@ -580,10 +582,10 @@ var BlockModel=(function(){
 
 	__proto.init=function(){
 		this._mapArr=[];
-		for (var i=0;i < 10;i++){
+        for (var i = 0; i < 5; i++) {
 			var arr=[];
 			this._mapArr.push(arr);
-			for (var j=0;j < 10;j++){
+            for (var j = 0; j < 5; j++) {
 				this._mapArr[i].push(0);
 			}
 		}
@@ -995,8 +997,14 @@ var TestCenter=(function(){
 		[ 1,1,1,1,1,1,1,1,1,1],
 		[ 1,1,1,1,1,1,1,1,1,1],
 		[ 1,1,1,1,1,1,1,1,1,1]];
-		if(arr.length !=10){console.warn('测试竖直方向长度有误');return;}
-			if(arr[0].length !=10){console.warn('测试水平方向长度有误');return;}
+        if (arr.length != 5) {
+            console.warn('测试竖直方向长度有误');
+            return;
+        }
+        if (arr[0].length != 5) {
+            console.warn('测试水平方向长度有误');
+            return;
+        }
 		arr=[
 		[1,2,1,0,1,2,1],
 		[1,2,1,0,1,2,1],
@@ -5198,7 +5206,11 @@ var JsonTool=(function(){
 	__static(JsonTool,
 	['singleLineKey',function(){return this.singleLineKey={
 			"props":true
-		};},'escapable',function(){return this.escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;},'meta',function(){return this.meta = {   
+    };
+    }, 'escapable', function () {
+        return this.escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+    }, 'meta', function () {
+        return this.meta = {
 		'\b':'\\b',
 		'\t':'\\t',
 		'\n':'\\n',
@@ -25531,8 +25543,8 @@ var BlockView=(function(_super){
 		this.curArr=null;
 		BlockView.__super.call(this);
 		this.imgDic=new Dictionary;
-		this.width=100 *10;
-		this.height=100 *10;
+        this.width = 100 * 5;
+        this.height = 100 * 5;
 		this.update();
 		this.on("click",this,this.onClick);
 		BlockView.ins=this;
@@ -25637,6 +25649,33 @@ var BlockView=(function(_super){
 	BlockView.ins=null;
 	return BlockView;
 })(Component)
+
+
+    /**
+     *<code>Box</code> 类是一个控件容器类。
+     */
+//class laya.ui.Box extends laya.ui.Component
+    var Box = (function (_super) {
+        function Box() {
+            Box.__super.call(this);
+            ;
+        }
+
+        __class(Box, 'laya.ui.Box', _super);
+        var __proto = Box.prototype;
+        Laya.imps(__proto, {"laya.ui.IBox": true})
+        /**@inheritDoc */
+        __getset(0, __proto, 'dataSource', _super.prototype._$get_dataSource, function (value) {
+            this._dataSource = value;
+            for (var name in value) {
+                var comp = this.getChildByName(name);
+                if (comp) comp.dataSource = value[name];
+                else if (this.hasOwnProperty(name) && !((typeof (this[name]) == 'function'))) this[name] = value[name];
+            }
+        });
+
+        return Box;
+    })(Component)
 
 
 /**
@@ -25785,32 +25824,6 @@ var TipManagerForDebug=(function(_super){
 	TipManagerForDebug.tipBackColor="#111111";
 	TipManagerForDebug.tipDelay=200;
 	return TipManagerForDebug;
-})(Component)
-
-
-/**
-*<code>Box</code> 类是一个控件容器类。
-*/
-//class laya.ui.Box extends laya.ui.Component
-var Box=(function(_super){
-	function Box(){
-		Box.__super.call(this);;
-	}
-
-	__class(Box,'laya.ui.Box',_super);
-	var __proto=Box.prototype;
-	Laya.imps(__proto,{"laya.ui.IBox":true})
-	/**@inheritDoc */
-	__getset(0,__proto,'dataSource',_super.prototype._$get_dataSource,function(value){
-		this._dataSource=value;
-		for (var name in value){
-			var comp=this.getChildByName(name);
-			if (comp)comp.dataSource=value[name];
-			else if (this.hasOwnProperty(name)&& !((typeof (this[name])=='function')))this[name]=value[name];
-		}
-	});
-
-	return Box;
 })(Component)
 
 
@@ -32805,6 +32818,1003 @@ var Tree=(function(_super){
 })(Box)
 
 
+    /**
+     *<code>LayoutBox</code> 是一个布局容器类。
+     */
+//class laya.ui.LayoutBox extends laya.ui.Box
+    var LayoutBox = (function (_super) {
+        function LayoutBox() {
+            /**@private */
+            this._space = 0;
+            /**@private */
+            this._align = "none";
+            /**@private */
+            this._itemChanged = false;
+            LayoutBox.__super.call(this);
+        }
+
+        __class(LayoutBox, 'laya.ui.LayoutBox', _super);
+        var __proto = LayoutBox.prototype;
+        /**@inheritDoc */
+        __proto.addChild = function (child) {
+            child.on("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.addChild.call(this, child);
+        }
+
+        __proto.onResize = function (e) {
+            this._setItemChanged();
+        }
+
+        /**@inheritDoc */
+        __proto.addChildAt = function (child, index) {
+            child.on("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.addChildAt.call(this, child, index);
+        }
+
+        /**@inheritDoc */
+        __proto.removeChild = function (child) {
+            child.off("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.removeChild.call(this, child);
+        }
+
+        /**@inheritDoc */
+        __proto.removeChildAt = function (index) {
+            this.getChildAt(index).off("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.removeChildAt.call(this, index);
+        }
+
+        /**刷新。*/
+        __proto.refresh = function () {
+            this._setItemChanged();
+        }
+
+        /**
+         *改变子对象的布局。
+         */
+        __proto.changeItems = function () {
+            this._itemChanged = false;
+        }
+
+        /**
+         *排序项目列表。可通过重写改变默认排序规则。
+         *@param items 项目列表。
+         */
+        __proto.sortItem = function (items) {
+            if (items) items.sort(function (a, b) {
+                return a.y - b.y;
+            });
+        }
+
+        __proto._setItemChanged = function () {
+            if (!this._itemChanged) {
+                this._itemChanged = true;
+                this.callLater(this.changeItems);
+            }
+        }
+
+        /**子对象的间隔。*/
+        __getset(0, __proto, 'space', function () {
+            return this._space;
+        }, function (value) {
+            this._space = value;
+            this._setItemChanged();
+        });
+
+        /**子对象对齐方式。*/
+        __getset(0, __proto, 'align', function () {
+            return this._align;
+        }, function (value) {
+            this._align = value;
+            this._setItemChanged();
+        });
+
+        return LayoutBox;
+    })(Box)
+
+
+    /**
+     *<code>Panel</code> 是一个面板容器类。
+     */
+//class laya.ui.Panel extends laya.ui.Box
+    var Panel = (function (_super) {
+        function Panel() {
+            /**@private */
+            this._content = null;
+            /**@private */
+            this._vScrollBar = null;
+            /**@private */
+            this._hScrollBar = null;
+            /**@private */
+            this._scrollChanged = false;
+            Panel.__super.call(this);
+            this.width = this.height = 100;
+        }
+
+        __class(Panel, 'laya.ui.Panel', _super);
+        var __proto = Panel.prototype;
+        /**@inheritDoc */
+        __proto.destroy = function (destroyChild) {
+            (destroyChild === void 0) && (destroyChild = true);
+            laya.ui.Component.prototype.destroy.call(this, destroyChild);
+            this._content && this._content.destroy(destroyChild);
+            this._vScrollBar && this._vScrollBar.destroy(destroyChild);
+            this._hScrollBar && this._hScrollBar.destroy(destroyChild);
+            this._vScrollBar = null;
+            this._hScrollBar = null;
+            this._content = null;
+        }
+
+        /**@inheritDoc */
+        __proto.destroyChildren = function () {
+            this._content.destroyChildren();
+        }
+
+        /**@inheritDoc */
+        __proto.createChildren = function () {
+            laya.display.Node.prototype.addChild.call(this, this._content = new Box());
+        }
+
+        /**@inheritDoc */
+        __proto.addChild = function (child) {
+            child.on("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.addChild(child);
+        }
+
+        /**
+         *@private
+         *子对象的 <code>Event.RESIZE</code> 事件侦听处理函数。
+         */
+        __proto.onResize = function () {
+            this._setScrollChanged();
+        }
+
+        /**@inheritDoc */
+        __proto.addChildAt = function (child, index) {
+            child.on("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.addChildAt(child, index);
+        }
+
+        /**@inheritDoc */
+        __proto.removeChild = function (child) {
+            child.off("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.removeChild(child);
+        }
+
+        /**@inheritDoc */
+        __proto.removeChildAt = function (index) {
+            this.getChildAt(index).off("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.removeChildAt(index);
+        }
+
+        /**@inheritDoc */
+        __proto.removeChildren = function (beginIndex, endIndex) {
+            (beginIndex === void 0) && (beginIndex = 0);
+            (endIndex === void 0) && (endIndex = 0x7fffffff);
+            for (var i = this._content.numChildren - 1; i > -1; i--) {
+                this._content.removeChildAt(i);
+            }
+            this._setScrollChanged();
+            return this;
+        }
+
+        /**@inheritDoc */
+        __proto.getChildAt = function (index) {
+            return this._content.getChildAt(index);
+        }
+
+        /**@inheritDoc */
+        __proto.getChildByName = function (name) {
+            return this._content.getChildByName(name);
+        }
+
+        /**@inheritDoc */
+        __proto.getChildIndex = function (child) {
+            return this._content.getChildIndex(child);
+        }
+
+        /**@private */
+        __proto.changeScroll = function () {
+            this._scrollChanged = false;
+            var contentW = this.contentWidth || 1;
+            var contentH = this.contentHeight || 1;
+            var vscroll = this._vScrollBar;
+            var hscroll = this._hScrollBar;
+            var vShow = vscroll && contentH > this._height;
+            var hShow = hscroll && contentW > this._width;
+            var showWidth = vShow ? this._width - vscroll.width : this._width;
+            var showHeight = hShow ? this._height - hscroll.height : this._height;
+            if (vscroll) {
+                vscroll.x = this._width - vscroll.width;
+                vscroll.y = 0;
+                vscroll.height = this._height - (hShow ? hscroll.height : 0);
+                vscroll.scrollSize = Math.max(this._height * 0.033, 1);
+                vscroll.thumbPercent = showHeight / contentH;
+                vscroll.setScroll(0, contentH - showHeight, vscroll.value);
+            }
+            if (hscroll) {
+                hscroll.x = 0;
+                hscroll.y = this._height - hscroll.height;
+                hscroll.width = this._width - (vShow ? vscroll.width : 0);
+                hscroll.scrollSize = Math.max(this._width * 0.033, 1);
+                hscroll.thumbPercent = showWidth / contentW;
+                hscroll.setScroll(0, contentW - showWidth, hscroll.value);
+            }
+        }
+
+        /**@inheritDoc */
+        __proto.changeSize = function () {
+            laya.ui.Component.prototype.changeSize.call(this);
+            this.setContentSize(this._width, this._height);
+        }
+
+        /**
+         *@private
+         *设置内容的宽度、高度（以像素为单位）。
+         *@param width 宽度。
+         *@param height 高度。
+         */
+        __proto.setContentSize = function (width, height) {
+            var content = this._content;
+            content.width = width;
+            content.height = height;
+            content.scrollRect || (content.scrollRect = new Rectangle());
+            content.scrollRect.setTo(0, 0, width, height);
+            content.scrollRect = content.scrollRect;
+        }
+
+        /**
+         *@private
+         *滚动条的<code><code>Event.MOUSE_DOWN</code>事件侦听处理函数。</code>事件侦听处理函数。
+         *@param scrollBar 滚动条对象。
+         *@param e Event 对象。
+         */
+        __proto.onScrollBarChange = function (scrollBar) {
+            var rect = this._content.scrollRect;
+            if (rect) {
+                var start = Math.round(scrollBar.value);
+                scrollBar.isVertical ? rect.y = start : rect.x = start;
+                this._content.scrollRect = rect;
+            }
+        }
+
+        /**
+         *<p>滚动内容容器至设定的垂直、水平方向滚动条位置。</p>
+         *@param x 水平方向滚动条属性value值。滚动条位置数字。
+         *@param y 垂直方向滚动条属性value值。滚动条位置数字。
+         */
+        __proto.scrollTo = function (x, y) {
+            (x === void 0) && (x = 0);
+            (y === void 0) && (y = 0);
+            if (this.vScrollBar) this.vScrollBar.value = y;
+            if (this.hScrollBar) this.hScrollBar.value = x;
+        }
+
+        /**
+         *刷新滚动内容。
+         */
+        __proto.refresh = function () {
+            this.changeScroll();
+        }
+
+        __proto.onScrollStart = function () {
+            this._$P.cacheAs || (this._$P.cacheAs = Laya.superGet(Box, this, 'cacheAs'));
+            Laya.superSet(Box, this, 'cacheAs', "none");
+            this._hScrollBar && this._hScrollBar.once("end", this, this.onScrollEnd);
+            this._vScrollBar && this._vScrollBar.once("end", this, this.onScrollEnd);
+        }
+
+        __proto.onScrollEnd = function () {
+            Laya.superSet(Box, this, 'cacheAs', this._$P.cacheAs);
+        }
+
+        /**@private */
+        __proto._setScrollChanged = function () {
+            if (!this._scrollChanged) {
+                this._scrollChanged = true;
+                this.callLater(this.changeScroll);
+            }
+        }
+
+        /**@inheritDoc */
+        __getset(0, __proto, 'numChildren', function () {
+            return this._content.numChildren;
+        });
+
+        /**
+         *水平方向滚动条皮肤。
+         */
+        __getset(0, __proto, 'hScrollBarSkin', function () {
+            return this._hScrollBar ? this._hScrollBar.skin : null;
+        }, function (value) {
+            if (this._hScrollBar == null) {
+                laya.display.Node.prototype.addChild.call(this, this._hScrollBar = new HScrollBar());
+                this._hScrollBar.on("change", this, this.onScrollBarChange, [this._hScrollBar]);
+                this._hScrollBar.target = this._content;
+                this._setScrollChanged();
+            }
+            this._hScrollBar.skin = value;
+        });
+
+        /**
+         *@private
+         *获取内容宽度（以像素为单位）。
+         */
+        __getset(0, __proto, 'contentWidth', function () {
+            var max = 0;
+            for (var i = this._content.numChildren - 1; i > -1; i--) {
+                var comp = this._content.getChildAt(i);
+                max = Math.max(comp.x + comp.width * comp.scaleX, max);
+            }
+            return max;
+        });
+
+        /**
+         *@private
+         *获取内容高度（以像素为单位）。
+         */
+        __getset(0, __proto, 'contentHeight', function () {
+            var max = 0;
+            for (var i = this._content.numChildren - 1; i > -1; i--) {
+                var comp = this._content.getChildAt(i);
+                max = Math.max(comp.y + comp.height * comp.scaleY, max);
+            }
+            return max;
+        });
+
+        /**
+         *@inheritDoc
+         */
+        __getset(0, __proto, 'width', _super.prototype._$get_width, function (value) {
+            Laya.superSet(Box, this, 'width', value);
+            this._setScrollChanged();
+        });
+
+        /**
+         *水平方向滚动条对象。
+         */
+        __getset(0, __proto, 'hScrollBar', function () {
+            return this._hScrollBar;
+        });
+
+        /**
+         *获取内容容器对象。
+         */
+        __getset(0, __proto, 'content', function () {
+            return this._content;
+        });
+
+        /**@inheritDoc */
+        __getset(0, __proto, 'height', _super.prototype._$get_height, function (value) {
+            Laya.superSet(Box, this, 'height', value);
+            this._setScrollChanged();
+        });
+
+        /**
+         *垂直方向滚动条皮肤。
+         */
+        __getset(0, __proto, 'vScrollBarSkin', function () {
+            return this._vScrollBar ? this._vScrollBar.skin : null;
+        }, function (value) {
+            if (this._vScrollBar == null) {
+                laya.display.Node.prototype.addChild.call(this, this._vScrollBar = new VScrollBar());
+                this._vScrollBar.on("change", this, this.onScrollBarChange, [this._vScrollBar]);
+                this._vScrollBar.target = this._content;
+                this._setScrollChanged();
+            }
+            this._vScrollBar.skin = value;
+        });
+
+        /**
+         *垂直方向滚动条对象。
+         */
+        __getset(0, __proto, 'vScrollBar', function () {
+            return this._vScrollBar;
+        });
+
+        /**@inheritDoc */
+        __getset(0, __proto, 'cacheAs', _super.prototype._$get_cacheAs, function (value) {
+            Laya.superSet(Box, this, 'cacheAs', value);
+            this._$P.cacheAs = null;
+            if (value !== "none") {
+                this._hScrollBar && this._hScrollBar.on("start", this, this.onScrollStart);
+                this._vScrollBar && this._vScrollBar.on("start", this, this.onScrollStart);
+            } else {
+                this._hScrollBar && this._hScrollBar.off("start", this, this.onScrollStart);
+                this._vScrollBar && this._vScrollBar.off("start", this, this.onScrollStart);
+            }
+        });
+
+        return Panel;
+    })(Box)
+
+
+    /**
+     *<code>Group</code> 是一个可以自动布局的项集合控件。
+     *<p> <code>Group</code> 的默认项对象为 <code>Button</code> 类实例。
+     *<code>Group</code> 是 <code>Tab</code> 和 <code>RadioGroup</code> 的基类。</p>
+     */
+//class laya.ui.UIGroup extends laya.ui.Box
+    var UIGroup = (function (_super) {
+        function UIGroup(labels, skin) {
+            /**
+             *改变 <code>Group</code> 的选择项时执行的处理器，(默认返回参数： 项索引（index:int）)。
+             */
+            this.selectHandler = null;
+            /**@private */
+            this._items = null;
+            /**@private */
+            this._selectedIndex = -1;
+            /**@private */
+            this._skin = null;
+            /**@private */
+            this._direction = "horizontal";
+            /**@private */
+            this._space = 0;
+            /**@private */
+            this._labels = null;
+            /**@private */
+            this._labelColors = null;
+            /**@private */
+            this._labelFont = null;
+            /**@private */
+            this._labelStrokeColor = null;
+            /**@private */
+            this._strokeColors = null;
+            /**@private */
+            this._labelStroke = NaN;
+            /**@private */
+            this._labelSize = 0;
+            /**@private */
+            this._labelBold = false;
+            /**@private */
+            this._labelPadding = null;
+            /**@private */
+            this._labelAlign = null;
+            /**@private */
+            this._stateNum = 0;
+            /**@private */
+            this._labelChanged = false;
+            UIGroup.__super.call(this);
+            this.skin = skin;
+            this.labels = labels;
+        }
+
+        __class(UIGroup, 'laya.ui.UIGroup', _super);
+        var __proto = UIGroup.prototype;
+        Laya.imps(__proto, {"laya.ui.IItem": true})
+        /**@inheritDoc */
+        __proto.preinitialize = function () {
+            this.mouseEnabled = true;
+        }
+
+        /**@inheritDoc */
+        __proto.destroy = function (destroyChild) {
+            (destroyChild === void 0) && (destroyChild = true);
+            laya.ui.Component.prototype.destroy.call(this, destroyChild);
+            this._items && (this._items.length = 0);
+            this._items = null;
+            this.selectHandler = null;
+        }
+
+        /**
+         *添加一个项对象，返回此项对象的索引id。
+         *
+         *@param item 需要添加的项对象。
+         *@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
+         *@return
+         */
+        __proto.addItem = function (item, autoLayOut) {
+            (autoLayOut === void 0) && (autoLayOut = true);
+            var display = item;
+            var index = this._items.length;
+            display.name = "item" + index;
+            this.addChild(display);
+            this.initItems();
+            if (autoLayOut && index > 0) {
+                var preItem = this._items [index - 1];
+                if (this._direction == "horizontal") {
+                    display.x = preItem.x + preItem.width + this._space;
+                } else {
+                    display.y = preItem.y + preItem.height + this._space;
+                }
+            } else {
+                if (autoLayOut) {
+                    display.x = 0;
+                    display.y = 0;
+                }
+            }
+            return index;
+        }
+
+        /**
+         *删除一个项对象。
+         *@param item 需要删除的项对象。
+         *@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
+         */
+        __proto.delItem = function (item, autoLayOut) {
+            (autoLayOut === void 0) && (autoLayOut = true);
+            var index = this._items.indexOf(item);
+            if (index != -1) {
+                var display = item;
+                this.removeChild(display);
+                for (var i = index + 1, n = this._items.length; i < n; i++) {
+                    var child = this._items [i];
+                    child.name = "item" + (i - 1);
+                    if (autoLayOut) {
+                        if (this._direction == "horizontal") {
+                            child.x -= display.width + this._space;
+                        } else {
+                            child.y -= display.height + this._space;
+                        }
+                    }
+                }
+                this.initItems();
+                if (this._selectedIndex > -1) {
+                    var newIndex = 0;
+                    newIndex = this._selectedIndex < this._items.length ? this._selectedIndex : (this._selectedIndex - 1);
+                    this._selectedIndex = -1;
+                    this.selectedIndex = newIndex;
+                }
+            }
+        }
+
+        /**
+         *初始化项对象们。
+         */
+        __proto.initItems = function () {
+            this._items || (this._items = []);
+            this._items.length = 0;
+            for (var i = 0; i < 10000; i++) {
+                var item = this.getChildByName("item" + i);
+                if (item == null) break;
+                this._items.push(item);
+                item.selected = (i === this._selectedIndex);
+                item.clickHandler = Handler.create(this, this.itemClick, [i], false);
+            }
+        }
+
+        /**
+         *@private
+         *项对象的点击事件侦听处理函数。
+         *@param index 项索引。
+         */
+        __proto.itemClick = function (index) {
+            this.selectedIndex = index;
+        }
+
+        /**
+         *@private
+         *通过对象的索引设置项对象的 <code>selected</code> 属性值。
+         *@param index 需要设置的项对象的索引。
+         *@param selected 表示项对象的选中状态。
+         */
+        __proto.setSelect = function (index, selected) {
+            if (this._items && index > -1 && index < this._items.length) this._items[index].selected = selected;
+        }
+
+        /**
+         *@private
+         *创建一个项显示对象。
+         *@param skin 项对象的皮肤。
+         *@param label 项对象标签。
+         */
+        __proto.createItem = function (skin, label) {
+            return null;
+        }
+
+        /**
+         *@private
+         *更改项对象的属性值。
+         */
+        __proto.changeLabels = function () {
+            this._labelChanged = false;
+            if (this._items) {
+                var left = 0
+                for (var i = 0, n = this._items.length; i < n; i++) {
+                    var btn = this._items [i];
+                    this._skin && (btn.skin = this._skin);
+                    this._labelColors && (btn.labelColors = this._labelColors);
+                    this._labelSize && (btn.labelSize = this._labelSize);
+                    this._labelStroke && (btn.labelStroke = this._labelStroke);
+                    this._labelStrokeColor && (btn.labelStrokeColor = this._labelStrokeColor);
+                    this._strokeColors && (btn.strokeColors = this._strokeColors);
+                    this._labelBold && (btn.labelBold = this._labelBold);
+                    this._labelPadding && (btn.labelPadding = this._labelPadding);
+                    this._labelAlign && (btn.labelAlign = this._labelAlign);
+                    this._stateNum && (btn.stateNum = this._stateNum);
+                    this._labelFont && (btn.labelFont = this._labelFont);
+                    if (this._direction === "horizontal") {
+                        btn.y = 0;
+                        btn.x = left;
+                        left += btn.width + this._space;
+                    } else {
+                        btn.x = 0;
+                        btn.y = left;
+                        left += btn.height + this._space;
+                    }
+                }
+            }
+            this.changeSize();
+        }
+
+        /**@inheritDoc */
+        __proto.commitMeasure = function () {
+            this.runCallLater(this.changeLabels);
+        }
+
+        /**@private */
+        __proto._setLabelChanged = function () {
+            if (!this._labelChanged) {
+                this._labelChanged = true;
+                this.callLater(this.changeLabels);
+            }
+        }
+
+        /**
+         *<p>描边颜色，以字符串表示。</p>
+         *默认值为 "#000000"（黑色）;
+         *@see laya.display.Text.strokeColor()
+         */
+        __getset(0, __proto, 'labelStrokeColor', function () {
+            return this._labelStrokeColor;
+        }, function (value) {
+            if (this._labelStrokeColor != value) {
+                this._labelStrokeColor = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *@copy laya.ui.Image#skin
+         */
+        __getset(0, __proto, 'skin', function () {
+            return this._skin;
+        }, function (value) {
+            if (this._skin != value) {
+                this._skin = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *表示当前选择的项索引。默认值为-1。
+         */
+        __getset(0, __proto, 'selectedIndex', function () {
+            return this._selectedIndex;
+        }, function (value) {
+            if (this._selectedIndex != value) {
+                this.setSelect(this._selectedIndex, false);
+                this._selectedIndex = value;
+                this.setSelect(value, true);
+                this.event("change");
+                this.selectHandler && this.selectHandler.runWith(this._selectedIndex);
+            }
+        });
+
+        /**
+         *标签集合字符串。以逗号做分割，如"item0,item1,item2,item3,item4,item5"。
+         */
+        __getset(0, __proto, 'labels', function () {
+            return this._labels;
+        }, function (value) {
+            if (this._labels != value) {
+                this._labels = value;
+                this.removeChildren();
+                this._setLabelChanged();
+                if (this._labels) {
+                    var a = this._labels.split(",");
+                    for (var i = 0, n = a.length; i < n; i++) {
+                        var item = this.createItem(this._skin, a[i]);
+                        item.name = "item" + i;
+                        this.addChild(item);
+                    }
+                }
+                this.initItems();
+            }
+        });
+
+        /**
+         *<p>表示各个状态下的描边颜色。</p>
+         *@see laya.display.Text.strokeColor()
+         */
+        __getset(0, __proto, 'strokeColors', function () {
+            return this._strokeColors;
+        }, function (value) {
+            if (this._strokeColors != value) {
+                this._strokeColors = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *@copy laya.ui.Button#labelColors()
+         */
+        __getset(0, __proto, 'labelColors', function () {
+            return this._labelColors;
+        }, function (value) {
+            if (this._labelColors != value) {
+                this._labelColors = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *<p>描边宽度（以像素为单位）。</p>
+         *默认值0，表示不描边。
+         *@see laya.display.Text.stroke()
+         */
+        __getset(0, __proto, 'labelStroke', function () {
+            return this._labelStroke;
+        }, function (value) {
+            if (this._labelStroke != value) {
+                this._labelStroke = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *表示按钮文本标签的字体大小。
+         */
+        __getset(0, __proto, 'labelSize', function () {
+            return this._labelSize;
+        }, function (value) {
+            if (this._labelSize != value) {
+                this._labelSize = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *表示按钮的状态值，以数字表示，默认为3态。
+         *@see laya.ui.Button#stateNum
+         */
+        __getset(0, __proto, 'stateNum', function () {
+            return this._stateNum;
+        }, function (value) {
+            if (this._stateNum != value) {
+                this._stateNum = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *表示按钮文本标签是否为粗体字。
+         */
+        __getset(0, __proto, 'labelBold', function () {
+            return this._labelBold;
+        }, function (value) {
+            if (this._labelBold != value) {
+                this._labelBold = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *表示按钮文本标签的字体名称，以字符串形式表示。
+         *@see laya.display.Text.font()
+         */
+        __getset(0, __proto, 'labelFont', function () {
+            return this._labelFont;
+        }, function (value) {
+            if (this._labelFont != value) {
+                this._labelFont = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *表示按钮文本标签的边距。
+         *<p><b>格式：</b>"上边距,右边距,下边距,左边距"。</p>
+         */
+        __getset(0, __proto, 'labelPadding', function () {
+            return this._labelPadding;
+        }, function (value) {
+            if (this._labelPadding != value) {
+                this._labelPadding = value;
+                this._setLabelChanged();
+            }
+        });
+
+        /**
+         *布局方向。
+         *<p>默认值为"horizontal"。</p>
+         *<p><b>取值：</b>
+         *<li>"horizontal"：表示水平布局。</li>
+         *<li>"vertical"：表示垂直布局。</li>
+         *</p>
+         */
+        __getset(0, __proto, 'direction', function () {
+            return this._direction;
+        }, function (value) {
+            this._direction = value;
+            this._setLabelChanged();
+        });
+
+        /**
+         *项对象们之间的间隔（以像素为单位）。
+         */
+        __getset(0, __proto, 'space', function () {
+            return this._space;
+        }, function (value) {
+            this._space = value;
+            this._setLabelChanged();
+        });
+
+        /**
+         *项对象们的存放数组。
+         */
+        __getset(0, __proto, 'items', function () {
+            return this._items;
+        });
+
+        /**
+         *获取或设置当前选择的项对象。
+         */
+        __getset(0, __proto, 'selection', function () {
+            return this._selectedIndex > -1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] : null;
+        }, function (value) {
+            this.selectedIndex = this._items.indexOf(value);
+        });
+
+        /**@inheritDoc */
+        __getset(0, __proto, 'dataSource', _super.prototype._$get_dataSource, function (value) {
+            this._dataSource = value;
+            if (((typeof value == 'number') && Math.floor(value) == value) || (typeof value == 'string')) this.selectedIndex = parseInt(value);
+            else if ((value instanceof Array)) this.labels = (value).join(",");
+            else Laya.superSet(Box, this, 'dataSource', value);
+        });
+
+        return UIGroup;
+    })(Box)
+
+
+    /**
+     *<code>ViewStack</code> 类用于视图堆栈类，用于视图的显示等设置处理。
+     */
+//class laya.ui.ViewStack extends laya.ui.Box
+    var ViewStack = (function (_super) {
+        function ViewStack() {
+            /**@private */
+            this._items = null;
+            /**@private */
+            this._selectedIndex = 0;
+            ViewStack.__super.call(this);
+            this._setIndexHandler = Handler.create(this, this.setIndex, null, false);
+        }
+
+        __class(ViewStack, 'laya.ui.ViewStack', _super);
+        var __proto = ViewStack.prototype;
+        Laya.imps(__proto, {"laya.ui.IItem": true})
+        /**
+         *批量设置视图对象。
+         *@param views 视图对象数组。
+         */
+        __proto.setItems = function (views) {
+            this.removeChildren();
+            var index = 0;
+            for (var i = 0, n = views.length; i < n; i++) {
+                var item = views[i];
+                if (item) {
+                    item.name = "item" + index;
+                    this.addChild(item);
+                    index++;
+                }
+            }
+            this.initItems();
+        }
+
+        /**
+         *添加视图。
+         *@internal 添加视图对象，并设置此视图对象的<code>name</code> 属性。
+         *@param view 需要添加的视图对象。
+         */
+        __proto.addItem = function (view) {
+            view.name = "item" + this._items.length;
+            this.addChild(view);
+            this.initItems();
+        }
+
+        /**
+         *初始化视图对象集合。
+         */
+        __proto.initItems = function () {
+            this._items = [];
+            for (var i = 0; i < 10000; i++) {
+                var item = this.getChildByName("item" + i);
+                if (item == null) {
+                    break;
+                }
+                this._items.push(item);
+                item.visible = (i == this._selectedIndex);
+            }
+        }
+
+        /**
+         *@private
+         *通过对象的索引设置项对象的 <code>selected</code> 属性值。
+         *@param index 需要设置的对象的索引。
+         *@param selected 表示对象的选中状态。
+         */
+        __proto.setSelect = function (index, selected) {
+            if (this._items && index > -1 && index < this._items.length) {
+                this._items[index].visible = selected;
+            }
+        }
+
+        /**
+         *@private
+         *设置属性<code>selectedIndex</code>的值。
+         *@param index 选中项索引值。
+         */
+        __proto.setIndex = function (index) {
+            this.selectedIndex = index;
+        }
+
+        /**@inheritDoc */
+        __getset(0, __proto, 'dataSource', _super.prototype._$get_dataSource, function (value) {
+            this._dataSource = value;
+            if (((typeof value == 'number') && Math.floor(value) == value) || (typeof value == 'string')) {
+                this.selectedIndex = parseInt(value);
+            } else {
+                for (var prop in this._dataSource) {
+                    if (this.hasOwnProperty(prop)) {
+                        this[prop] = this._dataSource[prop];
+                    }
+                }
+            }
+        });
+
+        /**
+         *表示当前视图索引。
+         */
+        __getset(0, __proto, 'selectedIndex', function () {
+            return this._selectedIndex;
+        }, function (value) {
+            if (this._selectedIndex != value) {
+                this.setSelect(this._selectedIndex, false);
+                this._selectedIndex = value;
+                this.setSelect(this._selectedIndex, true);
+            }
+        });
+
+        /**
+         *获取或设置当前选择的项对象。
+         */
+        __getset(0, __proto, 'selection', function () {
+            return this._selectedIndex > -1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] : null;
+        }, function (value) {
+            this.selectedIndex = this._items.indexOf(value);
+        });
+
+        /**
+         *视图集合数组。
+         */
+        __getset(0, __proto, 'items', function () {
+            return this._items;
+        });
+
+        /**
+         *索引设置处理器。
+         *<p>默认回调参数：index:int</p>
+         */
+        __getset(0, __proto, 'setIndexHandler', function () {
+            return this._setIndexHandler;
+        }, function (value) {
+            this._setIndexHandler = value;
+        });
+
+        return ViewStack;
+    })(Box)
+
+
 /**
 *...
 *@author ww
@@ -34340,422 +35350,6 @@ var DInput=(function(_super){
 
 
 /**
-*<code>LayoutBox</code> 是一个布局容器类。
-*/
-//class laya.ui.LayoutBox extends laya.ui.Box
-var LayoutBox=(function(_super){
-	function LayoutBox(){
-		/**@private */
-		this._space=0;
-		/**@private */
-		this._align="none";
-		/**@private */
-		this._itemChanged=false;
-		LayoutBox.__super.call(this);
-	}
-
-	__class(LayoutBox,'laya.ui.LayoutBox',_super);
-	var __proto=LayoutBox.prototype;
-	/**@inheritDoc */
-	__proto.addChild=function(child){
-		child.on("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.addChild.call(this,child);
-	}
-
-	__proto.onResize=function(e){
-		this._setItemChanged();
-	}
-
-	/**@inheritDoc */
-	__proto.addChildAt=function(child,index){
-		child.on("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.addChildAt.call(this,child,index);
-	}
-
-	/**@inheritDoc */
-	__proto.removeChild=function(child){
-		child.off("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.removeChild.call(this,child);
-	}
-
-	/**@inheritDoc */
-	__proto.removeChildAt=function(index){
-		this.getChildAt(index).off("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.removeChildAt.call(this,index);
-	}
-
-	/**刷新。*/
-	__proto.refresh=function(){
-		this._setItemChanged();
-	}
-
-	/**
-	*改变子对象的布局。
-	*/
-	__proto.changeItems=function(){
-		this._itemChanged=false;
-	}
-
-	/**
-	*排序项目列表。可通过重写改变默认排序规则。
-	*@param items 项目列表。
-	*/
-	__proto.sortItem=function(items){
-		if (items)items.sort(function(a,b){return a.y-b.y;});
-	}
-
-	__proto._setItemChanged=function(){
-		if (!this._itemChanged){
-			this._itemChanged=true;
-			this.callLater(this.changeItems);
-		}
-	}
-
-	/**子对象的间隔。*/
-	__getset(0,__proto,'space',function(){
-		return this._space;
-		},function(value){
-		this._space=value;
-		this._setItemChanged();
-	});
-
-	/**子对象对齐方式。*/
-	__getset(0,__proto,'align',function(){
-		return this._align;
-		},function(value){
-		this._align=value;
-		this._setItemChanged();
-	});
-
-	return LayoutBox;
-})(Box)
-
-
-/**
-*<code>Panel</code> 是一个面板容器类。
-*/
-//class laya.ui.Panel extends laya.ui.Box
-var Panel=(function(_super){
-	function Panel(){
-		/**@private */
-		this._content=null;
-		/**@private */
-		this._vScrollBar=null;
-		/**@private */
-		this._hScrollBar=null;
-		/**@private */
-		this._scrollChanged=false;
-		Panel.__super.call(this);
-		this.width=this.height=100;
-	}
-
-	__class(Panel,'laya.ui.Panel',_super);
-	var __proto=Panel.prototype;
-	/**@inheritDoc */
-	__proto.destroy=function(destroyChild){
-		(destroyChild===void 0)&& (destroyChild=true);
-		laya.ui.Component.prototype.destroy.call(this,destroyChild);
-		this._content && this._content.destroy(destroyChild);
-		this._vScrollBar && this._vScrollBar.destroy(destroyChild);
-		this._hScrollBar && this._hScrollBar.destroy(destroyChild);
-		this._vScrollBar=null;
-		this._hScrollBar=null;
-		this._content=null;
-	}
-
-	/**@inheritDoc */
-	__proto.destroyChildren=function(){
-		this._content.destroyChildren();
-	}
-
-	/**@inheritDoc */
-	__proto.createChildren=function(){
-		laya.display.Node.prototype.addChild.call(this,this._content=new Box());
-	}
-
-	/**@inheritDoc */
-	__proto.addChild=function(child){
-		child.on("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.addChild(child);
-	}
-
-	/**
-	*@private
-	*子对象的 <code>Event.RESIZE</code> 事件侦听处理函数。
-	*/
-	__proto.onResize=function(){
-		this._setScrollChanged();
-	}
-
-	/**@inheritDoc */
-	__proto.addChildAt=function(child,index){
-		child.on("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.addChildAt(child,index);
-	}
-
-	/**@inheritDoc */
-	__proto.removeChild=function(child){
-		child.off("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.removeChild(child);
-	}
-
-	/**@inheritDoc */
-	__proto.removeChildAt=function(index){
-		this.getChildAt(index).off("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.removeChildAt(index);
-	}
-
-	/**@inheritDoc */
-	__proto.removeChildren=function(beginIndex,endIndex){
-		(beginIndex===void 0)&& (beginIndex=0);
-		(endIndex===void 0)&& (endIndex=0x7fffffff);
-		for (var i=this._content.numChildren-1;i >-1;i--){
-			this._content.removeChildAt(i);
-		}
-		this._setScrollChanged();
-		return this;
-	}
-
-	/**@inheritDoc */
-	__proto.getChildAt=function(index){
-		return this._content.getChildAt(index);
-	}
-
-	/**@inheritDoc */
-	__proto.getChildByName=function(name){
-		return this._content.getChildByName(name);
-	}
-
-	/**@inheritDoc */
-	__proto.getChildIndex=function(child){
-		return this._content.getChildIndex(child);
-	}
-
-	/**@private */
-	__proto.changeScroll=function(){
-		this._scrollChanged=false;
-		var contentW=this.contentWidth || 1;
-		var contentH=this.contentHeight || 1;
-		var vscroll=this._vScrollBar;
-		var hscroll=this._hScrollBar;
-		var vShow=vscroll && contentH > this._height;
-		var hShow=hscroll && contentW > this._width;
-		var showWidth=vShow ? this._width-vscroll.width :this._width;
-		var showHeight=hShow ? this._height-hscroll.height :this._height;
-		if (vscroll){
-			vscroll.x=this._width-vscroll.width;
-			vscroll.y=0;
-			vscroll.height=this._height-(hShow ? hscroll.height :0);
-			vscroll.scrollSize=Math.max(this._height *0.033,1);
-			vscroll.thumbPercent=showHeight / contentH;
-			vscroll.setScroll(0,contentH-showHeight,vscroll.value);
-		}
-		if (hscroll){
-			hscroll.x=0;
-			hscroll.y=this._height-hscroll.height;
-			hscroll.width=this._width-(vShow ? vscroll.width :0);
-			hscroll.scrollSize=Math.max(this._width *0.033,1);
-			hscroll.thumbPercent=showWidth / contentW;
-			hscroll.setScroll(0,contentW-showWidth,hscroll.value);
-		}
-	}
-
-	/**@inheritDoc */
-	__proto.changeSize=function(){
-		laya.ui.Component.prototype.changeSize.call(this);
-		this.setContentSize(this._width,this._height);
-	}
-
-	/**
-	*@private
-	*设置内容的宽度、高度（以像素为单位）。
-	*@param width 宽度。
-	*@param height 高度。
-	*/
-	__proto.setContentSize=function(width,height){
-		var content=this._content;
-		content.width=width;
-		content.height=height;
-		content.scrollRect || (content.scrollRect=new Rectangle());
-		content.scrollRect.setTo(0,0,width,height);
-		content.scrollRect=content.scrollRect;
-	}
-
-	/**
-	*@private
-	*滚动条的<code><code>Event.MOUSE_DOWN</code>事件侦听处理函数。</code>事件侦听处理函数。
-	*@param scrollBar 滚动条对象。
-	*@param e Event 对象。
-	*/
-	__proto.onScrollBarChange=function(scrollBar){
-		var rect=this._content.scrollRect;
-		if (rect){
-			var start=Math.round(scrollBar.value);
-			scrollBar.isVertical ? rect.y=start :rect.x=start;
-			this._content.scrollRect=rect;
-		}
-	}
-
-	/**
-	*<p>滚动内容容器至设定的垂直、水平方向滚动条位置。</p>
-	*@param x 水平方向滚动条属性value值。滚动条位置数字。
-	*@param y 垂直方向滚动条属性value值。滚动条位置数字。
-	*/
-	__proto.scrollTo=function(x,y){
-		(x===void 0)&& (x=0);
-		(y===void 0)&& (y=0);
-		if (this.vScrollBar)this.vScrollBar.value=y;
-		if (this.hScrollBar)this.hScrollBar.value=x;
-	}
-
-	/**
-	*刷新滚动内容。
-	*/
-	__proto.refresh=function(){
-		this.changeScroll();
-	}
-
-	__proto.onScrollStart=function(){
-		this._$P.cacheAs || (this._$P.cacheAs=Laya.superGet(Box,this,'cacheAs'));
-		Laya.superSet(Box,this,'cacheAs',"none");
-		this._hScrollBar && this._hScrollBar.once("end",this,this.onScrollEnd);
-		this._vScrollBar && this._vScrollBar.once("end",this,this.onScrollEnd);
-	}
-
-	__proto.onScrollEnd=function(){
-		Laya.superSet(Box,this,'cacheAs',this._$P.cacheAs);
-	}
-
-	/**@private */
-	__proto._setScrollChanged=function(){
-		if (!this._scrollChanged){
-			this._scrollChanged=true;
-			this.callLater(this.changeScroll);
-		}
-	}
-
-	/**@inheritDoc */
-	__getset(0,__proto,'numChildren',function(){
-		return this._content.numChildren;
-	});
-
-	/**
-	*水平方向滚动条皮肤。
-	*/
-	__getset(0,__proto,'hScrollBarSkin',function(){
-		return this._hScrollBar ? this._hScrollBar.skin :null;
-		},function(value){
-		if (this._hScrollBar==null){
-			laya.display.Node.prototype.addChild.call(this,this._hScrollBar=new HScrollBar());
-			this._hScrollBar.on("change",this,this.onScrollBarChange,[this._hScrollBar]);
-			this._hScrollBar.target=this._content;
-			this._setScrollChanged();
-		}
-		this._hScrollBar.skin=value;
-	});
-
-	/**
-	*@private
-	*获取内容宽度（以像素为单位）。
-	*/
-	__getset(0,__proto,'contentWidth',function(){
-		var max=0;
-		for (var i=this._content.numChildren-1;i >-1;i--){
-			var comp=this._content.getChildAt(i);
-			max=Math.max(comp.x+comp.width *comp.scaleX,max);
-		}
-		return max;
-	});
-
-	/**
-	*@private
-	*获取内容高度（以像素为单位）。
-	*/
-	__getset(0,__proto,'contentHeight',function(){
-		var max=0;
-		for (var i=this._content.numChildren-1;i >-1;i--){
-			var comp=this._content.getChildAt(i);
-			max=Math.max(comp.y+comp.height *comp.scaleY,max);
-		}
-		return max;
-	});
-
-	/**
-	*@inheritDoc
-	*/
-	__getset(0,__proto,'width',_super.prototype._$get_width,function(value){
-		Laya.superSet(Box,this,'width',value);
-		this._setScrollChanged();
-	});
-
-	/**
-	*水平方向滚动条对象。
-	*/
-	__getset(0,__proto,'hScrollBar',function(){
-		return this._hScrollBar;
-	});
-
-	/**
-	*获取内容容器对象。
-	*/
-	__getset(0,__proto,'content',function(){
-		return this._content;
-	});
-
-	/**@inheritDoc */
-	__getset(0,__proto,'height',_super.prototype._$get_height,function(value){
-		Laya.superSet(Box,this,'height',value);
-		this._setScrollChanged();
-	});
-
-	/**
-	*垂直方向滚动条皮肤。
-	*/
-	__getset(0,__proto,'vScrollBarSkin',function(){
-		return this._vScrollBar ? this._vScrollBar.skin :null;
-		},function(value){
-		if (this._vScrollBar==null){
-			laya.display.Node.prototype.addChild.call(this,this._vScrollBar=new VScrollBar());
-			this._vScrollBar.on("change",this,this.onScrollBarChange,[this._vScrollBar]);
-			this._vScrollBar.target=this._content;
-			this._setScrollChanged();
-		}
-		this._vScrollBar.skin=value;
-	});
-
-	/**
-	*垂直方向滚动条对象。
-	*/
-	__getset(0,__proto,'vScrollBar',function(){
-		return this._vScrollBar;
-	});
-
-	/**@inheritDoc */
-	__getset(0,__proto,'cacheAs',_super.prototype._$get_cacheAs,function(value){
-		Laya.superSet(Box,this,'cacheAs',value);
-		this._$P.cacheAs=null;
-		if (value!=="none"){
-			this._hScrollBar && this._hScrollBar.on("start",this,this.onScrollStart);
-			this._vScrollBar && this._vScrollBar.on("start",this,this.onScrollStart);
-			}else {
-			this._hScrollBar && this._hScrollBar.off("start",this,this.onScrollStart);
-			this._vScrollBar && this._vScrollBar.off("start",this,this.onScrollStart);
-		}
-	});
-
-	return Panel;
-})(Box)
-
-
-/**
 *<code>CheckBox</code> 组件显示一个小方框，该方框内可以有选中标记。
 *<code>CheckBox</code> 组件还可以显示可选的文本标签，默认该标签位于 CheckBox 右侧。
 *<p><code>CheckBox</code> 使用 <code>dataSource</code>赋值时的的默认属性是：<code>selected</code>。</p>
@@ -34869,585 +35463,6 @@ var CheckBox=(function(_super){
 
 	return CheckBox;
 })(Button)
-
-
-/**
-*<code>Group</code> 是一个可以自动布局的项集合控件。
-*<p> <code>Group</code> 的默认项对象为 <code>Button</code> 类实例。
-*<code>Group</code> 是 <code>Tab</code> 和 <code>RadioGroup</code> 的基类。</p>
-*/
-//class laya.ui.UIGroup extends laya.ui.Box
-var UIGroup=(function(_super){
-	function UIGroup(labels,skin){
-		/**
-		*改变 <code>Group</code> 的选择项时执行的处理器，(默认返回参数： 项索引（index:int）)。
-		*/
-		this.selectHandler=null;
-		/**@private */
-		this._items=null;
-		/**@private */
-		this._selectedIndex=-1;
-		/**@private */
-		this._skin=null;
-		/**@private */
-		this._direction="horizontal";
-		/**@private */
-		this._space=0;
-		/**@private */
-		this._labels=null;
-		/**@private */
-		this._labelColors=null;
-		/**@private */
-		this._labelFont=null;
-		/**@private */
-		this._labelStrokeColor=null;
-		/**@private */
-		this._strokeColors=null;
-		/**@private */
-		this._labelStroke=NaN;
-		/**@private */
-		this._labelSize=0;
-		/**@private */
-		this._labelBold=false;
-		/**@private */
-		this._labelPadding=null;
-		/**@private */
-		this._labelAlign=null;
-		/**@private */
-		this._stateNum=0;
-		/**@private */
-		this._labelChanged=false;
-		UIGroup.__super.call(this);
-		this.skin=skin;
-		this.labels=labels;
-	}
-
-	__class(UIGroup,'laya.ui.UIGroup',_super);
-	var __proto=UIGroup.prototype;
-	Laya.imps(__proto,{"laya.ui.IItem":true})
-	/**@inheritDoc */
-	__proto.preinitialize=function(){
-		this.mouseEnabled=true;
-	}
-
-	/**@inheritDoc */
-	__proto.destroy=function(destroyChild){
-		(destroyChild===void 0)&& (destroyChild=true);
-		laya.ui.Component.prototype.destroy.call(this,destroyChild);
-		this._items && (this._items.length=0);
-		this._items=null;
-		this.selectHandler=null;
-	}
-
-	/**
-	*添加一个项对象，返回此项对象的索引id。
-	*
-	*@param item 需要添加的项对象。
-	*@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
-	*@return
-	*/
-	__proto.addItem=function(item,autoLayOut){
-		(autoLayOut===void 0)&& (autoLayOut=true);
-		var display=item;
-		var index=this._items.length;
-		display.name="item"+index;
-		this.addChild(display);
-		this.initItems();
-		if (autoLayOut && index > 0){
-			var preItem=this._items [index-1];
-			if (this._direction=="horizontal"){
-				display.x=preItem.x+preItem.width+this._space;
-				}else {
-				display.y=preItem.y+preItem.height+this._space;
-			}
-			}else {
-			if (autoLayOut){
-				display.x=0;
-				display.y=0;
-			}
-		}
-		return index;
-	}
-
-	/**
-	*删除一个项对象。
-	*@param item 需要删除的项对象。
-	*@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
-	*/
-	__proto.delItem=function(item,autoLayOut){
-		(autoLayOut===void 0)&& (autoLayOut=true);
-		var index=this._items.indexOf(item);
-		if (index !=-1){
-			var display=item;
-			this.removeChild(display);
-			for (var i=index+1,n=this._items.length;i < n;i++){
-				var child=this._items [i];
-				child.name="item"+(i-1);
-				if (autoLayOut){
-					if (this._direction=="horizontal"){
-						child.x-=display.width+this._space;
-						}else {
-						child.y-=display.height+this._space;
-					}
-				}
-			}
-			this.initItems();
-			if (this._selectedIndex >-1){
-				var newIndex=0;
-				newIndex=this._selectedIndex < this._items.length ? this._selectedIndex :(this._selectedIndex-1);
-				this._selectedIndex=-1;
-				this.selectedIndex=newIndex;
-			}
-		}
-	}
-
-	/**
-	*初始化项对象们。
-	*/
-	__proto.initItems=function(){
-		this._items || (this._items=[]);
-		this._items.length=0;
-		for (var i=0;i < 10000;i++){
-			var item=this.getChildByName("item"+i);
-			if (item==null)break ;
-			this._items.push(item);
-			item.selected=(i===this._selectedIndex);
-			item.clickHandler=Handler.create(this,this.itemClick,[i],false);
-		}
-	}
-
-	/**
-	*@private
-	*项对象的点击事件侦听处理函数。
-	*@param index 项索引。
-	*/
-	__proto.itemClick=function(index){
-		this.selectedIndex=index;
-	}
-
-	/**
-	*@private
-	*通过对象的索引设置项对象的 <code>selected</code> 属性值。
-	*@param index 需要设置的项对象的索引。
-	*@param selected 表示项对象的选中状态。
-	*/
-	__proto.setSelect=function(index,selected){
-		if (this._items && index >-1 && index < this._items.length)this._items[index].selected=selected;
-	}
-
-	/**
-	*@private
-	*创建一个项显示对象。
-	*@param skin 项对象的皮肤。
-	*@param label 项对象标签。
-	*/
-	__proto.createItem=function(skin,label){
-		return null;
-	}
-
-	/**
-	*@private
-	*更改项对象的属性值。
-	*/
-	__proto.changeLabels=function(){
-		this._labelChanged=false;
-		if (this._items){
-			var left=0
-			for (var i=0,n=this._items.length;i < n;i++){
-				var btn=this._items [i];
-				this._skin && (btn.skin=this._skin);
-				this._labelColors && (btn.labelColors=this._labelColors);
-				this._labelSize && (btn.labelSize=this._labelSize);
-				this._labelStroke && (btn.labelStroke=this._labelStroke);
-				this._labelStrokeColor && (btn.labelStrokeColor=this._labelStrokeColor);
-				this._strokeColors && (btn.strokeColors=this._strokeColors);
-				this._labelBold && (btn.labelBold=this._labelBold);
-				this._labelPadding && (btn.labelPadding=this._labelPadding);
-				this._labelAlign && (btn.labelAlign=this._labelAlign);
-				this._stateNum && (btn.stateNum=this._stateNum);
-				this._labelFont && (btn.labelFont=this._labelFont);
-				if (this._direction==="horizontal"){
-					btn.y=0;
-					btn.x=left;
-					left+=btn.width+this._space;
-					}else {
-					btn.x=0;
-					btn.y=left;
-					left+=btn.height+this._space;
-				}
-			}
-		}
-		this.changeSize();
-	}
-
-	/**@inheritDoc */
-	__proto.commitMeasure=function(){
-		this.runCallLater(this.changeLabels);
-	}
-
-	/**@private */
-	__proto._setLabelChanged=function(){
-		if (!this._labelChanged){
-			this._labelChanged=true;
-			this.callLater(this.changeLabels);
-		}
-	}
-
-	/**
-	*<p>描边颜色，以字符串表示。</p>
-	*默认值为 "#000000"（黑色）;
-	*@see laya.display.Text.strokeColor()
-	*/
-	__getset(0,__proto,'labelStrokeColor',function(){
-		return this._labelStrokeColor;
-		},function(value){
-		if (this._labelStrokeColor !=value){
-			this._labelStrokeColor=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*@copy laya.ui.Image#skin
-	*/
-	__getset(0,__proto,'skin',function(){
-		return this._skin;
-		},function(value){
-		if (this._skin !=value){
-			this._skin=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*表示当前选择的项索引。默认值为-1。
-	*/
-	__getset(0,__proto,'selectedIndex',function(){
-		return this._selectedIndex;
-		},function(value){
-		if (this._selectedIndex !=value){
-			this.setSelect(this._selectedIndex,false);
-			this._selectedIndex=value;
-			this.setSelect(value,true);
-			this.event("change");
-			this.selectHandler && this.selectHandler.runWith(this._selectedIndex);
-		}
-	});
-
-	/**
-	*标签集合字符串。以逗号做分割，如"item0,item1,item2,item3,item4,item5"。
-	*/
-	__getset(0,__proto,'labels',function(){
-		return this._labels;
-		},function(value){
-		if (this._labels !=value){
-			this._labels=value;
-			this.removeChildren();
-			this._setLabelChanged();
-			if (this._labels){
-				var a=this._labels.split(",");
-				for (var i=0,n=a.length;i < n;i++){
-					var item=this.createItem(this._skin,a[i]);
-					item.name="item"+i;
-					this.addChild(item);
-				}
-			}
-			this.initItems();
-		}
-	});
-
-	/**
-	*<p>表示各个状态下的描边颜色。</p>
-	*@see laya.display.Text.strokeColor()
-	*/
-	__getset(0,__proto,'strokeColors',function(){
-		return this._strokeColors;
-		},function(value){
-		if (this._strokeColors !=value){
-			this._strokeColors=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*@copy laya.ui.Button#labelColors()
-	*/
-	__getset(0,__proto,'labelColors',function(){
-		return this._labelColors;
-		},function(value){
-		if (this._labelColors !=value){
-			this._labelColors=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*<p>描边宽度（以像素为单位）。</p>
-	*默认值0，表示不描边。
-	*@see laya.display.Text.stroke()
-	*/
-	__getset(0,__proto,'labelStroke',function(){
-		return this._labelStroke;
-		},function(value){
-		if (this._labelStroke !=value){
-			this._labelStroke=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*表示按钮文本标签的字体大小。
-	*/
-	__getset(0,__proto,'labelSize',function(){
-		return this._labelSize;
-		},function(value){
-		if (this._labelSize !=value){
-			this._labelSize=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*表示按钮的状态值，以数字表示，默认为3态。
-	*@see laya.ui.Button#stateNum
-	*/
-	__getset(0,__proto,'stateNum',function(){
-		return this._stateNum;
-		},function(value){
-		if (this._stateNum !=value){
-			this._stateNum=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*表示按钮文本标签是否为粗体字。
-	*/
-	__getset(0,__proto,'labelBold',function(){
-		return this._labelBold;
-		},function(value){
-		if (this._labelBold !=value){
-			this._labelBold=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*表示按钮文本标签的字体名称，以字符串形式表示。
-	*@see laya.display.Text.font()
-	*/
-	__getset(0,__proto,'labelFont',function(){
-		return this._labelFont;
-		},function(value){
-		if (this._labelFont !=value){
-			this._labelFont=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*表示按钮文本标签的边距。
-	*<p><b>格式：</b>"上边距,右边距,下边距,左边距"。</p>
-	*/
-	__getset(0,__proto,'labelPadding',function(){
-		return this._labelPadding;
-		},function(value){
-		if (this._labelPadding !=value){
-			this._labelPadding=value;
-			this._setLabelChanged();
-		}
-	});
-
-	/**
-	*布局方向。
-	*<p>默认值为"horizontal"。</p>
-	*<p><b>取值：</b>
-	*<li>"horizontal"：表示水平布局。</li>
-	*<li>"vertical"：表示垂直布局。</li>
-	*</p>
-	*/
-	__getset(0,__proto,'direction',function(){
-		return this._direction;
-		},function(value){
-		this._direction=value;
-		this._setLabelChanged();
-	});
-
-	/**
-	*项对象们之间的间隔（以像素为单位）。
-	*/
-	__getset(0,__proto,'space',function(){
-		return this._space;
-		},function(value){
-		this._space=value;
-		this._setLabelChanged();
-	});
-
-	/**
-	*项对象们的存放数组。
-	*/
-	__getset(0,__proto,'items',function(){
-		return this._items;
-	});
-
-	/**
-	*获取或设置当前选择的项对象。
-	*/
-	__getset(0,__proto,'selection',function(){
-		return this._selectedIndex >-1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] :null;
-		},function(value){
-		this.selectedIndex=this._items.indexOf(value);
-	});
-
-	/**@inheritDoc */
-	__getset(0,__proto,'dataSource',_super.prototype._$get_dataSource,function(value){
-		this._dataSource=value;
-		if (((typeof value=='number')&& Math.floor(value)==value)|| (typeof value=='string'))this.selectedIndex=parseInt(value);
-		else if ((value instanceof Array))this.labels=(value).join(",");
-		else Laya.superSet(Box,this,'dataSource',value);
-	});
-
-	return UIGroup;
-})(Box)
-
-
-/**
-*<code>ViewStack</code> 类用于视图堆栈类，用于视图的显示等设置处理。
-*/
-//class laya.ui.ViewStack extends laya.ui.Box
-var ViewStack=(function(_super){
-	function ViewStack(){
-		/**@private */
-		this._items=null;
-		/**@private */
-		this._selectedIndex=0;
-		ViewStack.__super.call(this);
-		this._setIndexHandler=Handler.create(this,this.setIndex,null,false);
-	}
-
-	__class(ViewStack,'laya.ui.ViewStack',_super);
-	var __proto=ViewStack.prototype;
-	Laya.imps(__proto,{"laya.ui.IItem":true})
-	/**
-	*批量设置视图对象。
-	*@param views 视图对象数组。
-	*/
-	__proto.setItems=function(views){
-		this.removeChildren();
-		var index=0;
-		for (var i=0,n=views.length;i < n;i++){
-			var item=views[i];
-			if (item){
-				item.name="item"+index;
-				this.addChild(item);
-				index++;
-			}
-		}
-		this.initItems();
-	}
-
-	/**
-	*添加视图。
-	*@internal 添加视图对象，并设置此视图对象的<code>name</code> 属性。
-	*@param view 需要添加的视图对象。
-	*/
-	__proto.addItem=function(view){
-		view.name="item"+this._items.length;
-		this.addChild(view);
-		this.initItems();
-	}
-
-	/**
-	*初始化视图对象集合。
-	*/
-	__proto.initItems=function(){
-		this._items=[];
-		for (var i=0;i < 10000;i++){
-			var item=this.getChildByName("item"+i);
-			if (item==null){
-				break ;
-			}
-			this._items.push(item);
-			item.visible=(i==this._selectedIndex);
-		}
-	}
-
-	/**
-	*@private
-	*通过对象的索引设置项对象的 <code>selected</code> 属性值。
-	*@param index 需要设置的对象的索引。
-	*@param selected 表示对象的选中状态。
-	*/
-	__proto.setSelect=function(index,selected){
-		if (this._items && index >-1 && index < this._items.length){
-			this._items[index].visible=selected;
-		}
-	}
-
-	/**
-	*@private
-	*设置属性<code>selectedIndex</code>的值。
-	*@param index 选中项索引值。
-	*/
-	__proto.setIndex=function(index){
-		this.selectedIndex=index;
-	}
-
-	/**@inheritDoc */
-	__getset(0,__proto,'dataSource',_super.prototype._$get_dataSource,function(value){
-		this._dataSource=value;
-		if (((typeof value=='number')&& Math.floor(value)==value)|| (typeof value=='string')){
-			this.selectedIndex=parseInt(value);
-			}else {
-			for (var prop in this._dataSource){
-				if (this.hasOwnProperty(prop)){
-					this[prop]=this._dataSource[prop];
-				}
-			}
-		}
-	});
-
-	/**
-	*表示当前视图索引。
-	*/
-	__getset(0,__proto,'selectedIndex',function(){
-		return this._selectedIndex;
-		},function(value){
-		if (this._selectedIndex !=value){
-			this.setSelect(this._selectedIndex,false);
-			this._selectedIndex=value;
-			this.setSelect(this._selectedIndex,true);
-		}
-	});
-
-	/**
-	*获取或设置当前选择的项对象。
-	*/
-	__getset(0,__proto,'selection',function(){
-		return this._selectedIndex >-1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] :null;
-		},function(value){
-		this.selectedIndex=this._items.indexOf(value);
-	});
-
-	/**
-	*视图集合数组。
-	*/
-	__getset(0,__proto,'items',function(){
-		return this._items;
-	});
-
-	/**
-	*索引设置处理器。
-	*<p>默认回调参数：index:int</p>
-	*/
-	__getset(0,__proto,'setIndexHandler',function(){
-		return this._setIndexHandler;
-		},function(value){
-		this._setIndexHandler=value;
-	});
-
-	return ViewStack;
-})(Box)
 
 
 /**
@@ -35988,6 +36003,105 @@ var VScrollBar=(function(_super){
 })(ScrollBar)
 
 
+    /**
+     *使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
+     *<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
+     *
+     *@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
+     *package
+     *{
+	*import laya.ui.HSlider;
+	*import laya.ui.VSlider;
+	*import laya.utils.Handler;
+	*public class VSlider_Example
+	*{
+		*private var vSlider:VSlider;
+		*public function VSlider_Example()
+		*{
+			*Laya.init(640,800);//设置游戏画布宽高。
+			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
+			*}
+		*private function onLoadComplete():void
+		*{
+			*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+			*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+			*vSlider.min=0;//设置 vSlider 最低位置值。
+			*vSlider.max=10;//设置 vSlider 最高位置值。
+			*vSlider.value=2;//设置 vSlider 当前位置值。
+			*vSlider.tick=1;//设置 vSlider 刻度值。
+			*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+			*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+			*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
+			*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+			*}
+		*private function onChange(value:Number):void
+		*{
+			*trace("滑块的位置： value="+value);
+			*}
+		*}
+	*}
+     *@example
+     *Laya.init(640,800);//设置游戏画布宽高
+     *Laya.stage.bgColor="#efefef";//设置画布的背景颜色
+     *var vSlider;
+     *Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
+     *function onLoadComplete(){
+	*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+	*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+	*vSlider.min=0;//设置 vSlider 最低位置值。
+	*vSlider.max=10;//设置 vSlider 最高位置值。
+	*vSlider.value=2;//设置 vSlider 当前位置值。
+	*vSlider.tick=1;//设置 vSlider 刻度值。
+	*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+	*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+	*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
+	*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+	*}
+     *function onChange(value){
+	*console.log("滑块的位置： value="+value);
+	*}
+     *@example
+     *import HSlider=laya.ui.HSlider;
+     *import VSlider=laya.ui.VSlider;
+     *import Handler=laya.utils.Handler;
+     *class VSlider_Example {
+	*private vSlider:VSlider;
+	*constructor(){
+		*Laya.init(640,800);//设置游戏画布宽高。
+		*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+		*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
+		*}
+	*private onLoadComplete():void {
+		*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+		*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+		*this.vSlider.min=0;//设置 vSlider 最低位置值。
+		*this.vSlider.max=10;//设置 vSlider 最高位置值。
+		*this.vSlider.value=2;//设置 vSlider 当前位置值。
+		*this.vSlider.tick=1;//设置 vSlider 刻度值。
+		*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+		*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+		*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
+		*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
+		*}
+	*private onChange(value:number):void {
+		*console.log("滑块的位置： value="+value);
+		*}
+	*}
+     *@see laya.ui.Slider
+     */
+//class laya.ui.VSlider extends laya.ui.Slider
+    var VSlider = (function (_super) {
+        function VSlider() {
+            VSlider.__super.call(this);
+            ;
+        }
+
+        __class(VSlider, 'laya.ui.VSlider', _super);
+        return VSlider;
+    })(Slider)
+
+
 /**
 *<code>TextInput</code> 类用于创建显示对象以显示和输入文本。
 *
@@ -36311,104 +36425,6 @@ var TextInput=(function(_super){
 
 	return TextInput;
 })(Label)
-
-
-/**
-*使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
-*<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
-*
-*@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
-*package
-*{
-	*import laya.ui.HSlider;
-	*import laya.ui.VSlider;
-	*import laya.utils.Handler;
-	*public class VSlider_Example
-	*{
-		*private var vSlider:VSlider;
-		*public function VSlider_Example()
-		*{
-			*Laya.init(640,800);//设置游戏画布宽高。
-			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
-			*}
-		*private function onLoadComplete():void
-		*{
-			*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-			*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-			*vSlider.min=0;//设置 vSlider 最低位置值。
-			*vSlider.max=10;//设置 vSlider 最高位置值。
-			*vSlider.value=2;//设置 vSlider 当前位置值。
-			*vSlider.tick=1;//设置 vSlider 刻度值。
-			*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-			*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-			*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
-			*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-			*}
-		*private function onChange(value:Number):void
-		*{
-			*trace("滑块的位置： value="+value);
-			*}
-		*}
-	*}
-*@example
-*Laya.init(640,800);//设置游戏画布宽高
-*Laya.stage.bgColor="#efefef";//设置画布的背景颜色
-*var vSlider;
-*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
-*function onLoadComplete(){
-	*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-	*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-	*vSlider.min=0;//设置 vSlider 最低位置值。
-	*vSlider.max=10;//设置 vSlider 最高位置值。
-	*vSlider.value=2;//设置 vSlider 当前位置值。
-	*vSlider.tick=1;//设置 vSlider 刻度值。
-	*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-	*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-	*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
-	*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-	*}
-*function onChange(value){
-	*console.log("滑块的位置： value="+value);
-	*}
-*@example
-*import HSlider=laya.ui.HSlider;
-*import VSlider=laya.ui.VSlider;
-*import Handler=laya.utils.Handler;
-*class VSlider_Example {
-	*private vSlider:VSlider;
-	*constructor(){
-		*Laya.init(640,800);//设置游戏画布宽高。
-		*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-		*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
-		*}
-	*private onLoadComplete():void {
-		*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-		*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-		*this.vSlider.min=0;//设置 vSlider 最低位置值。
-		*this.vSlider.max=10;//设置 vSlider 最高位置值。
-		*this.vSlider.value=2;//设置 vSlider 当前位置值。
-		*this.vSlider.tick=1;//设置 vSlider 刻度值。
-		*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-		*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-		*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
-		*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
-		*}
-	*private onChange(value:number):void {
-		*console.log("滑块的位置： value="+value);
-		*}
-	*}
-*@see laya.ui.Slider
-*/
-//class laya.ui.VSlider extends laya.ui.Slider
-var VSlider=(function(_super){
-	function VSlider(){
-		VSlider.__super.call(this);;
-	}
-
-	__class(VSlider,'laya.ui.VSlider',_super);
-	return VSlider;
-})(Slider)
 
 
 /**
@@ -36922,6 +36938,62 @@ var GraphicAnimation=(function(_super){
 
 	return GraphicAnimation;
 })(FrameAnimation)
+
+
+//class ui.EnterVIewUI extends laya.ui.View
+    var EnterVIewUI = (function (_super) {
+        function EnterVIewUI() {
+            EnterVIewUI.__super.call(this);
+            ;
+        }
+
+        __class(EnterVIewUI, 'ui.EnterVIewUI', _super);
+        var __proto = EnterVIewUI.prototype;
+        __proto.createChildren = function () {
+            laya.ui.Component.prototype.createChildren.call(this);
+            this.createView(EnterVIewUI.uiView);
+        }
+
+        __static(EnterVIewUI,
+            ['uiView', function () {
+                return this.uiView = {
+                    "type": "View",
+                    "props": {"width": 678, "height": 1200},
+                    "child": [{
+                        "type": "Rect",
+                        "props": {"y": 0, "x": 0, "width": 678, "lineWidth": 1, "height": 1200, "fillColor": "#fff"}
+                    }, {
+                        "type": "Image",
+                        "props": {"y": 0, "x": 0, "width": 678, "skin": "resources/background.png", "height": 1200}
+                    }, {
+                        "type": "Image",
+                        "props": {"y": 107, "x": 86, "skin": "resources/title.png"}
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "y": 951,
+                            "x": 92,
+                            "stateNum": 1,
+                            "skin": "resources/button.png",
+                            "labelSize": 45,
+                            "label": "关卡模式"
+                        }
+                    }, {
+                        "type": "Button",
+                        "props": {
+                            "y": 951,
+                            "x": 382,
+                            "stateNum": 1,
+                            "skin": "resources/button.png",
+                            "labelSize": 45,
+                            "label": "无尽模式"
+                        }
+                    }]
+                };
+            }
+            ]);
+        return EnterVIewUI;
+    })(View)
 
 
 //class laya.debug.ui.debugui.comps.ListItemUI extends laya.ui.View
@@ -38000,6 +38072,17 @@ var TextArea=(function(_super){
 
 	return TextArea;
 })(TextInput)
+
+
+//class module.enter.EnterView extends ui.EnterVIewUI
+    var EnterView = (function (_super) {
+        function EnterView() {
+            EnterView.__super.call(this);
+        }
+
+        __class(EnterView, 'module.enter.EnterView', _super);
+        return EnterView;
+    })(EnterVIewUI)
 
 
 /**

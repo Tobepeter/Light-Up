@@ -46,7 +46,8 @@ package module.block {
         }
         
         /** 随机地图 */
-        public function randomMap(fillArr:Array = [BlockConst.NONE, BlockConst.RED_BLOCK, BlockConst.WHITE_BLOCK]):void {
+        public function randomMap(fillArr:Array):void {
+            fillArr == undefined && (fillArr = [BlockConst.NONE, BlockConst.RED_BLOCK, BlockConst.WHITE_BLOCK]);
             RandomUtils.fulfillArr(BlockModel.ins.mapArr, fillArr);
         }
         

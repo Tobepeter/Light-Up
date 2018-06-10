@@ -5,15 +5,13 @@ package utils {
     
     import laya.debug.DebugPanel;
     import laya.debug.DebugTool;
+    import laya.display.Sprite;
     import laya.events.Event;
     import laya.events.Keyboard;
     
     import module.block.BlockConst;
-    
     import module.block.BlockModel;
     import module.block.BlockView;
-    import laya.display.Sprite;
-    import laya.ui.Component;
     
     public class TestCenter {
 
@@ -22,8 +20,12 @@ package utils {
 
         /** 测试方法，注意删除 */
         public static function test():void {
-            
-
+            // 测试enterView
+            // Laya.loader.load('res/atlas/resources.atlas', Handler.create(null, onComplete))
+            // function onComplete():void {
+            //     var t:EnterView = new EnterView;
+            //     Laya.stage.addChild(t);
+            // }
         }
 
         /** 添加白色挡板 */
@@ -49,7 +51,7 @@ package utils {
             GameLayer.ins.mainLayer.removeChildren();
             GameLayer.ins.mainLayer.addChild(blockView);
             BlockModel.ins.randomMap([BlockConst.NONE, BlockConst.WHITE_BLOCK]);
-            Laya.timer.clear(null, onLoop)
+            Laya.timer.clear(null, onLoop);
             Laya.timer.loop(1000, null, onLoop);
             function onLoop():void{
                 BlockModel.ins.randomSwitch();
