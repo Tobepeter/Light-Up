@@ -23,7 +23,7 @@ var Laya=window.Laya=(function(window,document){
 			for (var p in b){
 				if (!b.hasOwnProperty(p)) continue;
 				var gs=Object.getOwnPropertyDescriptor(b, p);
-				var g = gs.get, s = gs.set; 
+                var g = gs.get, s = gs.set;
 				if ( g || s ) {
 					if ( g && s)
 						Object.defineProperty(d,p,gs);
@@ -73,9 +73,9 @@ var Laya=window.Laya=(function(window,document){
 		},
 		__as:function(value,type){
 			return (this.__typeof(value,type))?value:null;
-		},
-        __int:function(value){
-            return value?parseInt(value):0;
+        },
+        __int: function (value) {
+            return value ? parseInt(value) : 0;
         },
 		interface:function(name,_super){
 			Laya.__package(name,{});
@@ -160,16 +160,16 @@ var Laya=window.Laya=(function(window,document){
 				getfn && (o['_$GET_'+name]=getfn);
 				setfn && (o['_$SET_'+name]=setfn);
 			}
-			if(getfn && setfn) 
-				Object.defineProperty(o,name,{get:getfn,set:setfn,enumerable:false,configurable:true});
+            if (getfn && setfn)
+                Object.defineProperty(o, name, {get: getfn, set: setfn, enumerable: false, configurable: true});
 			else{
-				getfn && Object.defineProperty(o,name,{get:getfn,enumerable:false,configurable:true});
-				setfn && Object.defineProperty(o,name,{set:setfn,enumerable:false,configurable:true});
+                getfn && Object.defineProperty(o, name, {get: getfn, enumerable: false, configurable: true});
+                setfn && Object.defineProperty(o, name, {set: setfn, enumerable: false, configurable: true});
 			}
 		},
 		static:function(_class,def){
 				for(var i=0,sz=def.length;i<sz;i+=2){
-					if(def[i]=='length') 
+                    if (def[i] == 'length')
 						_class.length=def[i+1].call(_class);
 					else{
 						function tmp(){
@@ -182,7 +182,7 @@ var Laya=window.Laya=(function(window,document){
 						tmp();
 					}
 				}
-		},		
+        },
 		un:function(obj,name,value){
 			value || (value=obj[name]);
 			Laya.__propun.value=value;
@@ -424,11 +424,11 @@ var ___Laya=(function(){
 var GameConfig=(function(){
 	function GameConfig(){}
 	__class(GameConfig,'config.GameConfig');
-	GameConfig.H_BLCOK=5;
-	GameConfig.V_BLOCK=5;
+    GameConfig.H_BLCOK = 5;
+    GameConfig.V_BLOCK = 5;
 	GameConfig.BLOCK_SIZE=100;
-	GameConfig.GAME_WIDHT=678;
-	GameConfig.GAME_HEIGHT=1200;
+    GameConfig.GAME_WIDHT = 678;
+    GameConfig.GAME_HEIGHT = 1200;
 	return GameConfig;
 })()
 
@@ -474,21 +474,21 @@ var GameMgr=(function(){
 	});
 
 	GameMgr.start=function(){
-		GameMgr.initModule();
-		var complete=Handler.create(null,function(){
-			EventCenter.send("OPEN_ENTER_VIEW");
-		});
-		GameMgr.loadRes(complete);
-	}
+        GameMgr.initModule();
+        var complete = Handler.create(null, function () {
+            EventCenter.send("OPEN_ENTER_VIEW");
+        });
+        GameMgr.loadRes(complete);
+    }
 
-	GameMgr.initModule=function(){
-		EnterModule.ins.addListener();
-		BlockModule.ins.addListener();
-	}
+    GameMgr.initModule = function () {
+        EnterModule.ins.addListener();
+        BlockModule.ins.addListener();
+    }
 
-	GameMgr.loadRes=function(complete){
-		var path='res/atlas/resources.atlas';
-		Laya.loader.load(path,complete);
+    GameMgr.loadRes = function (complete) {
+        var path = 'res/atlas/resources.atlas';
+        Laya.loader.load(path, complete);
 	}
 
 	GameMgr._ins=null;
@@ -506,7 +506,7 @@ var GameMain=(function(){
 
 	__class(GameMain,'GameMain');
 	GameMain.initStage=function(){
-		Laya.init(678,1200);
+        Laya.init(678, 1200);
 		Laya.stage.alignH="center";
 		Laya.stage.alignV="middle";
 		Laya.stage.bgColor='#ffffff';
@@ -554,8 +554,8 @@ var BlockModel=(function(){
 
 	/**随机地图 */
 	__proto.randomMap=function(fillArr){
-		fillArr==undefined && (fillArr=[0,1,2]);
-		RandomUtils.fulfillArr(this._mapArr,fillArr);
+        fillArr == undefined && (fillArr = [0, 1, 2]);
+        RandomUtils.fulfillArr(this._mapArr, fillArr);
 	}
 
 	/**重置地图 */
@@ -597,15 +597,15 @@ var BlockModel=(function(){
 
 	__proto.init=function(){
 		this._mapArr=[];
-		for (var i=0;i < 5;i++){
+        for (var i = 0; i < 5; i++) {
 			var arr=[];
 			this._mapArr.push(arr);
-			for (var j=0;j < 5;j++){
+            for (var j = 0; j < 5; j++) {
 				this._mapArr[i].push(0);
 			}
 		}
-		debugger;
-		this.generateMap();
+        debugger;
+        this.generateMap();
 	}
 
 	__getset(0,__proto,'mapArr',function(){
@@ -632,37 +632,38 @@ var BlockModel=(function(){
 
 
 //class module.block.BlockModule
-var BlockModule=(function(){
-	function BlockModule(){
-		this.blockView=null;
-		if(BlockModule._ins)throw("use function get ins()!!!")
-			}
-	__class(BlockModule,'module.block.BlockModule');
-	var __proto=BlockModule.prototype;
-	__proto.addListener=function(){
-		EventCenter.add("OPEN_BLOCK_VIEW",this,this.onOpenBLockView);
-		EventCenter.add("CLOSE_BLOCK_VIEW",this,this.onCloseBLockView);
-	}
+    var BlockModule = (function () {
+        function BlockModule() {
+            this.blockView = null;
+            if (BlockModule._ins) throw("use function get ins()!!!")
+        }
 
-	__proto.onCloseBLockView=function(){
-		if(this.blockView){
-			GameLayer.ins.mainLayer.removeChild(this.blockView);
-			this.blockView=null;
-		}
-	}
+        __class(BlockModule, 'module.block.BlockModule');
+        var __proto = BlockModule.prototype;
+        __proto.addListener = function () {
+            EventCenter.add("OPEN_BLOCK_VIEW", this, this.onOpenBLockView);
+            EventCenter.add("CLOSE_BLOCK_VIEW", this, this.onCloseBLockView);
+        }
 
-	__proto.onOpenBLockView=function(){
-		this.blockView=new BlockView;
-		GameLayer.ins.mainLayer.addChild(this.blockView);
-	}
+        __proto.onCloseBLockView = function () {
+            if (this.blockView) {
+                GameLayer.ins.mainLayer.removeChild(this.blockView);
+                this.blockView = null;
+            }
+        }
 
-	__getset(1,BlockModule,'ins',function(){
-		return BlockModule._ins=BlockModule._ins|| new BlockModule;
-	});
+        __proto.onOpenBLockView = function () {
+            this.blockView = new BlockView;
+            GameLayer.ins.mainLayer.addChild(this.blockView);
+        }
 
-	BlockModule._ins=null;
-	return BlockModule;
-})()
+        __getset(1, BlockModule, 'ins', function () {
+            return BlockModule._ins = BlockModule._ins || new BlockModule;
+        });
+
+        BlockModule._ins = null;
+        return BlockModule;
+    })()
 
 
 /**
@@ -833,7 +834,18 @@ var EventDispatcher=(function(){
 		return EventDispatcher.MOUSE_EVENTS[type];
 	}
 
-	EventDispatcher.MOUSE_EVENTS={"rightmousedown":true,"rightmouseup":true,"rightclick":true,"mousedown":true,"mouseup":true,"mousemove":true,"mouseover":true,"mouseout":true,"click":true,"doubleclick":true};
+        EventDispatcher.MOUSE_EVENTS = {
+            "rightmousedown": true,
+            "rightmouseup": true,
+            "rightclick": true,
+            "mousedown": true,
+            "mouseup": true,
+            "mousemove": true,
+            "mouseover": true,
+            "mouseout": true,
+            "click": true,
+            "doubleclick": true
+        };
 	EventDispatcher.__init$=function(){
 		Object.defineProperty(laya.events.EventDispatcher.prototype,"_events",{enumerable:false,writable:true});
 		/**@private */
@@ -965,114 +977,120 @@ var Handler=(function(){
 
 
 //class module.enter.EnterModule
-var EnterModule=(function(){
-	function EnterModule(){
-		this.enterView=null;
-		if(EnterModule._ins)throw ("use function get ins()!!!");
-	}
+    var EnterModule = (function () {
+        function EnterModule() {
+            this.enterView = null;
+            if (EnterModule._ins) throw ("use function get ins()!!!");
+        }
 
-	__class(EnterModule,'module.enter.EnterModule');
-	var __proto=EnterModule.prototype;
-	__proto.addListener=function(){
-		EventCenter.add("OPEN_ENTER_VIEW",this,this.onOpenEnterView);
-		EventCenter.add("CLOSE_ENTER_VIEW",this,this.onCloseEnterView);
-	}
+        __class(EnterModule, 'module.enter.EnterModule');
+        var __proto = EnterModule.prototype;
+        __proto.addListener = function () {
+            EventCenter.add("OPEN_ENTER_VIEW", this, this.onOpenEnterView);
+            EventCenter.add("CLOSE_ENTER_VIEW", this, this.onCloseEnterView);
+        }
 
-	__proto.onCloseEnterView=function(){
-		if(this.enterView){
-			GameLayer.ins.topLayer.removeChild(this.enterView);
-			this.enterView=null;
-		}
-	}
+        __proto.onCloseEnterView = function () {
+            if (this.enterView) {
+                GameLayer.ins.topLayer.removeChild(this.enterView);
+                this.enterView = null;
+            }
+        }
 
-	__proto.onOpenEnterView=function(){
-		this.enterView=new EnterView;
-		GameLayer.ins.topLayer.addChild(this.enterView);
-	}
+        __proto.onOpenEnterView = function () {
+            this.enterView = new EnterView;
+            GameLayer.ins.topLayer.addChild(this.enterView);
+        }
 
-	__getset(1,EnterModule,'ins',function(){
-		return EnterModule._ins=EnterModule._ins|| new EnterModule;
-	});
+        __getset(1, EnterModule, 'ins', function () {
+            return EnterModule._ins = EnterModule._ins || new EnterModule;
+        });
 
-	EnterModule._ins=null;
-	return EnterModule;
-})()
+        EnterModule._ins = null;
+        return EnterModule;
+    })()
 
 
 //class module.event.EventCenter
-var EventCenter=(function(){
-	function EventCenter(){}
-	__class(EventCenter,'module.event.EventCenter');
-	EventCenter.add=function(type,caller,callBack){
-		var value={
-			caller:caller,
-			callBack:callBack
-		};
-		var arr=EventCenter.eventDic.get(type);
-		if (arr){
-			for (var i=0;i < arr.length;i++){
-				if (arr[i].caller==caller){
-					console.warn('事件：'+type+' 调用于：'+caller+' 重复监听');
-					return;
-				}
-			}
-			arr.push(value);
-			}else {
-			arr=[value];
-			EventCenter.eventDic.set(type,arr);
-		}
-	}
+    var EventCenter = (function () {
+        function EventCenter() {
+        }
 
-	EventCenter.remove=function(type,caller,callBack){
-		var arr=EventCenter.eventDic.get(type);
-		if (arr){
-			for (var i=0;i < arr.length;i++){
-				if (arr[i].caller==caller){
-					(arr).splice(i,1);
-					return;
-				}
-			}
-			console.warn('事件：'+type+' 调用于：'+caller+' 不存在，不需移除');
-			}else {
-			console.warn('事件：'+type+' 不存在，不需移除');
-		}
-	}
+        __class(EventCenter, 'module.event.EventCenter');
+        EventCenter.add = function (type, caller, callBack) {
+            var value = {
+                caller: caller,
+                callBack: callBack
+            };
+            var arr = EventCenter.eventDic.get(type);
+            if (arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].caller == caller) {
+                        console.warn('事件：' + type + ' 调用于：' + caller + ' 重复监听');
+                        return;
+                    }
+                }
+                arr.push(value);
+            } else {
+                arr = [value];
+                EventCenter.eventDic.set(type, arr);
+            }
+        }
 
-	EventCenter.send=function(type,args){
-		var arr=EventCenter.eventDic.get(type);
-		if (arr){
-			for (var i=0;i < arr.length;i++){
-				var caller=arr[i].caller;
-				var callBack=arr[i].callBack;
-				callBack.apply(caller,args);
-			}
-			}else {
-			console.warn('事件：'+type+' 不存在监听');
-		}
-	}
+        EventCenter.remove = function (type, caller, callBack) {
+            var arr = EventCenter.eventDic.get(type);
+            if (arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].caller == caller) {
+                        (arr).splice(i, 1);
+                        return;
+                    }
+                }
+                console.warn('事件：' + type + ' 调用于：' + caller + ' 不存在，不需移除');
+            } else {
+                console.warn('事件：' + type + ' 不存在，不需移除');
+            }
+        }
 
-	EventCenter.getDataByType=function(type){
-		return EventCenter.eventDic.get(type);
-	}
+        EventCenter.send = function (type, args) {
+            var arr = EventCenter.eventDic.get(type);
+            if (arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    var caller = arr[i].caller;
+                    var callBack = arr[i].callBack;
+                    callBack.apply(caller, args);
+                }
+            } else {
+                console.warn('事件：' + type + ' 不存在监听');
+            }
+        }
 
-	__static(EventCenter,
-	['eventDic',function(){return this.eventDic=new Dictionary;}
-	]);
-	return EventCenter;
-})()
+        EventCenter.getDataByType = function (type) {
+            return EventCenter.eventDic.get(type);
+        }
+
+        __static(EventCenter,
+            ['eventDic', function () {
+                return this.eventDic = new Dictionary;
+            }
+            ]);
+        return EventCenter;
+    })()
 
 
 //class module.event.EventType
-var EventType=(function(){
-	function EventType(){}
-	__class(EventType,'module.event.EventType');
-	EventType.BLOCK_UPDATE="BLOCK_UPDATE";
-	EventType.OPEN_BLOCK_VIEW="OPEN_BLOCK_VIEW";
-	EventType.OPEN_ENTER_VIEW="OPEN_ENTER_VIEW";
-	EventType.CLOSE_BLOCK_VIEW="CLOSE_BLOCK_VIEW";
-	EventType.CLOSE_ENTER_VIEW="CLOSE_ENTER_VIEW";
-	return EventType;
-})()
+    var EventType = (function () {
+        function EventType() {
+        }
+
+        __class(EventType, 'module.event.EventType');
+        EventType.BLOCK_UPDATE = "BLOCK_UPDATE";
+        EventType.OPEN_BLOCK_VIEW = "OPEN_BLOCK_VIEW";
+        EventType.OPEN_ENTER_VIEW = "OPEN_ENTER_VIEW";
+        EventType.CLOSE_BLOCK_VIEW = "CLOSE_BLOCK_VIEW";
+        EventType.CLOSE_ENTER_VIEW = "CLOSE_ENTER_VIEW";
+        return EventType;
+    })()
 
 
 //class utils.RandomUtils
@@ -1134,7 +1152,7 @@ var TestCenter=(function(){
 		GameLayer.ins.mainLayer.removeChildren();
 		GameLayer.ins.mainLayer.addChild(blockView);
 		BlockModel.ins.randomMap([0,2]);
-		Laya.timer.clear(null,onLoop);
+        Laya.timer.clear(null, onLoop);
 		Laya.timer.loop(1000,null,onLoop);
 		function onLoop (){
 			BlockModel.ins.randomSwitch();
@@ -1157,8 +1175,14 @@ var TestCenter=(function(){
 		[ 1,1,1,1,1,1,1,1,1,1],
 		[ 1,1,1,1,1,1,1,1,1,1],
 		[ 1,1,1,1,1,1,1,1,1,1]];
-		if(arr.length !=5){console.warn('测试竖直方向长度有误');return;}
-			if(arr[0].length !=5){console.warn('测试水平方向长度有误');return;}
+        if (arr.length != 5) {
+            console.warn('测试竖直方向长度有误');
+            return;
+        }
+        if (arr[0].length != 5) {
+            console.warn('测试水平方向长度有误');
+            return;
+        }
 		arr=[
 		[1,2,1,0,1,2,1],
 		[1,2,1,0,1,2,1],
@@ -5360,7 +5384,11 @@ var JsonTool=(function(){
 	__static(JsonTool,
 	['singleLineKey',function(){return this.singleLineKey={
 			"props":true
-		};},'escapable',function(){return this.escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;},'meta',function(){return this.meta = {   
+    };
+    }, 'escapable', function () {
+        return this.escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+    }, 'meta', function () {
+        return this.meta = {
 		'\b':'\\b',
 		'\t':'\\t',
 		'\n':'\\n',
@@ -8893,7 +8921,7 @@ var Font=(function(){
 	Font.defaultSize=12;
 	Font.defaultFamily="Arial";
 	Font.defaultFont="12px Arial";
-	Font._STROKE=[0,"#000000"];
+        Font._STROKE = [0, "#000000"];
 	Font._ITALIC=0x200;
 	Font._PASSWORD=0x400;
 	Font._BOLD=0x800;
@@ -9352,7 +9380,7 @@ var Event=(function(){
 		return Laya.stage.mouseX;
 	});
 
-	Event.EMPTY=new Event();
+        Event.EMPTY = new Event();
 	Event.MOUSE_DOWN="mousedown";
 	Event.MOUSE_UP="mouseup";
 	Event.CLICK="click";
@@ -11162,8 +11190,8 @@ var Matrix=(function(){
 		return mat;
 	}
 
-	Matrix.EMPTY=new Matrix();
-	Matrix.TEMP=new Matrix();
+        Matrix.EMPTY = new Matrix();
+        Matrix.TEMP = new Matrix();
 	Matrix._cache=[];
 	return Matrix;
 })()
@@ -11226,8 +11254,8 @@ var Point=(function(){
 		}
 	}
 
-	Point.TEMP=new Point();
-	Point.EMPTY=new Point();
+        Point.TEMP = new Point();
+        Point.EMPTY = new Point();
 	return Point;
 })()
 
@@ -11448,8 +11476,8 @@ var Rectangle=(function(){
 		return rst.setTo(minX,minY,maxX-minX,maxY-minY);
 	}
 
-	Rectangle.EMPTY=new Rectangle();
-	Rectangle.TEMP=new Rectangle();
+        Rectangle.EMPTY = new Rectangle();
+        Rectangle.TEMP = new Rectangle();
 	Rectangle._temB=[];
 	Rectangle._temA=[];
 	return Rectangle;
@@ -12469,7 +12497,7 @@ var RenderContext=(function(){
 		this.ctx.fillTrangles(args[0],args[1],args[2],args[3],args.length > 4 ? args[4] :null);
 	}
 
-	RenderContext.PI2=2 *Math.PI;
+        RenderContext.PI2 = 2 * Math.PI;
 	return RenderContext;
 })()
 
@@ -12851,7 +12879,7 @@ var RenderSprite=(function(){
 	RenderSprite.CHILDS=0x800;
 	RenderSprite.INIT=0x11111;
 	RenderSprite.renders=[];
-	RenderSprite.NORENDER=new RenderSprite(0,null);
+        RenderSprite.NORENDER = new RenderSprite(0, null);
 	return RenderSprite;
 })()
 
@@ -13163,10 +13191,12 @@ var Context=(function(){
 		return true;
 	}
 
-	Context._default=new Context();
+        Context._default = new Context();
 	Context.newKeys=[];
 	__static(Context,
-	['replaceKeys',function(){return this.replaceKeys=["font","fillStyle","textBaseline"];}
+        ['replaceKeys', function () {
+            return this.replaceKeys = ["font", "fillStyle", "textBaseline"];
+        }
 	]);
 	return Context;
 })()
@@ -13677,26 +13707,26 @@ var Browser=(function(){
 		Browser.document.__createElement=Browser.document.createElement;
 		window.requestAnimationFrame=window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (c){return window.setTimeout(c,1000 / 60);};;
 		var $BS=window.document.body.style;$BS.margin=0;$BS.overflow='hidden';;
-		Browser.userAgent=/*[SAFE]*/ Browser.window.navigator.userAgent;
-		Browser.u=/*[SAFE]*/ Browser.userAgent;
-		Browser.onIOS=/*[SAFE]*/ !!Browser.u.match(/\(i[^;]+;(U;)? CPU.+Mac OS X/);
-		Browser.onMobile=/*[SAFE]*/ Browser.u.indexOf("Mobile")>-1;
-		Browser.onIPhone=/*[SAFE]*/ Browser.u.indexOf("iPhone")>-1;
-		Browser.onIPad=/*[SAFE]*/ Browser.u.indexOf("iPad")>-1;
-		Browser.onAndriod=/*[SAFE]*/ Browser.u.indexOf('Android')>-1 || Browser.u.indexOf('Adr')>-1;
-		Browser.onWP=/*[SAFE]*/ Browser.u.indexOf("Windows Phone")>-1;
-		Browser.onQQBrowser=/*[SAFE]*/ Browser.u.indexOf("QQBrowser")>-1;
-		Browser.onMQQBrowser=/*[SAFE]*/ Browser.u.indexOf("MQQBrowser")>-1 || (Browser.u.indexOf("Mobile")>-1 && Browser.u.indexOf("QQ")>-1);
-		Browser.onIE=/*[SAFE]*/ !!Browser.window.ActiveXObject || "ActiveXObject" in Browser.window;
-		Browser.onWeiXin=/*[SAFE]*/ Browser.u.indexOf('MicroMessenger')>-1;
-		Browser.onPC=/*[SAFE]*/ !Browser.onMobile;
-		Browser.onSafari=/*[SAFE]*/ !!Browser.u.match(/Version\/\d+\.\d\x20Mobile\/\S+\x20Safari/);
-		Browser.onFirefox=/*[SAFE]*/ Browser.u.indexOf('Firefox')>-1;
-		Browser.onEdge=/*[SAFE]*/ Browser.u.indexOf('Edge')>-1;
-		Browser.onMiniGame=/*[SAFE]*/ Browser.u.indexOf('MiniGame')>-1;
-		Browser.httpProtocol=/*[SAFE]*/ Browser.window.location.protocol=="http:";
-		Browser.webAudioEnabled=/*[SAFE]*/ Browser.window["AudioContext"] || Browser.window["webkitAudioContext"] || Browser.window["mozAudioContext"] ? true :false;
-		Browser.soundType=/*[SAFE]*/ Browser.webAudioEnabled ? "WEBAUDIOSOUND" :"AUDIOSOUND";
+        Browser.userAgent = /*[SAFE]*/ Browser.window.navigator.userAgent;
+        Browser.u = /*[SAFE]*/ Browser.userAgent;
+        Browser.onIOS = /*[SAFE]*/ !!Browser.u.match(/\(i[^;]+;(U;)? CPU.+Mac OS X/);
+        Browser.onMobile = /*[SAFE]*/ Browser.u.indexOf("Mobile") > -1;
+        Browser.onIPhone = /*[SAFE]*/ Browser.u.indexOf("iPhone") > -1;
+        Browser.onIPad = /*[SAFE]*/ Browser.u.indexOf("iPad") > -1;
+        Browser.onAndriod = /*[SAFE]*/ Browser.u.indexOf('Android') > -1 || Browser.u.indexOf('Adr') > -1;
+        Browser.onWP = /*[SAFE]*/ Browser.u.indexOf("Windows Phone") > -1;
+        Browser.onQQBrowser = /*[SAFE]*/ Browser.u.indexOf("QQBrowser") > -1;
+        Browser.onMQQBrowser = /*[SAFE]*/ Browser.u.indexOf("MQQBrowser") > -1 || (Browser.u.indexOf("Mobile") > -1 && Browser.u.indexOf("QQ") > -1);
+        Browser.onIE = /*[SAFE]*/ !!Browser.window.ActiveXObject || "ActiveXObject" in Browser.window;
+        Browser.onWeiXin = /*[SAFE]*/ Browser.u.indexOf('MicroMessenger') > -1;
+        Browser.onPC = /*[SAFE]*/ !Browser.onMobile;
+        Browser.onSafari = /*[SAFE]*/ !!Browser.u.match(/Version\/\d+\.\d\x20Mobile\/\S+\x20Safari/);
+        Browser.onFirefox = /*[SAFE]*/ Browser.u.indexOf('Firefox') > -1;
+        Browser.onEdge = /*[SAFE]*/ Browser.u.indexOf('Edge') > -1;
+        Browser.onMiniGame = /*[SAFE]*/ Browser.u.indexOf('MiniGame') > -1;
+        Browser.httpProtocol = /*[SAFE]*/ Browser.window.location.protocol == "http:";
+        Browser.webAudioEnabled = /*[SAFE]*/ Browser.window["AudioContext"] || Browser.window["webkitAudioContext"] || Browser.window["mozAudioContext"] ? true : false;
+        Browser.soundType = /*[SAFE]*/ Browser.webAudioEnabled ? "WEBAUDIOSOUND" : "AUDIOSOUND";
 		Sound=Browser.webAudioEnabled?WebAudioSound:AudioSound;;
 		if (Browser.webAudioEnabled)WebAudioSound.initWebAudio();;
 		AudioSound._initMusicAudio();
@@ -14667,7 +14697,22 @@ var ClassUtils=(function(){
 	}
 
 	ClassUtils._temParam=[];
-	ClassUtils._classMap={'Sprite':'laya.display.Sprite','Text':'laya.display.Text','Animation':'laya.display.Animation','Skeleton':'laya.ani.bone.Skeleton','Particle2D':'laya.particle.Particle2D','div':'laya.html.dom.HTMLDivElement','p':'laya.html.dom.HTMLElement','img':'laya.html.dom.HTMLImageElement','span':'laya.html.dom.HTMLElement','br':'laya.html.dom.HTMLBrElement','style':'laya.html.dom.HTMLStyleElement','font':'laya.html.dom.HTMLElement','a':'laya.html.dom.HTMLElement','#text':'laya.html.dom.HTMLElement'};
+        ClassUtils._classMap = {
+            'Sprite': 'laya.display.Sprite',
+            'Text': 'laya.display.Text',
+            'Animation': 'laya.display.Animation',
+            'Skeleton': 'laya.ani.bone.Skeleton',
+            'Particle2D': 'laya.particle.Particle2D',
+            'div': 'laya.html.dom.HTMLDivElement',
+            'p': 'laya.html.dom.HTMLElement',
+            'img': 'laya.html.dom.HTMLImageElement',
+            'span': 'laya.html.dom.HTMLElement',
+            'br': 'laya.html.dom.HTMLBrElement',
+            'style': 'laya.html.dom.HTMLStyleElement',
+            'font': 'laya.html.dom.HTMLElement',
+            'a': 'laya.html.dom.HTMLElement',
+            '#text': 'laya.html.dom.HTMLElement'
+        };
 	ClassUtils.getClass=function(className){
 		var classObject=ClassUtils._classMap[className] || className;
 		if ((typeof classObject=='string'))
@@ -14678,7 +14723,21 @@ var ClassUtils=(function(){
 	ClassUtils._tM=null;
 	ClassUtils._alpha=NaN;
 	__static(ClassUtils,
-	['DrawTypeDic',function(){return this.DrawTypeDic={"Rect":["drawRect",[["x",0],["y",0],["width",0],["height",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Circle":["drawCircle",[["x",0],["y",0],["radius",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Pie":["drawPie",[["x",0],["y",0],["radius",0],["startAngle",0],["endAngle",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Image":["drawTexture",[["x",0],["y",0],["width",0],["height",0]]],"Texture":["drawTexture",[["skin",null],["x",0],["y",0],["width",0],["height",0]],1,"_adptTextureData"],"FillTexture":["fillTexture",[["skin",null],["x",0],["y",0],["width",0],["height",0],["repeat",null]],1,"_adptTextureData"],"FillText":["fillText",[["text",""],["x",0],["y",0],["font",null],["color",null],["textAlign",null]],1],"Line":["drawLine",[["x",0],["y",0],["toX",0],["toY",0],["lineColor",null],["lineWidth",0]],0,"_adptLineData"],"Lines":["drawLines",[["x",0],["y",0],["points",""],["lineColor",null],["lineWidth",0]],0,"_adptLinesData"],"Curves":["drawCurves",[["x",0],["y",0],["points",""],["lineColor",null],["lineWidth",0]],0,"_adptLinesData"],"Poly":["drawPoly",[["x",0],["y",0],["points",""],["fillColor",null],["lineColor",null],["lineWidth",1]],0,"_adptLinesData"]};}
+        ['DrawTypeDic', function () {
+            return this.DrawTypeDic = {
+                "Rect": ["drawRect", [["x", 0], ["y", 0], ["width", 0], ["height", 0], ["fillColor", null], ["lineColor", null], ["lineWidth", 1]]],
+                "Circle": ["drawCircle", [["x", 0], ["y", 0], ["radius", 0], ["fillColor", null], ["lineColor", null], ["lineWidth", 1]]],
+                "Pie": ["drawPie", [["x", 0], ["y", 0], ["radius", 0], ["startAngle", 0], ["endAngle", 0], ["fillColor", null], ["lineColor", null], ["lineWidth", 1]]],
+                "Image": ["drawTexture", [["x", 0], ["y", 0], ["width", 0], ["height", 0]]],
+                "Texture": ["drawTexture", [["skin", null], ["x", 0], ["y", 0], ["width", 0], ["height", 0]], 1, "_adptTextureData"],
+                "FillTexture": ["fillTexture", [["skin", null], ["x", 0], ["y", 0], ["width", 0], ["height", 0], ["repeat", null]], 1, "_adptTextureData"],
+                "FillText": ["fillText", [["text", ""], ["x", 0], ["y", 0], ["font", null], ["color", null], ["textAlign", null]], 1],
+                "Line": ["drawLine", [["x", 0], ["y", 0], ["toX", 0], ["toY", 0], ["lineColor", null], ["lineWidth", 0]], 0, "_adptLineData"],
+                "Lines": ["drawLines", [["x", 0], ["y", 0], ["points", ""], ["lineColor", null], ["lineWidth", 0]], 0, "_adptLinesData"],
+                "Curves": ["drawCurves", [["x", 0], ["y", 0], ["points", ""], ["lineColor", null], ["lineWidth", 0]], 0, "_adptLinesData"],
+                "Poly": ["drawPoly", [["x", 0], ["y", 0], ["points", ""], ["fillColor", null], ["lineColor", null], ["lineWidth", 1]], 0, "_adptLinesData"]
+            };
+        }
 	]);
 	return ClassUtils;
 })()
@@ -14746,8 +14805,16 @@ var Color=(function(){
 
 	Color._SAVE={};
 	Color._SAVE_SIZE=0;
-	Color._COLOR_MAP={"white":'#FFFFFF',"red":'#FF0000',"green":'#00FF00',"blue":'#0000FF',"black":'#000000',"yellow":'#FFFF00','gray':'#AAAAAA'};
-	Color._DEFAULT=Color._initDefault();
+        Color._COLOR_MAP = {
+            "white": '#FFFFFF',
+            "red": '#FF0000',
+            "green": '#00FF00',
+            "blue": '#0000FF',
+            "black": '#000000',
+            "yellow": '#FFFF00',
+            'gray': '#AAAAAA'
+        };
+        Color._DEFAULT = Color._initDefault();
 	Color._COLODID=1;
 	return Color;
 })()
@@ -15300,8 +15367,8 @@ var Ease=(function(){
 		return c *Math.sqrt(1-(t=t / d-1)*t)+b;
 	}
 
-	Ease.HALF_PI=Math.PI *0.5;
-	Ease.PI2=Math.PI *2;
+        Ease.HALF_PI = Math.PI * 0.5;
+        Ease.PI2 = Math.PI * 2;
 	return Ease;
 })()
 
@@ -15558,7 +15625,7 @@ var HTMLChar=(function(){
 		this._h=value;
 	});
 
-	HTMLChar._isWordRegExp=new RegExp("[\\w\.]","");
+        HTMLChar._isWordRegExp = new RegExp("[\\w\.]", "");
 	return HTMLChar;
 })()
 
@@ -16589,9 +16656,9 @@ var Utils=(function(){
 	}
 
 	Utils._gid=1;
-	Utils._pi=180 / Math.PI;
-	Utils._pi2=Math.PI / 180;
-	Utils._extReg=/\.(\w+)\??/g;
+        Utils._pi = 180 / Math.PI;
+        Utils._pi2 = Math.PI / 180;
+        Utils._extReg = /\.(\w+)\??/g;
 	Utils.parseXMLFromString=function(value){
 		var rst;
 		value=value.replace(/>\s+</g,'><');
@@ -19172,7 +19239,22 @@ var Loader=(function(_super){
 	Loader.ATLAS="atlas";
 	Loader.FONT="font";
 	Loader.PKM="pkm";
-	Loader.typeMap={"png":"image","jpg":"image","jpeg":"image","txt":"text","json":"json","xml":"xml","als":"atlas","atlas":"atlas","mp3":"sound","ogg":"sound","wav":"sound","part":"json","fnt":"font","pkm":"pkm"};
+        Loader.typeMap = {
+            "png": "image",
+            "jpg": "image",
+            "jpeg": "image",
+            "txt": "text",
+            "json": "json",
+            "xml": "xml",
+            "als": "atlas",
+            "atlas": "atlas",
+            "mp3": "sound",
+            "ogg": "sound",
+            "wav": "sound",
+            "part": "json",
+            "fnt": "font",
+            "pkm": "pkm"
+        };
 	Loader.parserMap={};
 	Loader.groupMap={};
 	Loader.maxTimeOut=100;
@@ -19492,10 +19574,10 @@ var Texture=(function(_super){
 		return tex;
 	}
 
-	Texture.DEF_UV=[0,0,1.0,0,1.0,1.0,0,1.0];
-	Texture.INV_UV=[0,1,1.0,1,1.0,0.0,0,0.0];
-	Texture._rect1=new Rectangle();
-	Texture._rect2=new Rectangle();
+        Texture.DEF_UV = [0, 0, 1.0, 0, 1.0, 1.0, 0, 1.0];
+        Texture.INV_UV = [0, 1, 1.0, 1, 1.0, 0.0, 0, 0.0];
+        Texture._rect1 = new Rectangle();
+        Texture._rect2 = new Rectangle();
 	return Texture;
 })(EventDispatcher)
 
@@ -20365,11 +20447,27 @@ var CSSStyle=(function(_super){
 		}
 	}
 
-	CSSStyle.EMPTY=new CSSStyle(null);
-	CSSStyle._CSSTOVALUE={'letter-spacing':'letterSpacing','line-spacing':'lineSpacing','white-space':'whiteSpace','line-height':'lineHeight','scale-x':'scaleX','scale-y':'scaleY','translate-x':'translateX','translate-y':'translateY','font-family':'fontFamily','font-weight':'fontWeight','vertical-align':'valign','text-decoration':'textDecoration','background-color':'backgroundColor','border-color':'borderColor','float':'cssFloat'};
-	CSSStyle._parseCSSRegExp=new RegExp("([\.\#]\\w+)\\s*{([\\s\\S]*?)}","g");
-	CSSStyle._aligndef={'left':0,'center':1,'right':2,0:'left',1:'center',2:'right'};
-	CSSStyle._valigndef={'top':0,'middle':1,'bottom':2,0:'top',1:'middle',2:'bottom'};
+        CSSStyle.EMPTY = new CSSStyle(null);
+        CSSStyle._CSSTOVALUE = {
+            'letter-spacing': 'letterSpacing',
+            'line-spacing': 'lineSpacing',
+            'white-space': 'whiteSpace',
+            'line-height': 'lineHeight',
+            'scale-x': 'scaleX',
+            'scale-y': 'scaleY',
+            'translate-x': 'translateX',
+            'translate-y': 'translateY',
+            'font-family': 'fontFamily',
+            'font-weight': 'fontWeight',
+            'vertical-align': 'valign',
+            'text-decoration': 'textDecoration',
+            'background-color': 'backgroundColor',
+            'border-color': 'borderColor',
+            'float': 'cssFloat'
+        };
+        CSSStyle._parseCSSRegExp = new RegExp("([\.\#]\\w+)\\s*{([\\s\\S]*?)}", "g");
+        CSSStyle._aligndef = {'left': 0, 'center': 1, 'right': 2, 0: 'left', 1: 'center', 2: 'right'};
+        CSSStyle._valigndef = {'top': 0, 'middle': 1, 'bottom': 2, 0: 'top', 1: 'middle', 2: 'bottom'};
 	CSSStyle.styleSheets={};
 	CSSStyle.ALIGN_CENTER=1;
 	CSSStyle.ALIGN_RIGHT=2;
@@ -20379,10 +20477,10 @@ var CSSStyle=(function(_super){
 	CSSStyle._DISPLAY_NONE=0x2;
 	CSSStyle._ABSOLUTE=0x4;
 	CSSStyle._WIDTH_SET=0x8;
-	CSSStyle._PADDING=[0,0,0,0];
-	CSSStyle._RECT=[-1,-1,-1,-1];
-	CSSStyle._SPACING=[0,0];
-	CSSStyle._ALIGNS=[0,0,0];
+        CSSStyle._PADDING = [0, 0, 0, 0];
+        CSSStyle._RECT = [-1, -1, -1, -1];
+        CSSStyle._SPACING = [0, 0];
+        CSSStyle._ALIGNS = [0, 0, 0];
 	CSSStyle.ADDLAYOUTED=0x200;
 	CSSStyle._NEWFONT=0x1000;
 	CSSStyle._HEIGHT_SET=0x2000;
@@ -25685,8 +25783,8 @@ var BlockView=(function(_super){
 		this.curArr=null;
 		BlockView.__super.call(this);
 		this.imgDic=new Dictionary;
-		this.width=100 *5;
-		this.height=100 *5;
+        this.width = 100 * 5;
+        this.height = 100 * 5;
 		this.update();
 		this.on("click",this,this.onClick);
 		BlockView.ins=this;
@@ -25707,7 +25805,7 @@ var BlockView=(function(_super){
 				var img=Pool.getItemByClass("Image",Image);
 				img.size(size,size);
 				img.mouseEnabled=true;
-				img.pivot(size / 2,size / 2);
+                img.pivot(size / 2, size / 2);
 				img.mouseEnabled=true;
 				var point=Pool.getItemByClass("Point",Point);
 				point.x=i;
@@ -25715,13 +25813,13 @@ var BlockView=(function(_super){
 				this.imgDic.set(img,point);
 				switch (this.curArr[i][j]){
 					case 1:
-						img.pos(j *size+size / 2,i *size+size / 2);
-						img.skin='resources/block1.png';
+                        img.pos(j * size + size / 2, i * size + size / 2);
+                        img.skin = 'resources/block1.png';
 						this.addChild(img);
 						break ;
 					case 2:
-						img.pos(j *size+size / 2,i *size+size / 2);
-						img.skin='resources/block2.png';
+                        img.pos(j * size + size / 2, i * size + size / 2);
+                        img.skin = 'resources/block2.png';
 						this.addChild(img);
 						break ;
 					}
@@ -25736,7 +25834,7 @@ var BlockView=(function(_super){
 		if (index < 0)return;
 		var target=this.imgDic.keys[index];
 		var point=this.imgDic.values[index];
-		Tween.to(target,{scaleX:0.65,scaleY:0.65},100,Ease.linearNone,Handler.create(null,function(){
+        Tween.to(target, {scaleX: 0.65, scaleY: 0.65}, 100, Ease.linearNone, Handler.create(null, function () {
 			Tween.to(target,{scaleX:1,scaleY:1},100,Ease.linearNone,Handler.create(null,function(){
 				var row=point.x;
 				var col=point.y;
@@ -25749,7 +25847,7 @@ var BlockView=(function(_super){
 	/**重置砖块 */
 	__proto.recoverBlock=function(){
 		var dicLen=this.imgDic.keys.length;
-		for (var j=0;j < dicLen;j++){
+        for (var j = 0; j < dicLen; j++) {
 			var img=this.imgDic.keys[j];
 			img.skin="";
 			Pool.recover("Image",img.removeSelf());
@@ -25769,21 +25867,22 @@ var BlockView=(function(_super){
 	// TODO 暂时未使用 有待于逻辑优化，img不一定每次都要回收
 	__proto.update2=function(){
 		var arr=BlockModel.ins.mapArr;
-		for (var i=0,iLen=arr.length;i < iLen;i++){
-			for (var j=0;j < arr[i].length;j++){
-				if (this.curArr){}
+        for (var i = 0, iLen = arr.length; i < iLen; i++) {
+            for (var j = 0; j < arr[i].length; j++) {
+                if (this.curArr) {
+                }
 					}
 		}
 	}
 
 	__getset(0,__proto,'width',_super.prototype._$get_width,function(value){
-		if (this.width==value)return;
+        if (this.width == value) return;
 		Laya.superSet(Component,this,'width',value);
 		this.updatePos();
 	});
 
 	__getset(0,__proto,'height',_super.prototype._$get_height,function(value){
-		if (this.height==value)return;
+        if (this.height == value) return;
 		Laya.superSet(Component,this,'height',value);
 		this.updatePos();
 	});
@@ -25793,30 +25892,31 @@ var BlockView=(function(_super){
 })(Component)
 
 
-/**
-*<code>Box</code> 类是一个控件容器类。
-*/
+    /**
+     *<code>Box</code> 类是一个控件容器类。
+     */
 //class laya.ui.Box extends laya.ui.Component
-var Box=(function(_super){
-	function Box(){
-		Box.__super.call(this);;
-	}
+    var Box = (function (_super) {
+        function Box() {
+            Box.__super.call(this);
+            ;
+        }
 
-	__class(Box,'laya.ui.Box',_super);
-	var __proto=Box.prototype;
-	Laya.imps(__proto,{"laya.ui.IBox":true})
-	/**@inheritDoc */
-	__getset(0,__proto,'dataSource',_super.prototype._$get_dataSource,function(value){
-		this._dataSource=value;
-		for (var name in value){
-			var comp=this.getChildByName(name);
-			if (comp)comp.dataSource=value[name];
-			else if (this.hasOwnProperty(name)&& !((typeof (this[name])=='function')))this[name]=value[name];
-		}
-	});
+        __class(Box, 'laya.ui.Box', _super);
+        var __proto = Box.prototype;
+        Laya.imps(__proto, {"laya.ui.IBox": true})
+        /**@inheritDoc */
+        __getset(0, __proto, 'dataSource', _super.prototype._$get_dataSource, function (value) {
+            this._dataSource = value;
+            for (var name in value) {
+                var comp = this.getChildByName(name);
+                if (comp) comp.dataSource = value[name];
+                else if (this.hasOwnProperty(name) && !((typeof (this[name]) == 'function'))) this[name] = value[name];
+            }
+        });
 
-	return Box;
-})(Component)
+        return Box;
+    })(Component)
 
 
 /**
@@ -32959,999 +33059,1001 @@ var Tree=(function(_super){
 })(Box)
 
 
-/**
-*<code>LayoutBox</code> 是一个布局容器类。
-*/
+    /**
+     *<code>LayoutBox</code> 是一个布局容器类。
+     */
 //class laya.ui.LayoutBox extends laya.ui.Box
-var LayoutBox=(function(_super){
-	function LayoutBox(){
-		/**@private */
-		this._space=0;
-		/**@private */
-		this._align="none";
-		/**@private */
-		this._itemChanged=false;
-		LayoutBox.__super.call(this);
-	}
+    var LayoutBox = (function (_super) {
+        function LayoutBox() {
+            /**@private */
+            this._space = 0;
+            /**@private */
+            this._align = "none";
+            /**@private */
+            this._itemChanged = false;
+            LayoutBox.__super.call(this);
+        }
 
-	__class(LayoutBox,'laya.ui.LayoutBox',_super);
-	var __proto=LayoutBox.prototype;
-	/**@inheritDoc */
-	__proto.addChild=function(child){
-		child.on("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.addChild.call(this,child);
-	}
+        __class(LayoutBox, 'laya.ui.LayoutBox', _super);
+        var __proto = LayoutBox.prototype;
+        /**@inheritDoc */
+        __proto.addChild = function (child) {
+            child.on("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.addChild.call(this, child);
+        }
 
-	__proto.onResize=function(e){
-		this._setItemChanged();
-	}
+        __proto.onResize = function (e) {
+            this._setItemChanged();
+        }
 
-	/**@inheritDoc */
-	__proto.addChildAt=function(child,index){
-		child.on("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.addChildAt.call(this,child,index);
-	}
+        /**@inheritDoc */
+        __proto.addChildAt = function (child, index) {
+            child.on("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.addChildAt.call(this, child, index);
+        }
 
-	/**@inheritDoc */
-	__proto.removeChild=function(child){
-		child.off("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.removeChild.call(this,child);
-	}
+        /**@inheritDoc */
+        __proto.removeChild = function (child) {
+            child.off("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.removeChild.call(this, child);
+        }
 
-	/**@inheritDoc */
-	__proto.removeChildAt=function(index){
-		this.getChildAt(index).off("resize",this,this.onResize);
-		this._setItemChanged();
-		return laya.display.Node.prototype.removeChildAt.call(this,index);
-	}
+        /**@inheritDoc */
+        __proto.removeChildAt = function (index) {
+            this.getChildAt(index).off("resize", this, this.onResize);
+            this._setItemChanged();
+            return laya.display.Node.prototype.removeChildAt.call(this, index);
+        }
 
-	/**刷新。*/
-	__proto.refresh=function(){
-		this._setItemChanged();
-	}
+        /**刷新。*/
+        __proto.refresh = function () {
+            this._setItemChanged();
+        }
 
-	/**
-	*改变子对象的布局。
-	*/
-	__proto.changeItems=function(){
-		this._itemChanged=false;
-	}
+        /**
+         *改变子对象的布局。
+         */
+        __proto.changeItems = function () {
+            this._itemChanged = false;
+        }
 
-	/**
-	*排序项目列表。可通过重写改变默认排序规则。
-	*@param items 项目列表。
-	*/
-	__proto.sortItem=function(items){
-		if (items)items.sort(function(a,b){return a.y-b.y;});
-	}
+        /**
+         *排序项目列表。可通过重写改变默认排序规则。
+         *@param items 项目列表。
+         */
+        __proto.sortItem = function (items) {
+            if (items) items.sort(function (a, b) {
+                return a.y - b.y;
+            });
+        }
 
-	__proto._setItemChanged=function(){
-		if (!this._itemChanged){
-			this._itemChanged=true;
-			this.callLater(this.changeItems);
-		}
-	}
+        __proto._setItemChanged = function () {
+            if (!this._itemChanged) {
+                this._itemChanged = true;
+                this.callLater(this.changeItems);
+            }
+        }
 
-	/**子对象的间隔。*/
-	__getset(0,__proto,'space',function(){
-		return this._space;
-		},function(value){
-		this._space=value;
-		this._setItemChanged();
-	});
+        /**子对象的间隔。*/
+        __getset(0, __proto, 'space', function () {
+            return this._space;
+        }, function (value) {
+            this._space = value;
+            this._setItemChanged();
+        });
 
-	/**子对象对齐方式。*/
-	__getset(0,__proto,'align',function(){
-		return this._align;
-		},function(value){
-		this._align=value;
-		this._setItemChanged();
-	});
+        /**子对象对齐方式。*/
+        __getset(0, __proto, 'align', function () {
+            return this._align;
+        }, function (value) {
+            this._align = value;
+            this._setItemChanged();
+        });
 
-	return LayoutBox;
-})(Box)
+        return LayoutBox;
+    })(Box)
 
 
-/**
-*<code>Panel</code> 是一个面板容器类。
-*/
+    /**
+     *<code>Panel</code> 是一个面板容器类。
+     */
 //class laya.ui.Panel extends laya.ui.Box
-var Panel=(function(_super){
-	function Panel(){
-		/**@private */
-		this._content=null;
-		/**@private */
-		this._vScrollBar=null;
-		/**@private */
-		this._hScrollBar=null;
-		/**@private */
-		this._scrollChanged=false;
-		Panel.__super.call(this);
-		this.width=this.height=100;
-	}
+    var Panel = (function (_super) {
+        function Panel() {
+            /**@private */
+            this._content = null;
+            /**@private */
+            this._vScrollBar = null;
+            /**@private */
+            this._hScrollBar = null;
+            /**@private */
+            this._scrollChanged = false;
+            Panel.__super.call(this);
+            this.width = this.height = 100;
+        }
 
-	__class(Panel,'laya.ui.Panel',_super);
-	var __proto=Panel.prototype;
-	/**@inheritDoc */
-	__proto.destroy=function(destroyChild){
-		(destroyChild===void 0)&& (destroyChild=true);
-		laya.ui.Component.prototype.destroy.call(this,destroyChild);
-		this._content && this._content.destroy(destroyChild);
-		this._vScrollBar && this._vScrollBar.destroy(destroyChild);
-		this._hScrollBar && this._hScrollBar.destroy(destroyChild);
-		this._vScrollBar=null;
-		this._hScrollBar=null;
-		this._content=null;
-	}
+        __class(Panel, 'laya.ui.Panel', _super);
+        var __proto = Panel.prototype;
+        /**@inheritDoc */
+        __proto.destroy = function (destroyChild) {
+            (destroyChild === void 0) && (destroyChild = true);
+            laya.ui.Component.prototype.destroy.call(this, destroyChild);
+            this._content && this._content.destroy(destroyChild);
+            this._vScrollBar && this._vScrollBar.destroy(destroyChild);
+            this._hScrollBar && this._hScrollBar.destroy(destroyChild);
+            this._vScrollBar = null;
+            this._hScrollBar = null;
+            this._content = null;
+        }
 
-	/**@inheritDoc */
-	__proto.destroyChildren=function(){
-		this._content.destroyChildren();
-	}
+        /**@inheritDoc */
+        __proto.destroyChildren = function () {
+            this._content.destroyChildren();
+        }
 
-	/**@inheritDoc */
-	__proto.createChildren=function(){
-		laya.display.Node.prototype.addChild.call(this,this._content=new Box());
-	}
+        /**@inheritDoc */
+        __proto.createChildren = function () {
+            laya.display.Node.prototype.addChild.call(this, this._content = new Box());
+        }
 
-	/**@inheritDoc */
-	__proto.addChild=function(child){
-		child.on("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.addChild(child);
-	}
+        /**@inheritDoc */
+        __proto.addChild = function (child) {
+            child.on("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.addChild(child);
+        }
 
-	/**
-	*@private
-	*子对象的 <code>Event.RESIZE</code> 事件侦听处理函数。
-	*/
-	__proto.onResize=function(){
-		this._setScrollChanged();
-	}
+        /**
+         *@private
+         *子对象的 <code>Event.RESIZE</code> 事件侦听处理函数。
+         */
+        __proto.onResize = function () {
+            this._setScrollChanged();
+        }
 
-	/**@inheritDoc */
-	__proto.addChildAt=function(child,index){
-		child.on("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.addChildAt(child,index);
-	}
+        /**@inheritDoc */
+        __proto.addChildAt = function (child, index) {
+            child.on("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.addChildAt(child, index);
+        }
 
-	/**@inheritDoc */
-	__proto.removeChild=function(child){
-		child.off("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.removeChild(child);
-	}
+        /**@inheritDoc */
+        __proto.removeChild = function (child) {
+            child.off("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.removeChild(child);
+        }
 
-	/**@inheritDoc */
-	__proto.removeChildAt=function(index){
-		this.getChildAt(index).off("resize",this,this.onResize);
-		this._setScrollChanged();
-		return this._content.removeChildAt(index);
-	}
+        /**@inheritDoc */
+        __proto.removeChildAt = function (index) {
+            this.getChildAt(index).off("resize", this, this.onResize);
+            this._setScrollChanged();
+            return this._content.removeChildAt(index);
+        }
 
-	/**@inheritDoc */
-	__proto.removeChildren=function(beginIndex,endIndex){
-		(beginIndex===void 0)&& (beginIndex=0);
-		(endIndex===void 0)&& (endIndex=0x7fffffff);
-		for (var i=this._content.numChildren-1;i >-1;i--){
-			this._content.removeChildAt(i);
-		}
-		this._setScrollChanged();
-		return this;
-	}
+        /**@inheritDoc */
+        __proto.removeChildren = function (beginIndex, endIndex) {
+            (beginIndex === void 0) && (beginIndex = 0);
+            (endIndex === void 0) && (endIndex = 0x7fffffff);
+            for (var i = this._content.numChildren - 1; i > -1; i--) {
+                this._content.removeChildAt(i);
+            }
+            this._setScrollChanged();
+            return this;
+        }
 
-	/**@inheritDoc */
-	__proto.getChildAt=function(index){
-		return this._content.getChildAt(index);
-	}
+        /**@inheritDoc */
+        __proto.getChildAt = function (index) {
+            return this._content.getChildAt(index);
+        }
 
-	/**@inheritDoc */
-	__proto.getChildByName=function(name){
-		return this._content.getChildByName(name);
-	}
+        /**@inheritDoc */
+        __proto.getChildByName = function (name) {
+            return this._content.getChildByName(name);
+        }
 
-	/**@inheritDoc */
-	__proto.getChildIndex=function(child){
-		return this._content.getChildIndex(child);
-	}
+        /**@inheritDoc */
+        __proto.getChildIndex = function (child) {
+            return this._content.getChildIndex(child);
+        }
 
-	/**@private */
-	__proto.changeScroll=function(){
-		this._scrollChanged=false;
-		var contentW=this.contentWidth || 1;
-		var contentH=this.contentHeight || 1;
-		var vscroll=this._vScrollBar;
-		var hscroll=this._hScrollBar;
-		var vShow=vscroll && contentH > this._height;
-		var hShow=hscroll && contentW > this._width;
-		var showWidth=vShow ? this._width-vscroll.width :this._width;
-		var showHeight=hShow ? this._height-hscroll.height :this._height;
-		if (vscroll){
-			vscroll.x=this._width-vscroll.width;
-			vscroll.y=0;
-			vscroll.height=this._height-(hShow ? hscroll.height :0);
-			vscroll.scrollSize=Math.max(this._height *0.033,1);
-			vscroll.thumbPercent=showHeight / contentH;
-			vscroll.setScroll(0,contentH-showHeight,vscroll.value);
-		}
-		if (hscroll){
-			hscroll.x=0;
-			hscroll.y=this._height-hscroll.height;
-			hscroll.width=this._width-(vShow ? vscroll.width :0);
-			hscroll.scrollSize=Math.max(this._width *0.033,1);
-			hscroll.thumbPercent=showWidth / contentW;
-			hscroll.setScroll(0,contentW-showWidth,hscroll.value);
-		}
-	}
+        /**@private */
+        __proto.changeScroll = function () {
+            this._scrollChanged = false;
+            var contentW = this.contentWidth || 1;
+            var contentH = this.contentHeight || 1;
+            var vscroll = this._vScrollBar;
+            var hscroll = this._hScrollBar;
+            var vShow = vscroll && contentH > this._height;
+            var hShow = hscroll && contentW > this._width;
+            var showWidth = vShow ? this._width - vscroll.width : this._width;
+            var showHeight = hShow ? this._height - hscroll.height : this._height;
+            if (vscroll) {
+                vscroll.x = this._width - vscroll.width;
+                vscroll.y = 0;
+                vscroll.height = this._height - (hShow ? hscroll.height : 0);
+                vscroll.scrollSize = Math.max(this._height * 0.033, 1);
+                vscroll.thumbPercent = showHeight / contentH;
+                vscroll.setScroll(0, contentH - showHeight, vscroll.value);
+            }
+            if (hscroll) {
+                hscroll.x = 0;
+                hscroll.y = this._height - hscroll.height;
+                hscroll.width = this._width - (vShow ? vscroll.width : 0);
+                hscroll.scrollSize = Math.max(this._width * 0.033, 1);
+                hscroll.thumbPercent = showWidth / contentW;
+                hscroll.setScroll(0, contentW - showWidth, hscroll.value);
+            }
+        }
 
-	/**@inheritDoc */
-	__proto.changeSize=function(){
-		laya.ui.Component.prototype.changeSize.call(this);
-		this.setContentSize(this._width,this._height);
-	}
+        /**@inheritDoc */
+        __proto.changeSize = function () {
+            laya.ui.Component.prototype.changeSize.call(this);
+            this.setContentSize(this._width, this._height);
+        }
 
-	/**
-	*@private
-	*设置内容的宽度、高度（以像素为单位）。
-	*@param width 宽度。
-	*@param height 高度。
-	*/
-	__proto.setContentSize=function(width,height){
-		var content=this._content;
-		content.width=width;
-		content.height=height;
-		content.scrollRect || (content.scrollRect=new Rectangle());
-		content.scrollRect.setTo(0,0,width,height);
-		content.scrollRect=content.scrollRect;
-	}
+        /**
+         *@private
+         *设置内容的宽度、高度（以像素为单位）。
+         *@param width 宽度。
+         *@param height 高度。
+         */
+        __proto.setContentSize = function (width, height) {
+            var content = this._content;
+            content.width = width;
+            content.height = height;
+            content.scrollRect || (content.scrollRect = new Rectangle());
+            content.scrollRect.setTo(0, 0, width, height);
+            content.scrollRect = content.scrollRect;
+        }
 
-	/**
-	*@private
-	*滚动条的<code><code>Event.MOUSE_DOWN</code>事件侦听处理函数。</code>事件侦听处理函数。
-	*@param scrollBar 滚动条对象。
-	*@param e Event 对象。
-	*/
-	__proto.onScrollBarChange=function(scrollBar){
-		var rect=this._content.scrollRect;
-		if (rect){
-			var start=Math.round(scrollBar.value);
-			scrollBar.isVertical ? rect.y=start :rect.x=start;
-			this._content.scrollRect=rect;
-		}
-	}
+        /**
+         *@private
+         *滚动条的<code><code>Event.MOUSE_DOWN</code>事件侦听处理函数。</code>事件侦听处理函数。
+         *@param scrollBar 滚动条对象。
+         *@param e Event 对象。
+         */
+        __proto.onScrollBarChange = function (scrollBar) {
+            var rect = this._content.scrollRect;
+            if (rect) {
+                var start = Math.round(scrollBar.value);
+                scrollBar.isVertical ? rect.y = start : rect.x = start;
+                this._content.scrollRect = rect;
+            }
+        }
 
-	/**
-	*<p>滚动内容容器至设定的垂直、水平方向滚动条位置。</p>
-	*@param x 水平方向滚动条属性value值。滚动条位置数字。
-	*@param y 垂直方向滚动条属性value值。滚动条位置数字。
-	*/
-	__proto.scrollTo=function(x,y){
-		(x===void 0)&& (x=0);
-		(y===void 0)&& (y=0);
-		if (this.vScrollBar)this.vScrollBar.value=y;
-		if (this.hScrollBar)this.hScrollBar.value=x;
-	}
+        /**
+         *<p>滚动内容容器至设定的垂直、水平方向滚动条位置。</p>
+         *@param x 水平方向滚动条属性value值。滚动条位置数字。
+         *@param y 垂直方向滚动条属性value值。滚动条位置数字。
+         */
+        __proto.scrollTo = function (x, y) {
+            (x === void 0) && (x = 0);
+            (y === void 0) && (y = 0);
+            if (this.vScrollBar) this.vScrollBar.value = y;
+            if (this.hScrollBar) this.hScrollBar.value = x;
+        }
 
-	/**
-	*刷新滚动内容。
-	*/
-	__proto.refresh=function(){
-		this.changeScroll();
-	}
+        /**
+         *刷新滚动内容。
+         */
+        __proto.refresh = function () {
+            this.changeScroll();
+        }
 
-	__proto.onScrollStart=function(){
-		this._$P.cacheAs || (this._$P.cacheAs=Laya.superGet(Box,this,'cacheAs'));
-		Laya.superSet(Box,this,'cacheAs',"none");
-		this._hScrollBar && this._hScrollBar.once("end",this,this.onScrollEnd);
-		this._vScrollBar && this._vScrollBar.once("end",this,this.onScrollEnd);
-	}
+        __proto.onScrollStart = function () {
+            this._$P.cacheAs || (this._$P.cacheAs = Laya.superGet(Box, this, 'cacheAs'));
+            Laya.superSet(Box, this, 'cacheAs', "none");
+            this._hScrollBar && this._hScrollBar.once("end", this, this.onScrollEnd);
+            this._vScrollBar && this._vScrollBar.once("end", this, this.onScrollEnd);
+        }
 
-	__proto.onScrollEnd=function(){
-		Laya.superSet(Box,this,'cacheAs',this._$P.cacheAs);
-	}
+        __proto.onScrollEnd = function () {
+            Laya.superSet(Box, this, 'cacheAs', this._$P.cacheAs);
+        }
 
-	/**@private */
-	__proto._setScrollChanged=function(){
-		if (!this._scrollChanged){
-			this._scrollChanged=true;
-			this.callLater(this.changeScroll);
-		}
-	}
+        /**@private */
+        __proto._setScrollChanged = function () {
+            if (!this._scrollChanged) {
+                this._scrollChanged = true;
+                this.callLater(this.changeScroll);
+            }
+        }
 
-	/**@inheritDoc */
-	__getset(0,__proto,'numChildren',function(){
-		return this._content.numChildren;
-	});
+        /**@inheritDoc */
+        __getset(0, __proto, 'numChildren', function () {
+            return this._content.numChildren;
+        });
 
-	/**
-	*水平方向滚动条皮肤。
-	*/
-	__getset(0,__proto,'hScrollBarSkin',function(){
-		return this._hScrollBar ? this._hScrollBar.skin :null;
-		},function(value){
-		if (this._hScrollBar==null){
-			laya.display.Node.prototype.addChild.call(this,this._hScrollBar=new HScrollBar());
-			this._hScrollBar.on("change",this,this.onScrollBarChange,[this._hScrollBar]);
-			this._hScrollBar.target=this._content;
-			this._setScrollChanged();
-		}
-		this._hScrollBar.skin=value;
-	});
+        /**
+         *水平方向滚动条皮肤。
+         */
+        __getset(0, __proto, 'hScrollBarSkin', function () {
+            return this._hScrollBar ? this._hScrollBar.skin : null;
+        }, function (value) {
+            if (this._hScrollBar == null) {
+                laya.display.Node.prototype.addChild.call(this, this._hScrollBar = new HScrollBar());
+                this._hScrollBar.on("change", this, this.onScrollBarChange, [this._hScrollBar]);
+                this._hScrollBar.target = this._content;
+                this._setScrollChanged();
+            }
+            this._hScrollBar.skin = value;
+        });
 
-	/**
-	*@private
-	*获取内容宽度（以像素为单位）。
-	*/
-	__getset(0,__proto,'contentWidth',function(){
-		var max=0;
-		for (var i=this._content.numChildren-1;i >-1;i--){
-			var comp=this._content.getChildAt(i);
-			max=Math.max(comp.x+comp.width *comp.scaleX,max);
-		}
-		return max;
-	});
+        /**
+         *@private
+         *获取内容宽度（以像素为单位）。
+         */
+        __getset(0, __proto, 'contentWidth', function () {
+            var max = 0;
+            for (var i = this._content.numChildren - 1; i > -1; i--) {
+                var comp = this._content.getChildAt(i);
+                max = Math.max(comp.x + comp.width * comp.scaleX, max);
+            }
+            return max;
+        });
 
-	/**
-	*@private
-	*获取内容高度（以像素为单位）。
-	*/
-	__getset(0,__proto,'contentHeight',function(){
-		var max=0;
-		for (var i=this._content.numChildren-1;i >-1;i--){
-			var comp=this._content.getChildAt(i);
-			max=Math.max(comp.y+comp.height *comp.scaleY,max);
-		}
-		return max;
-	});
+        /**
+         *@private
+         *获取内容高度（以像素为单位）。
+         */
+        __getset(0, __proto, 'contentHeight', function () {
+            var max = 0;
+            for (var i = this._content.numChildren - 1; i > -1; i--) {
+                var comp = this._content.getChildAt(i);
+                max = Math.max(comp.y + comp.height * comp.scaleY, max);
+            }
+            return max;
+        });
 
-	/**
-	*@inheritDoc
-	*/
-	__getset(0,__proto,'width',_super.prototype._$get_width,function(value){
-		Laya.superSet(Box,this,'width',value);
-		this._setScrollChanged();
-	});
+        /**
+         *@inheritDoc
+         */
+        __getset(0, __proto, 'width', _super.prototype._$get_width, function (value) {
+            Laya.superSet(Box, this, 'width', value);
+            this._setScrollChanged();
+        });
 
-	/**
-	*水平方向滚动条对象。
-	*/
-	__getset(0,__proto,'hScrollBar',function(){
-		return this._hScrollBar;
-	});
+        /**
+         *水平方向滚动条对象。
+         */
+        __getset(0, __proto, 'hScrollBar', function () {
+            return this._hScrollBar;
+        });
 
-	/**
-	*获取内容容器对象。
-	*/
-	__getset(0,__proto,'content',function(){
-		return this._content;
-	});
+        /**
+         *获取内容容器对象。
+         */
+        __getset(0, __proto, 'content', function () {
+            return this._content;
+        });
 
-	/**@inheritDoc */
-	__getset(0,__proto,'height',_super.prototype._$get_height,function(value){
-		Laya.superSet(Box,this,'height',value);
-		this._setScrollChanged();
-	});
+        /**@inheritDoc */
+        __getset(0, __proto, 'height', _super.prototype._$get_height, function (value) {
+            Laya.superSet(Box, this, 'height', value);
+            this._setScrollChanged();
+        });
 
-	/**
-	*垂直方向滚动条皮肤。
-	*/
-	__getset(0,__proto,'vScrollBarSkin',function(){
-		return this._vScrollBar ? this._vScrollBar.skin :null;
-		},function(value){
-		if (this._vScrollBar==null){
-			laya.display.Node.prototype.addChild.call(this,this._vScrollBar=new VScrollBar());
-			this._vScrollBar.on("change",this,this.onScrollBarChange,[this._vScrollBar]);
-			this._vScrollBar.target=this._content;
-			this._setScrollChanged();
-		}
-		this._vScrollBar.skin=value;
-	});
+        /**
+         *垂直方向滚动条皮肤。
+         */
+        __getset(0, __proto, 'vScrollBarSkin', function () {
+            return this._vScrollBar ? this._vScrollBar.skin : null;
+        }, function (value) {
+            if (this._vScrollBar == null) {
+                laya.display.Node.prototype.addChild.call(this, this._vScrollBar = new VScrollBar());
+                this._vScrollBar.on("change", this, this.onScrollBarChange, [this._vScrollBar]);
+                this._vScrollBar.target = this._content;
+                this._setScrollChanged();
+            }
+            this._vScrollBar.skin = value;
+        });
 
-	/**
-	*垂直方向滚动条对象。
-	*/
-	__getset(0,__proto,'vScrollBar',function(){
-		return this._vScrollBar;
-	});
+        /**
+         *垂直方向滚动条对象。
+         */
+        __getset(0, __proto, 'vScrollBar', function () {
+            return this._vScrollBar;
+        });
 
-	/**@inheritDoc */
-	__getset(0,__proto,'cacheAs',_super.prototype._$get_cacheAs,function(value){
-		Laya.superSet(Box,this,'cacheAs',value);
-		this._$P.cacheAs=null;
-		if (value!=="none"){
-			this._hScrollBar && this._hScrollBar.on("start",this,this.onScrollStart);
-			this._vScrollBar && this._vScrollBar.on("start",this,this.onScrollStart);
-			}else {
-			this._hScrollBar && this._hScrollBar.off("start",this,this.onScrollStart);
-			this._vScrollBar && this._vScrollBar.off("start",this,this.onScrollStart);
-		}
-	});
+        /**@inheritDoc */
+        __getset(0, __proto, 'cacheAs', _super.prototype._$get_cacheAs, function (value) {
+            Laya.superSet(Box, this, 'cacheAs', value);
+            this._$P.cacheAs = null;
+            if (value !== "none") {
+                this._hScrollBar && this._hScrollBar.on("start", this, this.onScrollStart);
+                this._vScrollBar && this._vScrollBar.on("start", this, this.onScrollStart);
+            } else {
+                this._hScrollBar && this._hScrollBar.off("start", this, this.onScrollStart);
+                this._vScrollBar && this._vScrollBar.off("start", this, this.onScrollStart);
+            }
+        });
 
-	return Panel;
-})(Box)
+        return Panel;
+    })(Box)
 
 
-/**
-*<code>Group</code> 是一个可以自动布局的项集合控件。
-*<p> <code>Group</code> 的默认项对象为 <code>Button</code> 类实例。
-*<code>Group</code> 是 <code>Tab</code> 和 <code>RadioGroup</code> 的基类。</p>
-*/
+    /**
+     *<code>Group</code> 是一个可以自动布局的项集合控件。
+     *<p> <code>Group</code> 的默认项对象为 <code>Button</code> 类实例。
+     *<code>Group</code> 是 <code>Tab</code> 和 <code>RadioGroup</code> 的基类。</p>
+     */
 //class laya.ui.UIGroup extends laya.ui.Box
-var UIGroup=(function(_super){
-	function UIGroup(labels,skin){
-		/**
-		*改变 <code>Group</code> 的选择项时执行的处理器，(默认返回参数： 项索引（index:int）)。
-		*/
-		this.selectHandler=null;
-		/**@private */
-		this._items=null;
-		/**@private */
-		this._selectedIndex=-1;
-		/**@private */
-		this._skin=null;
-		/**@private */
-		this._direction="horizontal";
-		/**@private */
-		this._space=0;
-		/**@private */
-		this._labels=null;
-		/**@private */
-		this._labelColors=null;
-		/**@private */
-		this._labelFont=null;
-		/**@private */
-		this._labelStrokeColor=null;
-		/**@private */
-		this._strokeColors=null;
-		/**@private */
-		this._labelStroke=NaN;
-		/**@private */
-		this._labelSize=0;
-		/**@private */
-		this._labelBold=false;
-		/**@private */
-		this._labelPadding=null;
-		/**@private */
-		this._labelAlign=null;
-		/**@private */
-		this._stateNum=0;
-		/**@private */
-		this._labelChanged=false;
-		UIGroup.__super.call(this);
-		this.skin=skin;
-		this.labels=labels;
-	}
+    var UIGroup = (function (_super) {
+        function UIGroup(labels, skin) {
+            /**
+             *改变 <code>Group</code> 的选择项时执行的处理器，(默认返回参数： 项索引（index:int）)。
+             */
+            this.selectHandler = null;
+            /**@private */
+            this._items = null;
+            /**@private */
+            this._selectedIndex = -1;
+            /**@private */
+            this._skin = null;
+            /**@private */
+            this._direction = "horizontal";
+            /**@private */
+            this._space = 0;
+            /**@private */
+            this._labels = null;
+            /**@private */
+            this._labelColors = null;
+            /**@private */
+            this._labelFont = null;
+            /**@private */
+            this._labelStrokeColor = null;
+            /**@private */
+            this._strokeColors = null;
+            /**@private */
+            this._labelStroke = NaN;
+            /**@private */
+            this._labelSize = 0;
+            /**@private */
+            this._labelBold = false;
+            /**@private */
+            this._labelPadding = null;
+            /**@private */
+            this._labelAlign = null;
+            /**@private */
+            this._stateNum = 0;
+            /**@private */
+            this._labelChanged = false;
+            UIGroup.__super.call(this);
+            this.skin = skin;
+            this.labels = labels;
+        }
 
-	__class(UIGroup,'laya.ui.UIGroup',_super);
-	var __proto=UIGroup.prototype;
-	Laya.imps(__proto,{"laya.ui.IItem":true})
-	/**@inheritDoc */
-	__proto.preinitialize=function(){
-		this.mouseEnabled=true;
-	}
+        __class(UIGroup, 'laya.ui.UIGroup', _super);
+        var __proto = UIGroup.prototype;
+        Laya.imps(__proto, {"laya.ui.IItem": true})
+        /**@inheritDoc */
+        __proto.preinitialize = function () {
+            this.mouseEnabled = true;
+        }
 
-	/**@inheritDoc */
-	__proto.destroy=function(destroyChild){
-		(destroyChild===void 0)&& (destroyChild=true);
-		laya.ui.Component.prototype.destroy.call(this,destroyChild);
-		this._items && (this._items.length=0);
-		this._items=null;
-		this.selectHandler=null;
-	}
+        /**@inheritDoc */
+        __proto.destroy = function (destroyChild) {
+            (destroyChild === void 0) && (destroyChild = true);
+            laya.ui.Component.prototype.destroy.call(this, destroyChild);
+            this._items && (this._items.length = 0);
+            this._items = null;
+            this.selectHandler = null;
+        }
 
-	/**
-	*添加一个项对象，返回此项对象的索引id。
-	*
-	*@param item 需要添加的项对象。
-	*@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
-	*@return
-	*/
-	__proto.addItem=function(item,autoLayOut){
-		(autoLayOut===void 0)&& (autoLayOut=true);
-		var display=item;
-		var index=this._items.length;
-		display.name="item"+index;
-		this.addChild(display);
-		this.initItems();
-		if (autoLayOut && index > 0){
-			var preItem=this._items [index-1];
-			if (this._direction=="horizontal"){
-				display.x=preItem.x+preItem.width+this._space;
-				}else {
-				display.y=preItem.y+preItem.height+this._space;
-			}
-			}else {
-			if (autoLayOut){
-				display.x=0;
-				display.y=0;
-			}
-		}
-		return index;
-	}
+        /**
+         *添加一个项对象，返回此项对象的索引id。
+         *
+         *@param item 需要添加的项对象。
+         *@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
+         *@return
+         */
+        __proto.addItem = function (item, autoLayOut) {
+            (autoLayOut === void 0) && (autoLayOut = true);
+            var display = item;
+            var index = this._items.length;
+            display.name = "item" + index;
+            this.addChild(display);
+            this.initItems();
+            if (autoLayOut && index > 0) {
+                var preItem = this._items [index - 1];
+                if (this._direction == "horizontal") {
+                    display.x = preItem.x + preItem.width + this._space;
+                } else {
+                    display.y = preItem.y + preItem.height + this._space;
+                }
+            } else {
+                if (autoLayOut) {
+                    display.x = 0;
+                    display.y = 0;
+                }
+            }
+            return index;
+        }
 
-	/**
-	*删除一个项对象。
-	*@param item 需要删除的项对象。
-	*@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
-	*/
-	__proto.delItem=function(item,autoLayOut){
-		(autoLayOut===void 0)&& (autoLayOut=true);
-		var index=this._items.indexOf(item);
-		if (index !=-1){
-			var display=item;
-			this.removeChild(display);
-			for (var i=index+1,n=this._items.length;i < n;i++){
-				var child=this._items [i];
-				child.name="item"+(i-1);
-				if (autoLayOut){
-					if (this._direction=="horizontal"){
-						child.x-=display.width+this._space;
-						}else {
-						child.y-=display.height+this._space;
-					}
-				}
-			}
-			this.initItems();
-			if (this._selectedIndex >-1){
-				var newIndex=0;
-				newIndex=this._selectedIndex < this._items.length ? this._selectedIndex :(this._selectedIndex-1);
-				this._selectedIndex=-1;
-				this.selectedIndex=newIndex;
-			}
-		}
-	}
+        /**
+         *删除一个项对象。
+         *@param item 需要删除的项对象。
+         *@param autoLayOut 是否自动布局，如果为true，会根据 <code>direction</code> 和 <code>space</code> 属性计算item的位置。
+         */
+        __proto.delItem = function (item, autoLayOut) {
+            (autoLayOut === void 0) && (autoLayOut = true);
+            var index = this._items.indexOf(item);
+            if (index != -1) {
+                var display = item;
+                this.removeChild(display);
+                for (var i = index + 1, n = this._items.length; i < n; i++) {
+                    var child = this._items [i];
+                    child.name = "item" + (i - 1);
+                    if (autoLayOut) {
+                        if (this._direction == "horizontal") {
+                            child.x -= display.width + this._space;
+                        } else {
+                            child.y -= display.height + this._space;
+                        }
+                    }
+                }
+                this.initItems();
+                if (this._selectedIndex > -1) {
+                    var newIndex = 0;
+                    newIndex = this._selectedIndex < this._items.length ? this._selectedIndex : (this._selectedIndex - 1);
+                    this._selectedIndex = -1;
+                    this.selectedIndex = newIndex;
+                }
+            }
+        }
 
-	/**
-	*初始化项对象们。
-	*/
-	__proto.initItems=function(){
-		this._items || (this._items=[]);
-		this._items.length=0;
-		for (var i=0;i < 10000;i++){
-			var item=this.getChildByName("item"+i);
-			if (item==null)break ;
-			this._items.push(item);
-			item.selected=(i===this._selectedIndex);
-			item.clickHandler=Handler.create(this,this.itemClick,[i],false);
-		}
-	}
+        /**
+         *初始化项对象们。
+         */
+        __proto.initItems = function () {
+            this._items || (this._items = []);
+            this._items.length = 0;
+            for (var i = 0; i < 10000; i++) {
+                var item = this.getChildByName("item" + i);
+                if (item == null) break;
+                this._items.push(item);
+                item.selected = (i === this._selectedIndex);
+                item.clickHandler = Handler.create(this, this.itemClick, [i], false);
+            }
+        }
 
-	/**
-	*@private
-	*项对象的点击事件侦听处理函数。
-	*@param index 项索引。
-	*/
-	__proto.itemClick=function(index){
-		this.selectedIndex=index;
-	}
+        /**
+         *@private
+         *项对象的点击事件侦听处理函数。
+         *@param index 项索引。
+         */
+        __proto.itemClick = function (index) {
+            this.selectedIndex = index;
+        }
 
-	/**
-	*@private
-	*通过对象的索引设置项对象的 <code>selected</code> 属性值。
-	*@param index 需要设置的项对象的索引。
-	*@param selected 表示项对象的选中状态。
-	*/
-	__proto.setSelect=function(index,selected){
-		if (this._items && index >-1 && index < this._items.length)this._items[index].selected=selected;
-	}
+        /**
+         *@private
+         *通过对象的索引设置项对象的 <code>selected</code> 属性值。
+         *@param index 需要设置的项对象的索引。
+         *@param selected 表示项对象的选中状态。
+         */
+        __proto.setSelect = function (index, selected) {
+            if (this._items && index > -1 && index < this._items.length) this._items[index].selected = selected;
+        }
 
-	/**
-	*@private
-	*创建一个项显示对象。
-	*@param skin 项对象的皮肤。
-	*@param label 项对象标签。
-	*/
-	__proto.createItem=function(skin,label){
-		return null;
-	}
+        /**
+         *@private
+         *创建一个项显示对象。
+         *@param skin 项对象的皮肤。
+         *@param label 项对象标签。
+         */
+        __proto.createItem = function (skin, label) {
+            return null;
+        }
 
-	/**
-	*@private
-	*更改项对象的属性值。
-	*/
-	__proto.changeLabels=function(){
-		this._labelChanged=false;
-		if (this._items){
-			var left=0
-			for (var i=0,n=this._items.length;i < n;i++){
-				var btn=this._items [i];
-				this._skin && (btn.skin=this._skin);
-				this._labelColors && (btn.labelColors=this._labelColors);
-				this._labelSize && (btn.labelSize=this._labelSize);
-				this._labelStroke && (btn.labelStroke=this._labelStroke);
-				this._labelStrokeColor && (btn.labelStrokeColor=this._labelStrokeColor);
-				this._strokeColors && (btn.strokeColors=this._strokeColors);
-				this._labelBold && (btn.labelBold=this._labelBold);
-				this._labelPadding && (btn.labelPadding=this._labelPadding);
-				this._labelAlign && (btn.labelAlign=this._labelAlign);
-				this._stateNum && (btn.stateNum=this._stateNum);
-				this._labelFont && (btn.labelFont=this._labelFont);
-				if (this._direction==="horizontal"){
-					btn.y=0;
-					btn.x=left;
-					left+=btn.width+this._space;
-					}else {
-					btn.x=0;
-					btn.y=left;
-					left+=btn.height+this._space;
-				}
-			}
-		}
-		this.changeSize();
-	}
+        /**
+         *@private
+         *更改项对象的属性值。
+         */
+        __proto.changeLabels = function () {
+            this._labelChanged = false;
+            if (this._items) {
+                var left = 0
+                for (var i = 0, n = this._items.length; i < n; i++) {
+                    var btn = this._items [i];
+                    this._skin && (btn.skin = this._skin);
+                    this._labelColors && (btn.labelColors = this._labelColors);
+                    this._labelSize && (btn.labelSize = this._labelSize);
+                    this._labelStroke && (btn.labelStroke = this._labelStroke);
+                    this._labelStrokeColor && (btn.labelStrokeColor = this._labelStrokeColor);
+                    this._strokeColors && (btn.strokeColors = this._strokeColors);
+                    this._labelBold && (btn.labelBold = this._labelBold);
+                    this._labelPadding && (btn.labelPadding = this._labelPadding);
+                    this._labelAlign && (btn.labelAlign = this._labelAlign);
+                    this._stateNum && (btn.stateNum = this._stateNum);
+                    this._labelFont && (btn.labelFont = this._labelFont);
+                    if (this._direction === "horizontal") {
+                        btn.y = 0;
+                        btn.x = left;
+                        left += btn.width + this._space;
+                    } else {
+                        btn.x = 0;
+                        btn.y = left;
+                        left += btn.height + this._space;
+                    }
+                }
+            }
+            this.changeSize();
+        }
 
-	/**@inheritDoc */
-	__proto.commitMeasure=function(){
-		this.runCallLater(this.changeLabels);
-	}
+        /**@inheritDoc */
+        __proto.commitMeasure = function () {
+            this.runCallLater(this.changeLabels);
+        }
 
-	/**@private */
-	__proto._setLabelChanged=function(){
-		if (!this._labelChanged){
-			this._labelChanged=true;
-			this.callLater(this.changeLabels);
-		}
-	}
+        /**@private */
+        __proto._setLabelChanged = function () {
+            if (!this._labelChanged) {
+                this._labelChanged = true;
+                this.callLater(this.changeLabels);
+            }
+        }
 
-	/**
-	*<p>描边颜色，以字符串表示。</p>
-	*默认值为 "#000000"（黑色）;
-	*@see laya.display.Text.strokeColor()
-	*/
-	__getset(0,__proto,'labelStrokeColor',function(){
-		return this._labelStrokeColor;
-		},function(value){
-		if (this._labelStrokeColor !=value){
-			this._labelStrokeColor=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *<p>描边颜色，以字符串表示。</p>
+         *默认值为 "#000000"（黑色）;
+         *@see laya.display.Text.strokeColor()
+         */
+        __getset(0, __proto, 'labelStrokeColor', function () {
+            return this._labelStrokeColor;
+        }, function (value) {
+            if (this._labelStrokeColor != value) {
+                this._labelStrokeColor = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*@copy laya.ui.Image#skin
-	*/
-	__getset(0,__proto,'skin',function(){
-		return this._skin;
-		},function(value){
-		if (this._skin !=value){
-			this._skin=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *@copy laya.ui.Image#skin
+         */
+        __getset(0, __proto, 'skin', function () {
+            return this._skin;
+        }, function (value) {
+            if (this._skin != value) {
+                this._skin = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*表示当前选择的项索引。默认值为-1。
-	*/
-	__getset(0,__proto,'selectedIndex',function(){
-		return this._selectedIndex;
-		},function(value){
-		if (this._selectedIndex !=value){
-			this.setSelect(this._selectedIndex,false);
-			this._selectedIndex=value;
-			this.setSelect(value,true);
-			this.event("change");
-			this.selectHandler && this.selectHandler.runWith(this._selectedIndex);
-		}
-	});
+        /**
+         *表示当前选择的项索引。默认值为-1。
+         */
+        __getset(0, __proto, 'selectedIndex', function () {
+            return this._selectedIndex;
+        }, function (value) {
+            if (this._selectedIndex != value) {
+                this.setSelect(this._selectedIndex, false);
+                this._selectedIndex = value;
+                this.setSelect(value, true);
+                this.event("change");
+                this.selectHandler && this.selectHandler.runWith(this._selectedIndex);
+            }
+        });
 
-	/**
-	*标签集合字符串。以逗号做分割，如"item0,item1,item2,item3,item4,item5"。
-	*/
-	__getset(0,__proto,'labels',function(){
-		return this._labels;
-		},function(value){
-		if (this._labels !=value){
-			this._labels=value;
-			this.removeChildren();
-			this._setLabelChanged();
-			if (this._labels){
-				var a=this._labels.split(",");
-				for (var i=0,n=a.length;i < n;i++){
-					var item=this.createItem(this._skin,a[i]);
-					item.name="item"+i;
-					this.addChild(item);
-				}
-			}
-			this.initItems();
-		}
-	});
+        /**
+         *标签集合字符串。以逗号做分割，如"item0,item1,item2,item3,item4,item5"。
+         */
+        __getset(0, __proto, 'labels', function () {
+            return this._labels;
+        }, function (value) {
+            if (this._labels != value) {
+                this._labels = value;
+                this.removeChildren();
+                this._setLabelChanged();
+                if (this._labels) {
+                    var a = this._labels.split(",");
+                    for (var i = 0, n = a.length; i < n; i++) {
+                        var item = this.createItem(this._skin, a[i]);
+                        item.name = "item" + i;
+                        this.addChild(item);
+                    }
+                }
+                this.initItems();
+            }
+        });
 
-	/**
-	*<p>表示各个状态下的描边颜色。</p>
-	*@see laya.display.Text.strokeColor()
-	*/
-	__getset(0,__proto,'strokeColors',function(){
-		return this._strokeColors;
-		},function(value){
-		if (this._strokeColors !=value){
-			this._strokeColors=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *<p>表示各个状态下的描边颜色。</p>
+         *@see laya.display.Text.strokeColor()
+         */
+        __getset(0, __proto, 'strokeColors', function () {
+            return this._strokeColors;
+        }, function (value) {
+            if (this._strokeColors != value) {
+                this._strokeColors = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*@copy laya.ui.Button#labelColors()
-	*/
-	__getset(0,__proto,'labelColors',function(){
-		return this._labelColors;
-		},function(value){
-		if (this._labelColors !=value){
-			this._labelColors=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *@copy laya.ui.Button#labelColors()
+         */
+        __getset(0, __proto, 'labelColors', function () {
+            return this._labelColors;
+        }, function (value) {
+            if (this._labelColors != value) {
+                this._labelColors = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*<p>描边宽度（以像素为单位）。</p>
-	*默认值0，表示不描边。
-	*@see laya.display.Text.stroke()
-	*/
-	__getset(0,__proto,'labelStroke',function(){
-		return this._labelStroke;
-		},function(value){
-		if (this._labelStroke !=value){
-			this._labelStroke=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *<p>描边宽度（以像素为单位）。</p>
+         *默认值0，表示不描边。
+         *@see laya.display.Text.stroke()
+         */
+        __getset(0, __proto, 'labelStroke', function () {
+            return this._labelStroke;
+        }, function (value) {
+            if (this._labelStroke != value) {
+                this._labelStroke = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*表示按钮文本标签的字体大小。
-	*/
-	__getset(0,__proto,'labelSize',function(){
-		return this._labelSize;
-		},function(value){
-		if (this._labelSize !=value){
-			this._labelSize=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *表示按钮文本标签的字体大小。
+         */
+        __getset(0, __proto, 'labelSize', function () {
+            return this._labelSize;
+        }, function (value) {
+            if (this._labelSize != value) {
+                this._labelSize = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*表示按钮的状态值，以数字表示，默认为3态。
-	*@see laya.ui.Button#stateNum
-	*/
-	__getset(0,__proto,'stateNum',function(){
-		return this._stateNum;
-		},function(value){
-		if (this._stateNum !=value){
-			this._stateNum=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *表示按钮的状态值，以数字表示，默认为3态。
+         *@see laya.ui.Button#stateNum
+         */
+        __getset(0, __proto, 'stateNum', function () {
+            return this._stateNum;
+        }, function (value) {
+            if (this._stateNum != value) {
+                this._stateNum = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*表示按钮文本标签是否为粗体字。
-	*/
-	__getset(0,__proto,'labelBold',function(){
-		return this._labelBold;
-		},function(value){
-		if (this._labelBold !=value){
-			this._labelBold=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *表示按钮文本标签是否为粗体字。
+         */
+        __getset(0, __proto, 'labelBold', function () {
+            return this._labelBold;
+        }, function (value) {
+            if (this._labelBold != value) {
+                this._labelBold = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*表示按钮文本标签的字体名称，以字符串形式表示。
-	*@see laya.display.Text.font()
-	*/
-	__getset(0,__proto,'labelFont',function(){
-		return this._labelFont;
-		},function(value){
-		if (this._labelFont !=value){
-			this._labelFont=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *表示按钮文本标签的字体名称，以字符串形式表示。
+         *@see laya.display.Text.font()
+         */
+        __getset(0, __proto, 'labelFont', function () {
+            return this._labelFont;
+        }, function (value) {
+            if (this._labelFont != value) {
+                this._labelFont = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*表示按钮文本标签的边距。
-	*<p><b>格式：</b>"上边距,右边距,下边距,左边距"。</p>
-	*/
-	__getset(0,__proto,'labelPadding',function(){
-		return this._labelPadding;
-		},function(value){
-		if (this._labelPadding !=value){
-			this._labelPadding=value;
-			this._setLabelChanged();
-		}
-	});
+        /**
+         *表示按钮文本标签的边距。
+         *<p><b>格式：</b>"上边距,右边距,下边距,左边距"。</p>
+         */
+        __getset(0, __proto, 'labelPadding', function () {
+            return this._labelPadding;
+        }, function (value) {
+            if (this._labelPadding != value) {
+                this._labelPadding = value;
+                this._setLabelChanged();
+            }
+        });
 
-	/**
-	*布局方向。
-	*<p>默认值为"horizontal"。</p>
-	*<p><b>取值：</b>
-	*<li>"horizontal"：表示水平布局。</li>
-	*<li>"vertical"：表示垂直布局。</li>
-	*</p>
-	*/
-	__getset(0,__proto,'direction',function(){
-		return this._direction;
-		},function(value){
-		this._direction=value;
-		this._setLabelChanged();
-	});
+        /**
+         *布局方向。
+         *<p>默认值为"horizontal"。</p>
+         *<p><b>取值：</b>
+         *<li>"horizontal"：表示水平布局。</li>
+         *<li>"vertical"：表示垂直布局。</li>
+         *</p>
+         */
+        __getset(0, __proto, 'direction', function () {
+            return this._direction;
+        }, function (value) {
+            this._direction = value;
+            this._setLabelChanged();
+        });
 
-	/**
-	*项对象们之间的间隔（以像素为单位）。
-	*/
-	__getset(0,__proto,'space',function(){
-		return this._space;
-		},function(value){
-		this._space=value;
-		this._setLabelChanged();
-	});
+        /**
+         *项对象们之间的间隔（以像素为单位）。
+         */
+        __getset(0, __proto, 'space', function () {
+            return this._space;
+        }, function (value) {
+            this._space = value;
+            this._setLabelChanged();
+        });
 
-	/**
-	*项对象们的存放数组。
-	*/
-	__getset(0,__proto,'items',function(){
-		return this._items;
-	});
+        /**
+         *项对象们的存放数组。
+         */
+        __getset(0, __proto, 'items', function () {
+            return this._items;
+        });
 
-	/**
-	*获取或设置当前选择的项对象。
-	*/
-	__getset(0,__proto,'selection',function(){
-		return this._selectedIndex >-1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] :null;
-		},function(value){
-		this.selectedIndex=this._items.indexOf(value);
-	});
+        /**
+         *获取或设置当前选择的项对象。
+         */
+        __getset(0, __proto, 'selection', function () {
+            return this._selectedIndex > -1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] : null;
+        }, function (value) {
+            this.selectedIndex = this._items.indexOf(value);
+        });
 
-	/**@inheritDoc */
-	__getset(0,__proto,'dataSource',_super.prototype._$get_dataSource,function(value){
-		this._dataSource=value;
-		if (((typeof value=='number')&& Math.floor(value)==value)|| (typeof value=='string'))this.selectedIndex=parseInt(value);
-		else if ((value instanceof Array))this.labels=(value).join(",");
-		else Laya.superSet(Box,this,'dataSource',value);
-	});
+        /**@inheritDoc */
+        __getset(0, __proto, 'dataSource', _super.prototype._$get_dataSource, function (value) {
+            this._dataSource = value;
+            if (((typeof value == 'number') && Math.floor(value) == value) || (typeof value == 'string')) this.selectedIndex = parseInt(value);
+            else if ((value instanceof Array)) this.labels = (value).join(",");
+            else Laya.superSet(Box, this, 'dataSource', value);
+        });
 
-	return UIGroup;
-})(Box)
+        return UIGroup;
+    })(Box)
 
 
-/**
-*<code>ViewStack</code> 类用于视图堆栈类，用于视图的显示等设置处理。
-*/
+    /**
+     *<code>ViewStack</code> 类用于视图堆栈类，用于视图的显示等设置处理。
+     */
 //class laya.ui.ViewStack extends laya.ui.Box
-var ViewStack=(function(_super){
-	function ViewStack(){
-		/**@private */
-		this._items=null;
-		/**@private */
-		this._selectedIndex=0;
-		ViewStack.__super.call(this);
-		this._setIndexHandler=Handler.create(this,this.setIndex,null,false);
-	}
+    var ViewStack = (function (_super) {
+        function ViewStack() {
+            /**@private */
+            this._items = null;
+            /**@private */
+            this._selectedIndex = 0;
+            ViewStack.__super.call(this);
+            this._setIndexHandler = Handler.create(this, this.setIndex, null, false);
+        }
 
-	__class(ViewStack,'laya.ui.ViewStack',_super);
-	var __proto=ViewStack.prototype;
-	Laya.imps(__proto,{"laya.ui.IItem":true})
-	/**
-	*批量设置视图对象。
-	*@param views 视图对象数组。
-	*/
-	__proto.setItems=function(views){
-		this.removeChildren();
-		var index=0;
-		for (var i=0,n=views.length;i < n;i++){
-			var item=views[i];
-			if (item){
-				item.name="item"+index;
-				this.addChild(item);
-				index++;
-			}
-		}
-		this.initItems();
-	}
+        __class(ViewStack, 'laya.ui.ViewStack', _super);
+        var __proto = ViewStack.prototype;
+        Laya.imps(__proto, {"laya.ui.IItem": true})
+        /**
+         *批量设置视图对象。
+         *@param views 视图对象数组。
+         */
+        __proto.setItems = function (views) {
+            this.removeChildren();
+            var index = 0;
+            for (var i = 0, n = views.length; i < n; i++) {
+                var item = views[i];
+                if (item) {
+                    item.name = "item" + index;
+                    this.addChild(item);
+                    index++;
+                }
+            }
+            this.initItems();
+        }
 
-	/**
-	*添加视图。
-	*@internal 添加视图对象，并设置此视图对象的<code>name</code> 属性。
-	*@param view 需要添加的视图对象。
-	*/
-	__proto.addItem=function(view){
-		view.name="item"+this._items.length;
-		this.addChild(view);
-		this.initItems();
-	}
+        /**
+         *添加视图。
+         *@internal 添加视图对象，并设置此视图对象的<code>name</code> 属性。
+         *@param view 需要添加的视图对象。
+         */
+        __proto.addItem = function (view) {
+            view.name = "item" + this._items.length;
+            this.addChild(view);
+            this.initItems();
+        }
 
-	/**
-	*初始化视图对象集合。
-	*/
-	__proto.initItems=function(){
-		this._items=[];
-		for (var i=0;i < 10000;i++){
-			var item=this.getChildByName("item"+i);
-			if (item==null){
-				break ;
-			}
-			this._items.push(item);
-			item.visible=(i==this._selectedIndex);
-		}
-	}
+        /**
+         *初始化视图对象集合。
+         */
+        __proto.initItems = function () {
+            this._items = [];
+            for (var i = 0; i < 10000; i++) {
+                var item = this.getChildByName("item" + i);
+                if (item == null) {
+                    break;
+                }
+                this._items.push(item);
+                item.visible = (i == this._selectedIndex);
+            }
+        }
 
-	/**
-	*@private
-	*通过对象的索引设置项对象的 <code>selected</code> 属性值。
-	*@param index 需要设置的对象的索引。
-	*@param selected 表示对象的选中状态。
-	*/
-	__proto.setSelect=function(index,selected){
-		if (this._items && index >-1 && index < this._items.length){
-			this._items[index].visible=selected;
-		}
-	}
+        /**
+         *@private
+         *通过对象的索引设置项对象的 <code>selected</code> 属性值。
+         *@param index 需要设置的对象的索引。
+         *@param selected 表示对象的选中状态。
+         */
+        __proto.setSelect = function (index, selected) {
+            if (this._items && index > -1 && index < this._items.length) {
+                this._items[index].visible = selected;
+            }
+        }
 
-	/**
-	*@private
-	*设置属性<code>selectedIndex</code>的值。
-	*@param index 选中项索引值。
-	*/
-	__proto.setIndex=function(index){
-		this.selectedIndex=index;
-	}
+        /**
+         *@private
+         *设置属性<code>selectedIndex</code>的值。
+         *@param index 选中项索引值。
+         */
+        __proto.setIndex = function (index) {
+            this.selectedIndex = index;
+        }
 
-	/**@inheritDoc */
-	__getset(0,__proto,'dataSource',_super.prototype._$get_dataSource,function(value){
-		this._dataSource=value;
-		if (((typeof value=='number')&& Math.floor(value)==value)|| (typeof value=='string')){
-			this.selectedIndex=parseInt(value);
-			}else {
-			for (var prop in this._dataSource){
-				if (this.hasOwnProperty(prop)){
-					this[prop]=this._dataSource[prop];
-				}
-			}
-		}
-	});
+        /**@inheritDoc */
+        __getset(0, __proto, 'dataSource', _super.prototype._$get_dataSource, function (value) {
+            this._dataSource = value;
+            if (((typeof value == 'number') && Math.floor(value) == value) || (typeof value == 'string')) {
+                this.selectedIndex = parseInt(value);
+            } else {
+                for (var prop in this._dataSource) {
+                    if (this.hasOwnProperty(prop)) {
+                        this[prop] = this._dataSource[prop];
+                    }
+                }
+            }
+        });
 
-	/**
-	*表示当前视图索引。
-	*/
-	__getset(0,__proto,'selectedIndex',function(){
-		return this._selectedIndex;
-		},function(value){
-		if (this._selectedIndex !=value){
-			this.setSelect(this._selectedIndex,false);
-			this._selectedIndex=value;
-			this.setSelect(this._selectedIndex,true);
-		}
-	});
+        /**
+         *表示当前视图索引。
+         */
+        __getset(0, __proto, 'selectedIndex', function () {
+            return this._selectedIndex;
+        }, function (value) {
+            if (this._selectedIndex != value) {
+                this.setSelect(this._selectedIndex, false);
+                this._selectedIndex = value;
+                this.setSelect(this._selectedIndex, true);
+            }
+        });
 
-	/**
-	*获取或设置当前选择的项对象。
-	*/
-	__getset(0,__proto,'selection',function(){
-		return this._selectedIndex >-1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] :null;
-		},function(value){
-		this.selectedIndex=this._items.indexOf(value);
-	});
+        /**
+         *获取或设置当前选择的项对象。
+         */
+        __getset(0, __proto, 'selection', function () {
+            return this._selectedIndex > -1 && this._selectedIndex < this._items.length ? this._items[this._selectedIndex] : null;
+        }, function (value) {
+            this.selectedIndex = this._items.indexOf(value);
+        });
 
-	/**
-	*视图集合数组。
-	*/
-	__getset(0,__proto,'items',function(){
-		return this._items;
-	});
+        /**
+         *视图集合数组。
+         */
+        __getset(0, __proto, 'items', function () {
+            return this._items;
+        });
 
-	/**
-	*索引设置处理器。
-	*<p>默认回调参数：index:int</p>
-	*/
-	__getset(0,__proto,'setIndexHandler',function(){
-		return this._setIndexHandler;
-		},function(value){
-		this._setIndexHandler=value;
-	});
+        /**
+         *索引设置处理器。
+         *<p>默认回调参数：index:int</p>
+         */
+        __getset(0, __proto, 'setIndexHandler', function () {
+            return this._setIndexHandler;
+        }, function (value) {
+            this._setIndexHandler = value;
+        });
 
-	return ViewStack;
-})(Box)
+        return ViewStack;
+    })(Box)
 
 
 /**
@@ -36467,13 +36569,13 @@ var TextInput=(function(_super){
 })(Label)
 
 
-/**
-*使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
-*<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
-*
-*@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
-*package
-*{
+    /**
+     *使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
+     *<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
+     *
+     *@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
+     *package
+     *{
 	*import laya.ui.HSlider;
 	*import laya.ui.VSlider;
 	*import laya.utils.Handler;
@@ -36505,12 +36607,12 @@ var TextInput=(function(_super){
 			*}
 		*}
 	*}
-*@example
-*Laya.init(640,800);//设置游戏画布宽高
-*Laya.stage.bgColor="#efefef";//设置画布的背景颜色
-*var vSlider;
-*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
-*function onLoadComplete(){
+     *@example
+     *Laya.init(640,800);//设置游戏画布宽高
+     *Laya.stage.bgColor="#efefef";//设置画布的背景颜色
+     *var vSlider;
+     *Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
+     *function onLoadComplete(){
 	*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
 	*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
 	*vSlider.min=0;//设置 vSlider 最低位置值。
@@ -36522,14 +36624,14 @@ var TextInput=(function(_super){
 	*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
 	*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
 	*}
-*function onChange(value){
+     *function onChange(value){
 	*console.log("滑块的位置： value="+value);
 	*}
-*@example
-*import HSlider=laya.ui.HSlider;
-*import VSlider=laya.ui.VSlider;
-*import Handler=laya.utils.Handler;
-*class VSlider_Example {
+     *@example
+     *import HSlider=laya.ui.HSlider;
+     *import VSlider=laya.ui.VSlider;
+     *import Handler=laya.utils.Handler;
+     *class VSlider_Example {
 	*private vSlider:VSlider;
 	*constructor(){
 		*Laya.init(640,800);//设置游戏画布宽高。
@@ -36552,17 +36654,18 @@ var TextInput=(function(_super){
 		*console.log("滑块的位置： value="+value);
 		*}
 	*}
-*@see laya.ui.Slider
-*/
+     *@see laya.ui.Slider
+     */
 //class laya.ui.VSlider extends laya.ui.Slider
-var VSlider=(function(_super){
-	function VSlider(){
-		VSlider.__super.call(this);;
-	}
+    var VSlider = (function (_super) {
+        function VSlider() {
+            VSlider.__super.call(this);
+            ;
+        }
 
-	__class(VSlider,'laya.ui.VSlider',_super);
-	return VSlider;
-})(Slider)
+        __class(VSlider, 'laya.ui.VSlider', _super);
+        return VSlider;
+    })(Slider)
 
 
 /**
@@ -37033,12 +37136,14 @@ var GraphicAnimation=(function(_super){
 		return rst;
 	}
 
-	GraphicAnimation._drawTextureCmd=[["skin",null],["x",0],["y",0],["width",-1],["height",-1],["pivotX",0],["pivotY",0],["scaleX",1],["scaleY",1],["rotation",0],["alpha",1],["skewX",0],["skewY",0],["anchorX",0],["anchorY",0]];
+        GraphicAnimation._drawTextureCmd = [["skin", null], ["x", 0], ["y", 0], ["width", -1], ["height", -1], ["pivotX", 0], ["pivotY", 0], ["scaleX", 1], ["scaleY", 1], ["rotation", 0], ["alpha", 1], ["skewX", 0], ["skewY", 0], ["anchorX", 0], ["anchorY", 0]];
 	GraphicAnimation._temParam=[];
 	GraphicAnimation._I=null;
 	GraphicAnimation._rootMatrix=null;
 	__static(GraphicAnimation,
-	['_tempMt',function(){return this._tempMt=new Matrix();}
+        ['_tempMt', function () {
+            return this._tempMt = new Matrix();
+        }
 	]);
 	GraphicAnimation.__init$=function(){
 		//class GraphicNode
@@ -37080,23 +37185,55 @@ var GraphicAnimation=(function(_super){
 
 
 //class ui.EnterVIewUI extends laya.ui.View
-var EnterVIewUI=(function(_super){
-	function EnterVIewUI(){
-		this.btnLevelMode=null;
-		this.btnEndlessMode=null;
-		EnterVIewUI.__super.call(this);
-	}
+    var EnterVIewUI = (function (_super) {
+        function EnterVIewUI() {
+            this.btnLevelMode = null;
+            this.btnEndlessMode = null;
+            EnterVIewUI.__super.call(this);
+        }
 
-	__class(EnterVIewUI,'ui.EnterVIewUI',_super);
-	var __proto=EnterVIewUI.prototype;
-	__proto.createChildren=function(){
-		laya.ui.Component.prototype.createChildren.call(this);
-		this.createView(EnterVIewUI.uiView);
-	}
+        __class(EnterVIewUI, 'ui.EnterVIewUI', _super);
+        var __proto = EnterVIewUI.prototype;
+        __proto.createChildren = function () {
+            laya.ui.Component.prototype.createChildren.call(this);
+            this.createView(EnterVIewUI.uiView);
+        }
 
-	EnterVIewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Image","props":{"y":0,"x":0,"width":678,"skin":"resources/background.png","height":1200}},{"type":"Image","props":{"y":107,"x":86,"skin":"resources/title.png"}},{"type":"Button","props":{"y":951,"x":92,"var":"btnLevelMode","stateNum":1,"skin":"resources/button.png","labelSize":45,"label":"关卡模式"}},{"type":"Button","props":{"y":951,"x":382,"var":"btnEndlessMode","stateNum":1,"skin":"resources/button.png","labelSize":45,"label":"无尽模式"}}]};
-	return EnterVIewUI;
-})(View)
+        EnterVIewUI.uiView = {
+            "type": "View",
+            "props": {"width": 678, "height": 1200},
+            "child": [{
+                "type": "Rect",
+                "props": {"y": 0, "x": 0, "width": 678, "lineWidth": 1, "height": 1200, "fillColor": "#fff"}
+            }, {
+                "type": "Image",
+                "props": {"y": 0, "x": 0, "width": 678, "skin": "resources/background.png", "height": 1200}
+            }, {"type": "Image", "props": {"y": 107, "x": 86, "skin": "resources/title.png"}}, {
+                "type": "Button",
+                "props": {
+                    "y": 951,
+                    "x": 92,
+                    "var": "btnLevelMode",
+                    "stateNum": 1,
+                    "skin": "resources/button.png",
+                    "labelSize": 45,
+                    "label": "关卡模式"
+                }
+            }, {
+                "type": "Button",
+                "props": {
+                    "y": 951,
+                    "x": 382,
+                    "var": "btnEndlessMode",
+                    "stateNum": 1,
+                    "skin": "resources/button.png",
+                    "labelSize": 45,
+                    "label": "无尽模式"
+                }
+            }]
+        };
+        return EnterVIewUI;
+    })(View)
 
 
 //class laya.debug.ui.debugui.comps.ListItemUI extends laya.ui.View
@@ -38178,31 +38315,31 @@ var TextArea=(function(_super){
 
 
 //class module.enter.EnterView extends ui.EnterVIewUI
-var EnterView=(function(_super){
-	function EnterView(){
-		EnterView.__super.call(this);
-		this.on("click",this,this.onclick);
-	}
+    var EnterView = (function (_super) {
+        function EnterView() {
+            EnterView.__super.call(this);
+            this.on("click", this, this.onclick);
+        }
 
-	__class(EnterView,'module.enter.EnterView',_super);
-	var __proto=EnterView.prototype;
-	__proto.onclick=function(evt){
-		switch (evt.target){
-			case this.btnLevelMode:
-				EventCenter.send("CLOSE_ENTER_VIEW");
-				EventCenter.send("OPEN_BLOCK_VIEW");
-				break ;
-			case this.btnEndlessMode:
-				EventCenter.send("CLOSE_ENTER_VIEW");
-				EventCenter.send("OPEN_BLOCK_VIEW");
-				break ;
-			default :
-				break ;
-			}
-	}
+        __class(EnterView, 'module.enter.EnterView', _super);
+        var __proto = EnterView.prototype;
+        __proto.onclick = function (evt) {
+            switch (evt.target) {
+                case this.btnLevelMode:
+                    EventCenter.send("CLOSE_ENTER_VIEW");
+                    EventCenter.send("OPEN_BLOCK_VIEW");
+                    break;
+                case this.btnEndlessMode:
+                    EventCenter.send("CLOSE_ENTER_VIEW");
+                    EventCenter.send("OPEN_BLOCK_VIEW");
+                    break;
+                default :
+                    break;
+            }
+        }
 
-	return EnterView;
-})(EnterVIewUI)
+        return EnterView;
+    })(EnterVIewUI)
 
 
 /**
@@ -38290,23 +38427,24 @@ var DebugPage=(function(_super){
 })(DebugPanelUI)
 
 
-/**
-*...
-*@author ww
-*/
+    /**
+     *...
+     *@author ww
+     */
 //class laya.debug.view.nodeInfo.nodetree.FindNodeSmall extends laya.debug.ui.debugui.FindNodeSmallUI
-var FindNodeSmall=(function(_super){
-	function FindNodeSmall(){
-		FindNodeSmall.__super.call(this);
-		Base64AtlasManager.replaceRes(FindNodeSmallUI.uiView);
-		this.createView(FindNodeSmallUI.uiView);
-	}
+    var FindNodeSmall = (function (_super) {
+        function FindNodeSmall() {
+            FindNodeSmall.__super.call(this);
+            Base64AtlasManager.replaceRes(FindNodeSmallUI.uiView);
+            this.createView(FindNodeSmallUI.uiView);
+        }
 
-	__class(FindNodeSmall,'laya.debug.view.nodeInfo.nodetree.FindNodeSmall',_super);
-	var __proto=FindNodeSmall.prototype;
-	__proto.createChildren=function(){}
-	return FindNodeSmall;
-})(FindNodeSmallUI)
+        __class(FindNodeSmall, 'laya.debug.view.nodeInfo.nodetree.FindNodeSmall', _super);
+        var __proto = FindNodeSmall.prototype;
+        __proto.createChildren = function () {
+        }
+        return FindNodeSmall;
+    })(FindNodeSmallUI)
 
 
 /**
@@ -38678,24 +38816,25 @@ var NodeTree=(function(_super){
 })(NodeTreeUI)
 
 
-/**
-*...
-*@author ww
-*/
+    /**
+     *...
+     *@author ww
+     */
 //class laya.debug.view.nodeInfo.nodetree.NodeTreeSetting extends laya.debug.ui.debugui.NodeTreeSettingUI
-var NodeTreeSetting=(function(_super){
-	function NodeTreeSetting(){
-		NodeTreeSetting.__super.call(this);
-		Base64AtlasManager.replaceRes(NodeTreeSettingUI.uiView);
-		this.createView(NodeTreeSettingUI.uiView);
-	}
+    var NodeTreeSetting = (function (_super) {
+        function NodeTreeSetting() {
+            NodeTreeSetting.__super.call(this);
+            Base64AtlasManager.replaceRes(NodeTreeSettingUI.uiView);
+            this.createView(NodeTreeSettingUI.uiView);
+        }
 
-	__class(NodeTreeSetting,'laya.debug.view.nodeInfo.nodetree.NodeTreeSetting',_super);
-	var __proto=NodeTreeSetting.prototype;
-	//inits();
-	__proto.createChildren=function(){}
-	return NodeTreeSetting;
-})(NodeTreeSettingUI)
+        __class(NodeTreeSetting, 'laya.debug.view.nodeInfo.nodetree.NodeTreeSetting', _super);
+        var __proto = NodeTreeSetting.prototype;
+        //inits();
+        __proto.createChildren = function () {
+        }
+        return NodeTreeSetting;
+    })(NodeTreeSettingUI)
 
 
 /**
@@ -38853,8 +38992,8 @@ var ToolBar=(function(_super){
 
 
 	Laya.__init([LoaderManager,EventDispatcher,Render,Browser,View,Timer,GraphicAnimation,LocalStorage]);
-	/**LayaGameStart**/
-	new GameMain();
+    /**LayaGameStart**/
+    new GameMain();
 
 })(window,document,Laya);
 

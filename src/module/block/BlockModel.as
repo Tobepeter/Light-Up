@@ -84,7 +84,7 @@ package module.block {
             randomMap([BlockConst.NONE, BlockConst.RED_BLOCK]);
             var times:int = 20;
             while (times--) {
-                 randomSwitch();
+                randomSwitch();
             }
         }
         
@@ -97,7 +97,7 @@ package module.block {
                     _mapArr[i].push(0);
                 }
             }
-            
+    
             // todo
             debugger;
             generateMap();
