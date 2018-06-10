@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="326faa28-4ced-4f4b-bfd3-e88eb7225da1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module/block/BlockModule.as" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module/enter/EnterModule.as" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module/enter/EnterView.as" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/EnterVIewUI.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/GameMain.max.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/GameMain.max.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/GameMgr.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/GameMgr.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/block/BlockModel.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockModel.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/block/BlockView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockView.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/event/EventType.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/event/EventType.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/EventCenter.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/event/EventCenter.as" afterDir="false" />
-    </list>
+    <list default="true" id="326faa28-4ced-4f4b-bfd3-e88eb7225da1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,11 +15,8 @@
       <file leaf-file-name="BlockModule.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockModule.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-              <folding>
-                <element signature="e#27#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="529">
+              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -40,17 +24,44 @@
       <file leaf-file-name="BlockModel.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+            <state relative-caret-position="506">
+              <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+              <folding>
+                <element signature="e#27#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockView.as" pinned="false" current-in-tab="true">
+      <file leaf-file-name="resources.atlas" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name=".rec" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/h5/res/atlas/.rec">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="resources.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/h5/res/atlas/resources.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="unpack.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/h5/unpack.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="48" lean-forward="true" selection-start-column="48" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockView.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="86" column="56" selection-start-line="86" selection-start-column="56" selection-end-line="86" selection-end-column="56" />
+            <state relative-caret-position="437">
+              <caret line="118" column="16" lean-forward="true" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -82,8 +93,8 @@
         <option value="$PROJECT_DIR$/src/core/GameMgr.as" />
         <option value="$PROJECT_DIR$/src/module/enter/EnterView.as" />
         <option value="$PROJECT_DIR$/src/module/enter/EnterModule.as" />
-        <option value="$PROJECT_DIR$/src/module/block/BlockModel.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockView.as" />
+        <option value="$PROJECT_DIR$/src/module/block/BlockModel.as" />
       </list>
     </option>
   </component>
@@ -133,20 +144,59 @@
               <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
               <item name="h5" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="comp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
               <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="h5" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="atlas" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
               <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -272,7 +322,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528617563741</updated>
-      <workItem from="1528617568498" duration="4204000" />
+      <workItem from="1528617568498" duration="4463000" />
     </task>
     <task id="LOCAL-00001" summary="update enterview">
       <created>1528618204141</created>
@@ -285,11 +335,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4204000" />
+    <option name="totallyTimeSpent" value="4463000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -301,7 +350,7 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" weight="0.32911393" />
+      <window_info anchor="bottom" id="Version Control" weight="0.32909784" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
@@ -324,13 +373,41 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="update enterview" />
-    <option name="LAST_COMMIT_MESSAGE" value="update enterview" />
+    <MESSAGE value="add enterview, eventcnter" />
+    <option name="LAST_COMMIT_MESSAGE" value="add enterview, eventcnter" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -423,25 +500,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/block/BlockModule.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding>
-            <element signature="e#27#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        <state relative-caret-position="529">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="86" column="56" selection-start-line="86" selection-start-column="56" selection-end-line="86" selection-end-column="56" />
+        <state relative-caret-position="437">
+          <caret line="118" column="16" lean-forward="true" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+          <folding>
+            <element signature="e#27#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/res/atlas/.rec">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/res/atlas/resources.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/unpack.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="48" lean-forward="true" selection-start-column="48" selection-end-column="48" />
         </state>
       </provider>
     </entry>
