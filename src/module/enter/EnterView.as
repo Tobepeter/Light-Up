@@ -15,11 +15,11 @@ package module.enter {
             switch (evt.target) {
                 case btnLevelMode:
                     EventCenter.send(EventType.CLOSE_ENTER_VIEW);
-                    EventCenter.send(EventType.OPEN_BLOCK_VIEW);
+                    EventCenter.send(EventType.OPEN_LEVEL_SELECT_VIEW);
                     break;
                 case btnEndlessMode:
                     EventCenter.send(EventType.CLOSE_ENTER_VIEW);
-                    EventCenter.send(EventType.OPEN_BLOCK_VIEW);
+                    EventCenter.send(EventType.OPEN_LEVEL_SELECT_VIEW);
                     break;
                 default:
                     break;

@@ -5,6 +5,7 @@ package core {
     import module.enter.EnterModule;
     import module.event.EventCenter;
     import module.event.EventType;
+    import module.levelselect.LevelSelectModule;
     
     public class GameMgr {
         private static var _ins:GameMgr;
@@ -30,6 +31,7 @@ package core {
         private static function initModule():void {
             // todo 建议一开始就进去的画面不使用module
             EnterModule.ins.addListener();
+            LevelSelectModule.ins.addListener();
             BlockModule.ins.addListener();
         }
     
