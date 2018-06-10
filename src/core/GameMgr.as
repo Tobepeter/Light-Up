@@ -1,6 +1,10 @@
 package core {
-    import module.block.BlockModel;
-    import module.block.BlockView;
+    import laya.utils.Handler;
+    
+    import module.block.BlockModule;
+    import module.enter.EnterModule;
+    import module.event.EventCenter;
+    import module.event.EventType;
     
     public class GameMgr {
         private static var _ins:GameMgr;
@@ -14,10 +18,24 @@ package core {
         }
         
         public static function start():void {
-            BlockModel.ins.generateMap();
-            var blockView:BlockView = new BlockView;
-            GameLayer.ins.mainLayer.addChild(blockView);
+            initModule();
+            
+            var complete:Handler = Handler.create(null, function ():void {
+                EventCenter.send(EventType.OPEN_ENTER_VIEW);
+            });
+            // todo 建议模块中加载
+            loadRes(complete);
         }
         
+        private static function initModule():void {
+            // todo 建议一开始就进去的画面不使用module
+            EnterModule.ins.addListener();
+            BlockModule.ins.addListener();
+        }
+        
+        private static function loadRes(complete:Handler):void {
+            var path:String = 'res/atlas/resources.atlas';
+            Laya.loader.load(path, complete);
+        }
     }
 }

@@ -48,7 +48,7 @@ package module.block {
         /** 随机地图 */
         public function randomMap(fillArr:Array):void {
             fillArr == undefined && (fillArr = [BlockConst.NONE, BlockConst.RED_BLOCK, BlockConst.WHITE_BLOCK]);
-            RandomUtils.fulfillArr(BlockModel.ins.mapArr, fillArr);
+            RandomUtils.fulfillArr(_mapArr, fillArr);
         }
         
         /** 重置地图 */
@@ -84,7 +84,7 @@ package module.block {
             randomMap([BlockConst.NONE, BlockConst.RED_BLOCK]);
             var times:int = 20;
             while (times--) {
-                randomSwitch();
+                 randomSwitch();
             }
         }
         
@@ -97,6 +97,10 @@ package module.block {
                     _mapArr[i].push(0);
                 }
             }
+            
+            // todo
+            debugger;
+            generateMap();
         }
     }
 }
