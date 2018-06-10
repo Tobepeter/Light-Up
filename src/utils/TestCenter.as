@@ -12,12 +12,27 @@ package utils {
     
     import module.block.BlockModel;
     import module.block.BlockView;
+    import laya.display.Sprite;
+    import laya.ui.Component;
     
     public class TestCenter {
+
+        /** 静态变量，可以随意访问需要的东西 */
+        public static var someThing:*;
+
         /** 测试方法，注意删除 */
         public static function test():void {
-        
+            
+
         }
+
+        /** 添加白色挡板 */
+        private static function addWhiteBg():Sprite {
+            var sp:Sprite = new Sprite;
+            sp.graphics.drawRect(0, 0, Laya.stage.desginWidth, Laya.stage.desginHeight, '#FFF');
+            Laya.stage.addChild(sp);
+            return sp;
+        };
         
         /** 随机填充地图 */
         public static function showBlockMap():void {
@@ -68,13 +83,24 @@ package utils {
             if(arr[0].length != GameConfig.H_BLCOK) {console.warn('测试水平方向长度有误'); return;}
             // -------------------
             // @formatter:on;
-            var blockArr:Array = BlockModel.ins.mapArr;
-            for (var i:int = 0; i < arr.length; i++) {
-                for (var j:int = 0; j < arr[i].length; j++) {
-                    blockArr[i][j] = arr[i][j];
-                }
-            }
-            
+
+            // 赋值数据
+            // var blockArr:Array = BlockModel.ins.mapArr;
+            // for (var i:int = 0; i < arr.length; i++) {
+            //     for (var j:int = 0; j < arr[i].length; j++) {
+            //         blockArr[i][j] = arr[i][j];
+            //     }
+            // }
+
+
+            arr = [
+                [1,2,1,0,1,2,1],
+                [1,2,1,0,1,2,1],
+                [1,2,1,0,1]
+                [1],
+                [0,2]
+            ]
+            BlockModel.ins.mapArr = arr;
             blockView.update();
         }
         
@@ -109,6 +135,19 @@ package utils {
         public static function useDebugTool():void {
             DebugTool.init();
         }
+
+        public static function uiTest():void{
+            // addWhiteBg();
+
+            // 测试centerX
+            // var comp:Component = new Component;
+            // comp.size(200, 200);
+            // comp.graphics.drawRect(0, 0, 200, 200, '#00FF00');
+            // comp.centerX = 0;
+            // comp.centerY = 0;
+            // Laya.stage.addChild(comp);
+
+        };
         
         public function TestCenter() {
             /**

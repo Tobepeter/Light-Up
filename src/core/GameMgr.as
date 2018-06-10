@@ -16,7 +16,6 @@ package core {
         public static function start():void {
             BlockModel.ins.generateMap();
             var blockView:BlockView = new BlockView;
-            blockView.update();
             GameLayer.ins.mainLayer.addChild(blockView);
         }
         

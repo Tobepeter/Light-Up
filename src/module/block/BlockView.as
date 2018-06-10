@@ -12,58 +12,56 @@ package module.block {
     import laya.utils.Dictionary;
     import laya.utils.Handler;
     import laya.utils.Ease;
+    import laya.d3.core.render.IUpdate;
+    import module.block.BlockModel;
     
     /**
      * 砖块地图界面
      */
     public class BlockView extends Component {
-        
+        public static var ins:BlockView
         public function BlockView() {
-            // todo
-            // debugger;
             width = GameConfig.BLOCK_SIZE * GameConfig.H_BLCOK;
             height = GameConfig.BLOCK_SIZE * GameConfig.V_BLOCK;
-            pivot(width / 2, height / 2);
-            pos(stage.width / 2, stage.height / 2);
-            graphics.drawRect(0, 0, width, height, null, '#000000', 2);
-            // centerX = 0;
-            // centerY = 0;
-        }
-        
-        override protected function createChildren():void {
             update();
-            // on(Event.CLICK, this, onClick);
+            on(Event.CLICK, this, onClick);
+
+            ins = this;
         }
         
-        private var imgDic:Dictionary;
+        private var imgDic:Dictionary = new Dictionary; // key:Image, value:Point
+        private var curArr:Array;
+        /**更新界面 */
         public function update():void {
             recoverBlock();
-            imgDic = new Dictionary;
-            var arr:Array = BlockModel.ins.mapArr;
+            curArr = BlockModel.ins.mapArr;
             var size:int = GameConfig.BLOCK_SIZE;
-            for (var i:int = 0; i < arr.length; i++) {
-                for (var j:int = 0; j < arr[i].length; j++) {
-                    if (arr[i][j] == BlockConst.NONE) continue;
+            height = size * curArr.length;
+            width = size * BlockModel.ins.MaxRow;
+            for (var i:int = 0, iLen:int = curArr.length; i < iLen; i++) {
+                for (var j:int = 0; j < curArr[i].length; j++) {
+                    if (curArr[i][j] == BlockConst.NONE) continue;
+
                     var img:Image = Pool.getItemByClass("Image", Image);
                     img.size(size, size);
                     img.mouseEnabled = true;
                     img.pivot(size/2, size/2);
                     img.mouseEnabled = true;
+
                     var point:Point = Pool.getItemByClass("Point", Point);
                     point.x = i;
                     point.y = j;
                     imgDic.set(img, point);
-                    img.on(Event.CLICK, this, onClick);
-                    switch (arr[i][j]) {
+
+                    // 分配img
+                    switch (curArr[i][j]) {
                         case BlockConst.RED_BLOCK:
-                            // img.pos(j * size, i * size);
                             img.pos(j * size + size/2, i * size + size/2);
                             //img.graphics.drawRect(0, 0, size, size, "#FF0000", "#000000", 1);
                             img.skin = './res/block1.png';
                             addChild(img);
                             break;
                         case BlockConst.WHITE_BLOCK:
-                            // img.pos(j * size, i * size);
                             img.pos(j * size + size/2, i * size + size/2);
                             img.skin = './res/block2.png';
                             //img.graphics.drawRect(0, 0, size, size, "#00FF00", "#000000", 1);
@@ -73,74 +71,76 @@ package module.block {
                 }
             }
         }
-        
-        private function onClick(e:Event):void {
-            if (!e.target instanceof Image) return;
-            // var point:Point = Pool.getItemByClass("Point", Point);
-            // point.x = e.stageX;
-            // point.y = e.stageY;
-            // fromParentPoint(point);
-            var point:Point = imgDic.get(e.target);
-            if(!point) return;
-            
-            // todo
-            // e.target.x+=10;
-            // e.target.scaleX *= 0.95;
-            var _this:Object = this;
-            var _target:Object = e.target;
-            Tween.to(_target, {scaleX:0.5, scaleY:0.5}, 100, Ease.linearNone, Handler.create(null, function():void{
-                 Tween.to(_target, {scaleX:1, scaleY:1}, 100, Ease.linearNone, Handler.create(_this, function():void{
-                     switchPoint();
+
+        /**点击事件 */
+        private function onClick(evt:Event):void {
+            var index:int = imgDic.keys.indexOf(evt.target);
+            if (index < 0) return;
+            var target:Image = imgDic.keys[index];
+            var point:Point = imgDic.values[index];
+
+            Tween.to(target, {scaleX:0.5, scaleY:0.5}, 100, Ease.linearNone, Handler.create(null, function():void {
+                 Tween.to(target, {scaleX:1, scaleY:1}, 100, Ease.linearNone, Handler.create(null, function():void {
+                    var row:int = point.x;
+                    var col:int = point.y;
+                    BlockModel.ins.switchPoint(row, col);
+                    update();
                  }));
             }));
-
-            function switchPoint():void {
-                // var size:int = GameConfig.BLOCK_SIZE;
-                // var line:int = point.y / size >> 0;
-                // var row:int = point.x / size >> 0;
-                // Pool.recover("Point", point);
-                var row:int = point.x;
-                var col:int = point.y;
-                BlockModel.ins.switchPoint(row, col);
-                update();
-            }
-
-            // Laya.timer.frameLoop(100, null, onLoop);
-            // var flag:Boolean = true;
-            // function onLoop():void{
-            //     if(flag) {
-            //          e.target.scaleX *= 0.95;
-            //          e.target.scaleY *= 0.95;
-            //          return;
-            //     }
-            //     if(!flag) flag = false;
-            //     if(!flag) {
-            //          e.target.scaleX /= 0.95;
-            //          e.target.scaleY /= 0.95;
-            //     }
-            //     if(e.target.scaleX >=1 || e.target.scaleY >=1) {
-            //         Laya.timer.clear(null, onLoop);
-            //         switchPoint();
-            //     }
-            // }
-
-            // switchPoint();
         }
         
+        /**重置砖块 */
         private function recoverBlock():void {
-            for (var i:int = 0, iLen:int = numChildren; i < iLen; i++) {
-                var child:Node = getChildAt(i);
-                if (child is Image) {
-                    //(child as Image).graphics.clear();
-                    //removeChild(child);
-                    Pool.recover("Point",imgDic.get(child));
-                    Pool.recover("Image", child);
-                    // imgDic.clear();
+            // 遍历dic，并且让每个img回收，pos回收
+            var dicLen:int = imgDic.keys.length;
+            for(var j:int = 0; j<dicLen; j++){
+                var img:Image = imgDic.keys[j];
+                img.skin = "";
+                Pool.recover("Image", img.removeSelf());
+                var point:Point = imgDic.values[j];
+                Pool.recover("Point", point);
+            }
+            imgDic.clear();
+        }
+
+        override public function set width(value:Number):void{
+            if(width == value) return;
+            super.width = value;
+            updatePos();
+        }
+
+        override public function set height(value:Number):void{
+            if(height == value) return;
+            super.height = value;
+            updatePos();
+        }
+
+        private function updatePos():void{
+            pivot(width / 2, height / 2);
+            pos(stage.width / 2, stage.height / 2);
+
+            // 使用一个边框
+            graphics.clear();
+            graphics.drawRect(0, 0, width, height, null, '#000000', 2);
+        };
+
+
+        // TODO 暂时未使用 有待于逻辑优化，img不一定每次都要回收
+        public function update2():void{
+            // 遍历地图arr，如果有旧arr
+            // 如果空转有，对象池取出
+            // 如果有转空，recover
+            // 如果无变化，正常赋值皮肤
+            // 如果没有旧arr,直接当无转有处理
+
+            var arr:Array = BlockModel.ins.mapArr;
+            for(var i:int=0, iLen:int=arr.length;i<iLen;i++){
+                for(var j:int=0;j<arr[i].length;j++){
+                    if(curArr){
+                        
+                    }
                 }
             }
-
-            // todo 可能不止image
-            removeChildren();
         }
     }
 }

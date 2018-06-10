@@ -471,7 +471,6 @@ var GameMgr=(function(){
 	GameMgr.start=function(){
 		BlockModel.ins.generateMap();
 		var blockView=new BlockView;
-		blockView.update();
 		GameLayer.ins.mainLayer.addChild(blockView);
 	}
 
@@ -485,7 +484,7 @@ var GameMain=(function(){
 	function GameMain(){
 		GameMain.initStage();
 		GameMgr.start();
-		TestCenter.useTest();
+		TestCenter.test();
 	}
 
 	__class(GameMain,'GameMain');
@@ -592,6 +591,16 @@ var BlockModel=(function(){
 
 	__getset(0,__proto,'mapArr',function(){
 		return this._mapArr;
+		},function(arr){
+		this._mapArr=arr;
+	});
+
+	__getset(0,__proto,'MaxRow',function(){
+		var result=0;
+		for(var i=0,iLen=this._mapArr.length;i<iLen;i++){
+			if(result < this._mapArr[i].length)result=this._mapArr[i].length;
+		}
+		return result;
 	});
 
 	__getset(1,BlockModel,'ins',function(){
@@ -939,9 +948,17 @@ var RandomUtils=(function(){
 
 //class utils.TestCenter
 var TestCenter=(function(){
+	// Laya.stage.addChild(comp);
 	function TestCenter(){}
 	__class(TestCenter,'utils.TestCenter');
 	TestCenter.test=function(){}
+	TestCenter.addWhiteBg=function(){
+		var sp=new Sprite;
+		sp.graphics.drawRect(0,0,Laya.stage.desginWidth,Laya.stage.desginHeight,'#FFF');
+		Laya.stage.addChild(sp);
+		return sp;
+	}
+
 	TestCenter.showBlockMap=function(){
 		var blockView=new BlockView;
 		GameLayer.ins.mainLayer.removeChildren();
@@ -955,10 +972,12 @@ var TestCenter=(function(){
 		GameLayer.ins.mainLayer.removeChildren();
 		GameLayer.ins.mainLayer.addChild(blockView);
 		BlockModel.ins.randomMap([0,2]);
-		Laya.timer.loop(1000,null,function(){
+		Laya.timer.clear(null,onLoop)
+		Laya.timer.loop(1000,null,onLoop);
+		function onLoop (){
 			BlockModel.ins.randomSwitch();
 			blockView.update();
-		});
+		}
 	}
 
 	TestCenter.customBlock=function(){
@@ -977,13 +996,14 @@ var TestCenter=(function(){
 		[ 1,1,1,1,1,1,1,1,1,1],
 		[ 1,1,1,1,1,1,1,1,1,1]];
 		if(arr.length !=10){console.warn('测试竖直方向长度有误');return;}
-			if(arr[0].length !=10){console.warn('测试水平方向长度有误');return;};
-		var blockArr=BlockModel.ins.mapArr;
-		for (var i=0;i < arr.length;i++){
-			for (var j=0;j < arr[i].length;j++){
-				blockArr[i][j]=arr[i][j];
-			}
-		}
+			if(arr[0].length !=10){console.warn('测试水平方向长度有误');return;}
+		arr=[
+		[1,2,1,0,1,2,1],
+		[1,2,1,0,1,2,1],
+		[1,2,1,0,1]
+		[1],
+		[0,2]]
+		BlockModel.ins.mapArr=arr;
 		blockView.update();
 	}
 
@@ -1015,6 +1035,8 @@ var TestCenter=(function(){
 		DebugTool.init();
 	}
 
+	TestCenter.uiTest=function(){}
+	TestCenter.someThing=null;
 	return TestCenter;
 })()
 
@@ -25505,31 +25527,29 @@ var HTMLCanvas=(function(_super){
 //class module.block.BlockView extends laya.ui.Component
 var BlockView=(function(_super){
 	function BlockView(){
-		// on(Event.CLICK,this,onClick);
-		this.imgDic=null;
+		// key:Image,value:Point
+		this.curArr=null;
 		BlockView.__super.call(this);
+		this.imgDic=new Dictionary;
 		this.width=100 *10;
 		this.height=100 *10;
-		this.pivot(this.width / 2,this.height / 2);
-		this.pos(this.stage.width / 2,this.stage.height / 2);
-		this.graphics.drawRect(0,0,this.width,this.height,null,'#000000',2);
+		this.update();
+		this.on("click",this,this.onClick);
+		BlockView.ins=this;
 	}
 
 	__class(BlockView,'module.block.BlockView',_super);
 	var __proto=BlockView.prototype;
-	// centerY=0;
-	__proto.createChildren=function(){
-		this.update();
-	}
-
+	/**更新界面 */
 	__proto.update=function(){
 		this.recoverBlock();
-		this.imgDic=new Dictionary;
-		var arr=BlockModel.ins.mapArr;
+		this.curArr=BlockModel.ins.mapArr;
 		var size=100;
-		for (var i=0;i < arr.length;i++){
-			for (var j=0;j < arr[i].length;j++){
-				if (arr[i][j]==0)continue ;
+		this.height=size *this.curArr.length;
+		this.width=size *BlockModel.ins.MaxRow;
+		for (var i=0,iLen=this.curArr.length;i < iLen;i++){
+			for (var j=0;j < this.curArr[i].length;j++){
+				if (this.curArr[i][j]==0)continue ;
 				var img=Pool.getItemByClass("Image",Image);
 				img.size(size,size);
 				img.mouseEnabled=true;
@@ -25539,8 +25559,7 @@ var BlockView=(function(_super){
 				point.x=i;
 				point.y=j;
 				this.imgDic.set(img,point);
-				img.on("click",this,this.onClick);
-				switch (arr[i][j]){
+				switch (this.curArr[i][j]){
 					case 1:
 						img.pos(j *size+size/2,i *size+size/2);
 						img.skin='./res/block1.png';
@@ -25556,38 +25575,66 @@ var BlockView=(function(_super){
 		}
 	}
 
-	__proto.onClick=function(e){
+	/**点击事件 */
+	__proto.onClick=function(evt){
 		var _$this=this;
-		if (!e.target instanceof Image)return;
-		var point=this.imgDic.get(e.target);
-		if(!point)return;
-		var _this=this;
-		var _target=e.target;
-		Tween.to(_target,{scaleX:0.5,scaleY:0.5},100,Ease.linearNone,Handler.create(null,function(){
-			Tween.to(_target,{scaleX:1,scaleY:1},100,Ease.linearNone,Handler.create(_this,function(){
-				switchPoint();
+		var index=this.imgDic.keys.indexOf(evt.target);
+		if (index < 0)return;
+		var target=this.imgDic.keys[index];
+		var point=this.imgDic.values[index];
+		Tween.to(target,{scaleX:0.5,scaleY:0.5},100,Ease.linearNone,Handler.create(null,function(){
+			Tween.to(target,{scaleX:1,scaleY:1},100,Ease.linearNone,Handler.create(null,function(){
+				var row=point.x;
+				var col=point.y;
+				BlockModel.ins.switchPoint(row,col);
+				_$this.update();
 			}));
 		}));
-		function switchPoint (){
-			var row=point.x;
-			var col=point.y;
-			BlockModel.ins.switchPoint(row,col);
-			_$this.update();
-		}
 	}
 
-	// switchPoint();
+	/**重置砖块 */
 	__proto.recoverBlock=function(){
-		for (var i=0,iLen=this.numChildren;i < iLen;i++){
-			var child=this.getChildAt(i);
-			if ((child instanceof laya.ui.Image )){
-				Pool.recover("Point",this.imgDic.get(child));
-				Pool.recover("Image",child);
-			}
+		var dicLen=this.imgDic.keys.length;
+		for(var j=0;j<dicLen;j++){
+			var img=this.imgDic.keys[j];
+			img.skin="";
+			Pool.recover("Image",img.removeSelf());
+			var point=this.imgDic.values[j];
+			Pool.recover("Point",point);
 		}
-		this.removeChildren();
+		this.imgDic.clear();
 	}
 
+	__proto.updatePos=function(){
+		this.pivot(this.width / 2,this.height / 2);
+		this.pos(this.stage.width / 2,this.stage.height / 2);
+		this.graphics.clear();
+		this.graphics.drawRect(0,0,this.width,this.height,null,'#000000',2);
+	}
+
+	// TODO 暂时未使用 有待于逻辑优化，img不一定每次都要回收
+	__proto.update2=function(){
+		var arr=BlockModel.ins.mapArr;
+		for(var i=0,iLen=arr.length;i<iLen;i++){
+			for(var j=0;j<arr[i].length;j++){
+				if(this.curArr){}
+					}
+		}
+	}
+
+	__getset(0,__proto,'width',_super.prototype._$get_width,function(value){
+		if(this.width==value)return;
+		Laya.superSet(Component,this,'width',value);
+		this.updatePos();
+	});
+
+	__getset(0,__proto,'height',_super.prototype._$get_height,function(value){
+		if(this.height==value)return;
+		Laya.superSet(Component,this,'height',value);
+		this.updatePos();
+	});
+
+	BlockView.ins=null;
 	return BlockView;
 })(Component)
 

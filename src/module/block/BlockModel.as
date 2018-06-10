@@ -19,6 +19,17 @@ package module.block {
         public function get mapArr():Array {
             return _mapArr;
         }
+        public function set mapArr(arr:Array):void{
+            _mapArr = arr;
+        }
+
+        public function get MaxRow():int{
+            var result:int = 0;
+            for(var i:int=0,iLen:int = _mapArr.length;i<iLen;i++){
+                if(result < _mapArr[i].length) result = _mapArr[i].length;
+            }
+            return result;
+        }
         
         /** 地图周围换色 */
         public function switchPoint(row:int, col:int):void {
