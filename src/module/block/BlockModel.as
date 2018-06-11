@@ -16,13 +16,18 @@ package module.block {
         }
         
         private var _mapArr:Array;
+    
+        /** 获取砖块地图 */
         public function get mapArr():Array {
             return _mapArr;
         }
+    
+        /** 设置砖块地图 */
         public function set mapArr(arr:Array):void{
             _mapArr = arr;
         }
-
+    
+        /** 获取最宽的一行 */
         public function get MaxRow():int{
             var result:int = 0;
             for(var i:int=0,iLen:int = _mapArr.length;i<iLen;i++){

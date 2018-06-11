@@ -27,12 +27,12 @@ package ui {
             }, {"type": "Image", "props": {"y": 707, "x": 192, "var": "nextBtn", "skin": "resources/win_button.png"}}]
         };
         public var nextBtn:Image;
-        
+    
         override protected function createChildren():void {
             super.createChildren();
             createView(uiView);
-            
-        }
         
+        }
+    
     }
 }

@@ -9,9 +9,9 @@ package utils {
     import laya.events.Event;
     import laya.events.Keyboard;
     
+    import module.block.BlockComp;
     import module.block.BlockConst;
     import module.block.BlockModel;
-    import module.block.BlockView;
     
     public class TestCenter {
 
@@ -38,7 +38,7 @@ package utils {
         
         /** 随机填充地图 */
         public static function showBlockMap():void {
-            var blockView:BlockView = new BlockView;
+            var blockView:BlockComp = new BlockComp;
             GameLayer.ins.mainLayer.removeChildren();
             GameLayer.ins.mainLayer.addChild(blockView);
             RandomUtils.fulfillArr(BlockModel.ins.mapArr, [0, 1, 2]);
@@ -47,7 +47,7 @@ package utils {
         
         /** 测试地图随机点击 */
         public static function randomClick():void {
-            var blockView:BlockView = new BlockView;
+            var blockView:BlockComp = new BlockComp;
             GameLayer.ins.mainLayer.removeChildren();
             GameLayer.ins.mainLayer.addChild(blockView);
             BlockModel.ins.randomMap([BlockConst.NONE, BlockConst.WHITE_BLOCK]);
@@ -61,7 +61,7 @@ package utils {
         
         /** 自由配置砖块 */
         public static function customBlock():void {
-            var blockView:BlockView = new BlockView;
+            var blockView:BlockComp = new BlockComp;
             GameLayer.ins.mainLayer.removeChildren();
             GameLayer.ins.mainLayer.addChild(blockView);
             

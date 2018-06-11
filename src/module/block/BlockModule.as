@@ -31,6 +31,8 @@ package module.block {
         }
         
         private function onOpenBLockView():void {
+            // todo 由于没有配置，这里每次打开界面的时候生成一次地图
+            BlockModel.ins.generateMap();
             blockView = new BlockView;
             GameLayer.ins.mainLayer.addChild(blockView);
         }

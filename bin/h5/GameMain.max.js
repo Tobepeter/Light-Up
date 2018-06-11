@@ -522,165 +522,6 @@ var GameMain=(function(){
 })()
 
 
-//class module.block.BlockConst
-var BlockConst=(function(){
-	function BlockConst(){}
-	__class(BlockConst,'module.block.BlockConst');
-	BlockConst.NONE=0;
-	BlockConst.RED_BLOCK=1;
-	BlockConst.WHITE_BLOCK=2;
-	return BlockConst;
-})()
-
-
-//class module.block.BlockModel
-var BlockModel=(function(){
-	function BlockModel(){
-		this._mapArr=null;
-		if (BlockModel._ins)throw('use function get ins()!!!');
-		this.init();
-	}
-
-	__class(BlockModel,'module.block.BlockModel');
-	var __proto=BlockModel.prototype;
-	/**地图周围换色 */
-	__proto.switchPoint=function(row,col){
-		if (this._mapArr[row]==undefined || this._mapArr[row][col]==undefined)return;
-		if (this._mapArr[row][col]==0)return;
-		for (var k=-1;k < 2;k++){
-			for (var l=-1;l < 2;l++){
-				if (k && l !=0)continue ;
-				if (this._mapArr[row+k] && this._mapArr[row+k][col+l] !=undefined && this._mapArr[row+k][col+l] !=0){
-					this._mapArr[row+k][col+l]=(this._mapArr[row+k][col+l]==1)? 2 :1;
-				}
-			}
-		}
-	}
-
-	/**随机地图 */
-	__proto.randomMap=function(fillArr){
-		fillArr==undefined && (fillArr=[0,1,2]);
-		RandomUtils.fulfillArr(this._mapArr,fillArr);
-	}
-
-	/**重置地图 */
-	__proto.resetMap=function(blockType){
-		(blockType===void 0)&& (blockType=2);
-		for (var i=0;i < this._mapArr.length;i++){
-			for (var j=0;j < this._mapArr.length;j++){
-				this._mapArr[i][j]=blockType;
-			}
-		}
-	}
-
-	/**随机点击 */
-	__proto.randomSwitch=function(){
-		var _$this=this;
-		var maxSearch=5;
-		var row=0;
-		var col=0;
-		function search (){
-			row=RandomUtils.createInt(_$this._mapArr.length);
-			col=RandomUtils.createInt(_$this._mapArr[row].length);
-			if (maxSearch--)return;
-			if (_$this._mapArr[row][col]==0){
-				search();
-			}
-		}
-		search();
-		this.switchPoint(row,col);
-	}
-
-	/**生成能赢的地图 */
-	__proto.generateMap=function(){
-        this.resetMap();
-		this.randomMap([0,1]);
-		var times=20;
-		while (times--){
-			this.randomSwitch();
-		}
-	}
-
-    /**检查游戏胜利*/
-    __proto.isWin = function () {
-        for (var i = 0, iLen = this._mapArr.length; i < iLen; i++) {
-            for (var j = 0; j < this._mapArr[i].length; j++) {
-                if (this._mapArr[i][j] == 1) return false;
-            }
-        }
-        return true;
-    }
-
-	__proto.init=function(){
-		this._mapArr=[];
-		for (var i=0;i < 5;i++){
-			var arr=[];
-			this._mapArr.push(arr);
-			for (var j=0;j < 5;j++){
-				this._mapArr[i].push(0);
-			}
-		}
-		this.generateMap();
-	}
-
-	__getset(0,__proto,'mapArr',function(){
-		return this._mapArr;
-		},function(arr){
-		this._mapArr=arr;
-	});
-
-	__getset(0,__proto,'MaxRow',function(){
-		var result=0;
-		for(var i=0,iLen=this._mapArr.length;i<iLen;i++){
-			if(result < this._mapArr[i].length)result=this._mapArr[i].length;
-		}
-		return result;
-	});
-
-	__getset(1,BlockModel,'ins',function(){
-		return BlockModel._ins=BlockModel._ins|| new BlockModel;
-	});
-
-	BlockModel._ins=null;
-	return BlockModel;
-})()
-
-
-//class module.block.BlockModule
-var BlockModule=(function(){
-	function BlockModule(){
-		this.blockView=null;
-		if (BlockModule._ins)throw("use function get ins()!!!");
-	}
-
-	__class(BlockModule,'module.block.BlockModule');
-	var __proto=BlockModule.prototype;
-	__proto.addListener=function(){
-		EventCenter.add("OPEN_BLOCK_VIEW",this,this.onOpenBLockView);
-		EventCenter.add("CLOSE_BLOCK_VIEW",this,this.onCloseBLockView);
-	}
-
-	__proto.onCloseBLockView=function(){
-		if (this.blockView){
-			GameLayer.ins.mainLayer.removeChild(this.blockView);
-			this.blockView=null;
-		}
-	}
-
-	__proto.onOpenBLockView=function(){
-		this.blockView=new BlockView;
-		GameLayer.ins.mainLayer.addChild(this.blockView);
-	}
-
-	__getset(1,BlockModule,'ins',function(){
-		return BlockModule._ins=BlockModule._ins|| new BlockModule;
-	});
-
-	BlockModule._ins=null;
-	return BlockModule;
-})()
-
-
 /**
 *<code>EventDispatcher</code> 类是可调度事件的所有类的基类。
 */
@@ -991,6 +832,173 @@ var Handler=(function(){
 })()
 
 
+//class module.block.BlockConst
+    var BlockConst = (function () {
+        function BlockConst() {
+        }
+
+        __class(BlockConst, 'module.block.BlockConst');
+        BlockConst.NONE = 0;
+        BlockConst.RED_BLOCK = 1;
+        BlockConst.WHITE_BLOCK = 2;
+        return BlockConst;
+    })()
+
+
+//class module.block.BlockModel
+    var BlockModel = (function () {
+        function BlockModel() {
+            this._mapArr = null;
+            if (BlockModel._ins) throw('use function get ins()!!!');
+            this.init();
+        }
+
+        __class(BlockModel, 'module.block.BlockModel');
+        var __proto = BlockModel.prototype;
+        /**地图周围换色 */
+        __proto.switchPoint = function (row, col) {
+            if (this._mapArr[row] == undefined || this._mapArr[row][col] == undefined) return;
+            if (this._mapArr[row][col] == 0) return;
+            for (var k = -1; k < 2; k++) {
+                for (var l = -1; l < 2; l++) {
+                    if (k && l != 0) continue;
+                    if (this._mapArr[row + k] && this._mapArr[row + k][col + l] != undefined && this._mapArr[row + k][col + l] != 0) {
+                        this._mapArr[row + k][col + l] = (this._mapArr[row + k][col + l] == 1) ? 2 : 1;
+                    }
+                }
+            }
+        }
+
+        /**随机地图 */
+        __proto.randomMap = function (fillArr) {
+            fillArr == undefined && (fillArr = [0, 1, 2]);
+            RandomUtils.fulfillArr(this._mapArr, fillArr);
+        }
+
+        /**重置地图 */
+        __proto.resetMap = function (blockType) {
+            (blockType === void 0) && (blockType = 2);
+            for (var i = 0; i < this._mapArr.length; i++) {
+                for (var j = 0; j < this._mapArr.length; j++) {
+                    this._mapArr[i][j] = blockType;
+                }
+            }
+        }
+
+        /**随机点击 */
+        __proto.randomSwitch = function () {
+            var _$this = this;
+            var maxSearch = 5;
+            var row = 0;
+            var col = 0;
+
+            function search() {
+                row = RandomUtils.createInt(_$this._mapArr.length);
+                col = RandomUtils.createInt(_$this._mapArr[row].length);
+                if (maxSearch--) return;
+                if (_$this._mapArr[row][col] == 0) {
+                    search();
+                }
+            }
+
+            search();
+            this.switchPoint(row, col);
+        }
+
+        /**生成能赢的地图 */
+        __proto.generateMap = function () {
+            this.resetMap();
+            this.randomMap([0, 1]);
+            var times = 20;
+            while (times--) {
+                this.randomSwitch();
+            }
+        }
+
+        /**检查游戏胜利*/
+        __proto.isWin = function () {
+            for (var i = 0, iLen = this._mapArr.length; i < iLen; i++) {
+                for (var j = 0; j < this._mapArr[i].length; j++) {
+                    if (this._mapArr[i][j] == 1) return false;
+                }
+            }
+            return true;
+        }
+
+        __proto.init = function () {
+            this._mapArr = [];
+            for (var i = 0; i < 5; i++) {
+                var arr = [];
+                this._mapArr.push(arr);
+                for (var j = 0; j < 5; j++) {
+                    this._mapArr[i].push(0);
+                }
+            }
+            this.generateMap();
+        }
+
+        /**设置砖块地图 */
+        /**获取砖块地图 */
+        __getset(0, __proto, 'mapArr', function () {
+            return this._mapArr;
+        }, function (arr) {
+            this._mapArr = arr;
+        });
+
+        /**获取最宽的一行 */
+        __getset(0, __proto, 'MaxRow', function () {
+            var result = 0;
+            for (var i = 0, iLen = this._mapArr.length; i < iLen; i++) {
+                if (result < this._mapArr[i].length) result = this._mapArr[i].length;
+            }
+            return result;
+        });
+
+        __getset(1, BlockModel, 'ins', function () {
+            return BlockModel._ins = BlockModel._ins || new BlockModel;
+        });
+
+        BlockModel._ins = null;
+        return BlockModel;
+    })()
+
+
+//class module.block.BlockModule
+    var BlockModule = (function () {
+        function BlockModule() {
+            this.blockView = null;
+            if (BlockModule._ins) throw("use function get ins()!!!");
+        }
+
+        __class(BlockModule, 'module.block.BlockModule');
+        var __proto = BlockModule.prototype;
+        __proto.addListener = function () {
+            EventCenter.add("OPEN_BLOCK_VIEW", this, this.onOpenBLockView);
+            EventCenter.add("CLOSE_BLOCK_VIEW", this, this.onCloseBLockView);
+        }
+
+        __proto.onCloseBLockView = function () {
+            if (this.blockView) {
+                GameLayer.ins.mainLayer.removeChild(this.blockView);
+                this.blockView = null;
+            }
+        }
+
+        __proto.onOpenBLockView = function () {
+            BlockModel.ins.generateMap();
+            this.blockView = new BlockView;
+            GameLayer.ins.mainLayer.addChild(this.blockView);
+        }
+
+        __getset(1, BlockModule, 'ins', function () {
+            return BlockModule._ins = BlockModule._ins || new BlockModule;
+        });
+
+        BlockModule._ins = null;
+        return BlockModule;
+    })()
+
+
 //class module.enter.EnterModule
 var EnterModule=(function(){
 	function EnterModule(){
@@ -1110,16 +1118,22 @@ var EventType=(function(){
     var LevelSelectModel = (function () {
         function LevelSelectModel() {
             this.leverSource = null;
-            this._curLevel = 0;
             this.maxLevel = 12;
             this.openSkin = 'resources/levelmode_button_1.png';
             this.closeSkin = 'resources/levelmode_button_2.png';
+            this._curLevel = 0;
             if (LevelSelectModel._ins) throw("use function get ins()!!!");
             this.init();
         }
 
         __class(LevelSelectModel, 'module.levelselect.LevelSelectModel');
         var __proto = LevelSelectModel.prototype;
+        /**开启下一关 */
+        __proto.nextLevel = function () {
+            if (this._curLevel == this.maxLevel) return;
+            this.curLevel = this.curLevel + 1;
+        }
+
         __proto.init = function () {
             this.leverSource = [];
             for (var i = 0; i < 12; i++) {
@@ -1130,12 +1144,6 @@ var EventType=(function(){
             }
             this.curLevel = 1;
             this.leverSource[this._curLevel - 1].itemBg = this.openSkin;
-        }
-
-        /**开启下一关 */
-        __proto.nextLevel = function () {
-            if (this._curLevel == this.maxLevel) return;
-            this.curLevel = this.curLevel + 1;
         }
 
         __proto.updateSkin = function () {
@@ -1281,7 +1289,7 @@ var TestCenter=(function(){
 	}
 
 	TestCenter.showBlockMap=function(){
-		var blockView=new BlockView;
+        var blockView = new BlockComp;
 		GameLayer.ins.mainLayer.removeChildren();
 		GameLayer.ins.mainLayer.addChild(blockView);
 		RandomUtils.fulfillArr(BlockModel.ins.mapArr,[0,1,2]);
@@ -1289,7 +1297,7 @@ var TestCenter=(function(){
 	}
 
 	TestCenter.randomClick=function(){
-		var blockView=new BlockView;
+        var blockView = new BlockComp;
 		GameLayer.ins.mainLayer.removeChildren();
 		GameLayer.ins.mainLayer.addChild(blockView);
 		BlockModel.ins.randomMap([0,2]);
@@ -1302,7 +1310,7 @@ var TestCenter=(function(){
 	}
 
 	TestCenter.customBlock=function(){
-		var blockView=new BlockView;
+        var blockView = new BlockComp;
 		GameLayer.ins.mainLayer.removeChildren();
 		GameLayer.ins.mainLayer.addChild(blockView);
 		var arr=[
@@ -25911,29 +25919,29 @@ var HTMLCanvas=(function(_super){
 /**
 *砖块地图界面
 */
-//class module.block.BlockView extends laya.ui.Component
-var BlockView=(function(_super){
-	function BlockView(){
+//class module.block.BlockComp extends laya.ui.Component
+    var BlockComp = (function (_super) {
+        function BlockComp() {
 		// key:Image,value:Point
 		this.curArr=null;
-		BlockView.__super.call(this);
+            BlockComp.__super.call(this);
 		this.imgDic=new Dictionary;
 		this.width=100 *5;
 		this.height=100 *5;
 		this.update();
 		this.on("click",this,this.onClick);
-		BlockView.ins=this;
-	}
+            BlockComp.ins = this;
+        }
 
-	__class(BlockView,'module.block.BlockView',_super);
-	var __proto=BlockView.prototype;
+        __class(BlockComp, 'module.block.BlockComp', _super);
+        var __proto = BlockComp.prototype;
 	/**更新界面 */
 	__proto.update=function(){
 		this.recoverBlock();
 		this.curArr=BlockModel.ins.mapArr;
-		var size=100;
-		this.height=size *this.curArr.length;
-		this.width=size *BlockModel.ins.MaxRow;
+        var row = this.curArr.length;
+        var col = BlockModel.ins.MaxRow;
+        var size = this.width / col;
 		for (var i=0,iLen=this.curArr.length;i < iLen;i++){
 			for (var j=0;j < this.curArr[i].length;j++){
 				if (this.curArr[i][j]==0)continue ;
@@ -26008,25 +26016,22 @@ var BlockView=(function(_super){
 
 	__proto.updatePos=function(){
 		this.pivot(this.width / 2,this.height / 2);
-		this.pos(this.stage.width / 2,this.stage.height / 2);
+        this.pos(Laya.superGet(Component, this, 'width') / 2, Laya.superGet(Component, this, 'height') / 2);
 		this.graphics.clear();
 		this.graphics.drawRect(0,0,this.width,this.height,null,'#000000',2);
 	}
 
 	__getset(0,__proto,'width',_super.prototype._$get_width,function(value){
-		if (this.width==value)return;
 		Laya.superSet(Component,this,'width',value);
-		this.updatePos();
 	});
 
+        // updatePos();
 	__getset(0,__proto,'height',_super.prototype._$get_height,function(value){
-		if (this.height==value)return;
 		Laya.superSet(Component,this,'height',value);
-		this.updatePos();
 	});
 
-	BlockView.ins=null;
-	return BlockView;
+        BlockComp.ins = null;
+        return BlockComp;
 })(Component)
 
 
@@ -36379,105 +36384,6 @@ var VScrollBar=(function(_super){
 })(ScrollBar)
 
 
-    /**
-     *使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
-     *<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
-     *
-     *@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
-     *package
-     *{
-	*import laya.ui.HSlider;
-	*import laya.ui.VSlider;
-	*import laya.utils.Handler;
-	*public class VSlider_Example
-	*{
-		*private var vSlider:VSlider;
-		*public function VSlider_Example()
-		*{
-			*Laya.init(640,800);//设置游戏画布宽高。
-			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
-			*}
-		*private function onLoadComplete():void
-		*{
-			*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-			*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-			*vSlider.min=0;//设置 vSlider 最低位置值。
-			*vSlider.max=10;//设置 vSlider 最高位置值。
-			*vSlider.value=2;//设置 vSlider 当前位置值。
-			*vSlider.tick=1;//设置 vSlider 刻度值。
-			*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-			*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-			*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
-			*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-			*}
-		*private function onChange(value:Number):void
-		*{
-			*trace("滑块的位置： value="+value);
-			*}
-		*}
-	*}
-     *@example
-     *Laya.init(640,800);//设置游戏画布宽高
-     *Laya.stage.bgColor="#efefef";//设置画布的背景颜色
-     *var vSlider;
-     *Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
-     *function onLoadComplete(){
-	*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-	*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-	*vSlider.min=0;//设置 vSlider 最低位置值。
-	*vSlider.max=10;//设置 vSlider 最高位置值。
-	*vSlider.value=2;//设置 vSlider 当前位置值。
-	*vSlider.tick=1;//设置 vSlider 刻度值。
-	*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-	*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-	*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
-	*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-	*}
-     *function onChange(value){
-	*console.log("滑块的位置： value="+value);
-	*}
-     *@example
-     *import HSlider=laya.ui.HSlider;
-     *import VSlider=laya.ui.VSlider;
-     *import Handler=laya.utils.Handler;
-     *class VSlider_Example {
-	*private vSlider:VSlider;
-	*constructor(){
-		*Laya.init(640,800);//设置游戏画布宽高。
-		*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-		*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
-		*}
-	*private onLoadComplete():void {
-		*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-		*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-		*this.vSlider.min=0;//设置 vSlider 最低位置值。
-		*this.vSlider.max=10;//设置 vSlider 最高位置值。
-		*this.vSlider.value=2;//设置 vSlider 当前位置值。
-		*this.vSlider.tick=1;//设置 vSlider 刻度值。
-		*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-		*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-		*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
-		*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
-		*}
-	*private onChange(value:number):void {
-		*console.log("滑块的位置： value="+value);
-		*}
-	*}
-     *@see laya.ui.Slider
-     */
-//class laya.ui.VSlider extends laya.ui.Slider
-    var VSlider = (function (_super) {
-        function VSlider() {
-            VSlider.__super.call(this);
-            ;
-        }
-
-        __class(VSlider, 'laya.ui.VSlider', _super);
-        return VSlider;
-    })(Slider)
-
-
 /**
 *<code>TextInput</code> 类用于创建显示对象以显示和输入文本。
 *
@@ -36801,6 +36707,105 @@ var TextInput=(function(_super){
 
 	return TextInput;
 })(Label)
+
+
+    /**
+     *使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
+     *<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
+     *
+     *@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
+     *package
+     *{
+	*import laya.ui.HSlider;
+	*import laya.ui.VSlider;
+	*import laya.utils.Handler;
+	*public class VSlider_Example
+	*{
+		*private var vSlider:VSlider;
+		*public function VSlider_Example()
+		*{
+			*Laya.init(640,800);//设置游戏画布宽高。
+			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
+			*}
+		*private function onLoadComplete():void
+		*{
+			*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+			*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+			*vSlider.min=0;//设置 vSlider 最低位置值。
+			*vSlider.max=10;//设置 vSlider 最高位置值。
+			*vSlider.value=2;//设置 vSlider 当前位置值。
+			*vSlider.tick=1;//设置 vSlider 刻度值。
+			*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+			*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+			*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
+			*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+			*}
+		*private function onChange(value:Number):void
+		*{
+			*trace("滑块的位置： value="+value);
+			*}
+		*}
+	*}
+     *@example
+     *Laya.init(640,800);//设置游戏画布宽高
+     *Laya.stage.bgColor="#efefef";//设置画布的背景颜色
+     *var vSlider;
+     *Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
+     *function onLoadComplete(){
+	*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+	*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+	*vSlider.min=0;//设置 vSlider 最低位置值。
+	*vSlider.max=10;//设置 vSlider 最高位置值。
+	*vSlider.value=2;//设置 vSlider 当前位置值。
+	*vSlider.tick=1;//设置 vSlider 刻度值。
+	*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+	*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+	*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
+	*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+	*}
+     *function onChange(value){
+	*console.log("滑块的位置： value="+value);
+	*}
+     *@example
+     *import HSlider=laya.ui.HSlider;
+     *import VSlider=laya.ui.VSlider;
+     *import Handler=laya.utils.Handler;
+     *class VSlider_Example {
+	*private vSlider:VSlider;
+	*constructor(){
+		*Laya.init(640,800);//设置游戏画布宽高。
+		*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+		*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
+		*}
+	*private onLoadComplete():void {
+		*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+		*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+		*this.vSlider.min=0;//设置 vSlider 最低位置值。
+		*this.vSlider.max=10;//设置 vSlider 最高位置值。
+		*this.vSlider.value=2;//设置 vSlider 当前位置值。
+		*this.vSlider.tick=1;//设置 vSlider 刻度值。
+		*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+		*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+		*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
+		*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
+		*}
+	*private onChange(value:number):void {
+		*console.log("滑块的位置： value="+value);
+		*}
+	*}
+     *@see laya.ui.Slider
+     */
+//class laya.ui.VSlider extends laya.ui.Slider
+    var VSlider = (function (_super) {
+        function VSlider() {
+            VSlider.__super.call(this);
+            ;
+        }
+
+        __class(VSlider, 'laya.ui.VSlider', _super);
+        return VSlider;
+    })(Slider)
 
 
 /**
@@ -37317,6 +37322,47 @@ var GraphicAnimation=(function(_super){
 
 	return GraphicAnimation;
 })(FrameAnimation)
+
+
+//class ui.BlockViewUI extends laya.ui.View
+    var BlockViewUI = (function (_super) {
+        function BlockViewUI() {
+            this.blockBox = null;
+            this.backBtn = null;
+            BlockViewUI.__super.call(this);
+        }
+
+        __class(BlockViewUI, 'ui.BlockViewUI', _super);
+        var __proto = BlockViewUI.prototype;
+        __proto.createChildren = function () {
+            laya.ui.Component.prototype.createChildren.call(this);
+            this.createView(BlockViewUI.uiView);
+        }
+
+        BlockViewUI.uiView = {
+            "type": "View",
+            "props": {"width": 678, "height": 1200},
+            "child": [{
+                "type": "Rect",
+                "props": {"y": 0, "x": 0, "width": 678, "lineWidth": 1, "height": 1200, "fillColor": "#fff"}
+            }, {
+                "type": "Box",
+                "props": {"y": 313, "x": 67, "width": 550, "var": "blockBox", "height": 550}
+            }, {
+                "type": "Button",
+                "props": {
+                    "y": 1060,
+                    "x": 411,
+                    "var": "backBtn",
+                    "stateNum": 1,
+                    "skin": "resources/button.png",
+                    "labelSize": 45,
+                    "label": "返回"
+                }
+            }]
+        };
+        return BlockViewUI;
+    })(View)
 
 
 //class ui.EnterVIewUI extends laya.ui.View
@@ -38561,6 +38607,36 @@ var TextArea=(function(_super){
 })(TextInput)
 
 
+//class module.block.BlockView extends ui.BlockViewUI
+    var BlockView = (function (_super) {
+        function BlockView() {
+            this.blockComp = null;
+            BlockView.__super.call(this);
+            this.backBtn.on("click", this, this.onclick);
+            this.initBlockComp();
+        }
+
+        __class(BlockView, 'module.block.BlockView', _super);
+        var __proto = BlockView.prototype;
+        __proto.initBlockComp = function () {
+            this.blockComp = this.blockComp || new BlockComp();
+            var size = this.blockBox.width;
+            this.blockComp.size(size, size);
+            this.blockComp.update();
+            var len = 5;
+            this.blockBox.graphics.drawRect(-len, -len, this.blockBox.width + len * 2, this.blockBox.height + len * 2, undefined, '#000', len - 2);
+            this.blockBox.addChild(this.blockComp);
+        }
+
+        __proto.onclick = function () {
+            EventCenter.send("CLOSE_BLOCK_VIEW");
+            EventCenter.send("OPEN_LEVEL_SELECT_VIEW");
+        }
+
+        return BlockView;
+    })(BlockViewUI)
+
+
 //class module.enter.EnterView extends ui.EnterVIewUI
 var EnterView=(function(_super){
 	function EnterView(){
@@ -38628,7 +38704,6 @@ var LevelSelectView=(function(_super){
 
         __proto.onclick = function () {
             LevelSelectModel.ins.nextLevel();
-            BlockModel.ins.generateMap();
             EventCenter.send("CLOSE_BLOCK_VIEW");
             EventCenter.send("CLOSE_WIN_VIEW");
             EventCenter.send("OPEN_LEVEL_SELECT_VIEW");
@@ -38867,27 +38942,6 @@ var NodeTool=(function(_super){
 	__proto.createChildren=function(){}
 	return NodeTool;
 })(NodeToolUI)
-
-
-    /**
-     *...
-     *@author ww
-     */
-//class laya.debug.view.nodeInfo.nodetree.NodeTreeSetting extends laya.debug.ui.debugui.NodeTreeSettingUI
-    var NodeTreeSetting = (function (_super) {
-        function NodeTreeSetting() {
-            NodeTreeSetting.__super.call(this);
-            Base64AtlasManager.replaceRes(NodeTreeSettingUI.uiView);
-            this.createView(NodeTreeSettingUI.uiView);
-        }
-
-        __class(NodeTreeSetting, 'laya.debug.view.nodeInfo.nodetree.NodeTreeSetting', _super);
-        var __proto = NodeTreeSetting.prototype;
-        //inits();
-        __proto.createChildren = function () {
-        }
-        return NodeTreeSetting;
-    })(NodeTreeSettingUI)
 
 
 /**
@@ -39133,6 +39187,27 @@ var NodeTree=(function(_super){
 })(NodeTreeUI)
 
 
+    /**
+     *...
+     *@author ww
+     */
+//class laya.debug.view.nodeInfo.nodetree.NodeTreeSetting extends laya.debug.ui.debugui.NodeTreeSettingUI
+    var NodeTreeSetting = (function (_super) {
+        function NodeTreeSetting() {
+            NodeTreeSetting.__super.call(this);
+            Base64AtlasManager.replaceRes(NodeTreeSettingUI.uiView);
+            this.createView(NodeTreeSettingUI.uiView);
+        }
+
+        __class(NodeTreeSetting, 'laya.debug.view.nodeInfo.nodetree.NodeTreeSetting', _super);
+        var __proto = NodeTreeSetting.prototype;
+        //inits();
+        __proto.createChildren = function () {
+        }
+        return NodeTreeSetting;
+    })(NodeTreeSettingUI)
+
+
 /**
 *...
 *@author ww
@@ -39287,7 +39362,7 @@ var ToolBar=(function(_super){
 })(ToolBarUI)
 
 
-    Laya.__init([EventDispatcher, LoaderManager, Render, Browser, View, Timer, GraphicAnimation, LocalStorage]);
+    Laya.__init([LoaderManager, EventDispatcher, Render, Browser, View, Timer, GraphicAnimation, LocalStorage]);
     /**LayaGameStart**/
 	new GameMain();
 
