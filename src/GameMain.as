@@ -5,8 +5,6 @@
     
     import laya.display.Stage;
     
-    import utils.TestCenter;
-    
     public class GameMain {
         
         public function GameMain() {
@@ -14,7 +12,7 @@
             GameMgr.start();
             
             // todo
-            TestCenter.useDebugPanel();
+            // TestCenter.useDebugPanel();
             // TestCenter.useTest();
             // TestCenter.test();
         }

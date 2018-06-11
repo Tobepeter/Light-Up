@@ -87,7 +87,17 @@ package module.block {
                 randomSwitch();
             }
         }
-        
+    
+        /** 检查游戏胜利*/
+        public function isWin():Boolean {
+            for (var i:int = 0, iLen:int = _mapArr.length; i < iLen; i++) {
+                for (var j:int = 0; j < _mapArr[i].length; j++) {
+                    if (_mapArr[i][j] == BlockConst.RED_BLOCK) return false;
+                }
+            }
+            return true;
+        }
+    
         private function init():void {
             _mapArr = [];
             for (var i:int = 0; i < GameConfig.V_BLOCK; i++) {
@@ -97,7 +107,7 @@ package module.block {
                     _mapArr[i].push(0);
                 }
             }
-    
+        
             // todo
             generateMap();
         }

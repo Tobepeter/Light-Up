@@ -22,7 +22,6 @@ package module.block {
             height = GameConfig.BLOCK_SIZE * GameConfig.V_BLOCK;
             update();
             on(Event.CLICK, this, onClick);
-    
             ins = this;
         }
         
@@ -91,7 +90,7 @@ package module.block {
             // 如果有转空，recover
             // 如果无变化，正常赋值皮肤
             // 如果没有旧arr,直接当无转有处理
-        
+    
             var arr:Array = BlockModel.ins.mapArr;
             for (var i:int = 0, iLen:int = arr.length; i < iLen; i++) {
                 for (var j:int = 0; j < arr[i].length; j++) {
@@ -115,6 +114,11 @@ package module.block {
                     var col:int = point.y;
                     BlockModel.ins.switchPoint(row, col);
                     update();
+                    if (BlockModel.ins.isWin()) {
+                        // todo 胜利
+                        console.log('you win');
+                        off(Event.CLICK, this, onClick);
+                    }
                 }));
             }));
         }
