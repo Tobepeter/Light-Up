@@ -81,6 +81,7 @@ package module.block {
         
         /** 生成能赢的地图 */
         public function generateMap():void {
+            resetMap();
             randomMap([BlockConst.NONE, BlockConst.RED_BLOCK]);
             var times:int = 20;
             while (times--) {

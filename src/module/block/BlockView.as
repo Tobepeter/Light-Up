@@ -11,6 +11,9 @@ package module.block {
     import laya.utils.Pool;
     import laya.utils.Tween;
     
+    import module.event.EventCenter;
+    import module.event.EventType;
+    
     /**
      * 砖块地图界面
      */
@@ -116,7 +119,7 @@ package module.block {
                     update();
                     if (BlockModel.ins.isWin()) {
                         // todo 胜利
-                        console.log('you win');
+                        EventCenter.send(EventType.OPEN_WIN_VIEW);
                         off(Event.CLICK, this, onClick);
                     }
                 }));
@@ -135,12 +138,12 @@ package module.block {
                 Pool.recover("Point", point);
             }
             imgDic.clear();
-        };
-    
+        }
+        
         private function updatePos():void {
             pivot(width / 2, height / 2);
             pos(stage.width / 2, stage.height / 2);
-        
+    
             // 使用一个边框
             graphics.clear();
             graphics.drawRect(0, 0, width, height, null, '#000000', 2);

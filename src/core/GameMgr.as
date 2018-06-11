@@ -6,6 +6,7 @@ package core {
     import module.event.EventCenter;
     import module.event.EventType;
     import module.levelselect.LevelSelectModule;
+    import module.win.WinModule;
     
     public class GameMgr {
         private static var _ins:GameMgr;
@@ -33,6 +34,7 @@ package core {
             EnterModule.ins.addListener();
             LevelSelectModule.ins.addListener();
             BlockModule.ins.addListener();
+            WinModule.ins.addListener();
         }
     
         private static function loadRes(complete:Handler):void {
