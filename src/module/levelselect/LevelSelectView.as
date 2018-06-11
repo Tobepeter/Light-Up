@@ -11,9 +11,9 @@ package module.levelselect {
         public function LevelSelectView() {
         
         }
-        
-        override protected function createChildren():void {
-            super.createChildren();
+    
+        override protected function initialize():void {
+            super.initialize();
             
             // 3*4关卡
             var arr:Array = [];
@@ -23,14 +23,18 @@ package module.levelselect {
                 obj.itemLb = i + 1 + '';
                 arr.push(obj);
             }
-            
+        
+            // list中的box做监听，但是本身需要满足enable链
+            mouseEnabled = true;
             levelList.dataSource = arr;
-    
-            levelList.mouseHandler = Handler.create(this, onMouseHandler);
+            levelList.mouseHandler = Handler.create(this, onMouseHandler, undefined, false);
+        
+            // mouseEnabled = true;
+            // GameLayer.ins.windowLayer.mouseEnabled = true;
         }
     
         private function onMouseHandler(e:Event, index:int):void {
-            if (!e.type == Event.CLICK) return;
+            if (e.type != Event.CLICK) return;
             EventCenter.send(EventType.CLOSE_LEVEL_SELECT_VIEW);
             EventCenter.send(EventType.OPEN_BLOCK_VIEW);
         }

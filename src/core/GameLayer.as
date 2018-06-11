@@ -14,6 +14,11 @@ package core {
         public var topLayer:Sprite = new Sprite;
         
         private function init():void {
+            // 每一层都需要接收鼠标事件
+            mainLayer.mouseEnabled = true;
+            windowLayer.mouseEnabled = true;
+            popLayer.mouseEnabled = true;
+            topLayer.mouseEnabled = true;
             Laya.stage.addChild(mainLayer);
             Laya.stage.addChild(windowLayer);
             Laya.stage.addChild(popLayer);

@@ -14,9 +14,9 @@
             GameMgr.start();
             
             // todo
-            // TestCenter.useDebugPanel();
+            TestCenter.useDebugPanel();
             // TestCenter.useTest();
-            TestCenter.test();
+            // TestCenter.test();
         }
         
         private static function initStage():void {

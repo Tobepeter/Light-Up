@@ -99,7 +99,6 @@ package module.block {
             }
     
             // todo
-            debugger;
             generateMap();
         }
     }
