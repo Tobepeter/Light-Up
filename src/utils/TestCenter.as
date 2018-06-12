@@ -1,7 +1,7 @@
 package utils {
-	import global.GameConfig;
-	
 	import core.GameLayer;
+	
+	import global.GameConfig;
 	
 	import laya.debug.DebugPanel;
 	import laya.debug.DebugTool;
@@ -108,13 +108,16 @@ package utils {
 			function onKeyDown(evt:Event):void {
 				switch (evt.keyCode) {
 					case Keyboard.C:
-						customBlock();
+						// customBlock();
 						break;
 					case Keyboard.R:
-						randomClick();
+						// randomClick();
 						break;
 					case Keyboard.S:
-						showBlockMap();
+						// showBlockMap();
+						break;
+					case Keyboard.ESCAPE:
+						useDebugTool();
 						break;
 					default:
 						break;

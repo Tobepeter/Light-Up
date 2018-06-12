@@ -29,7 +29,59 @@ package module.block {
 			height = GameConfig.BLOCK_SIZE * GameConfig.V_BLOCK;
 			update();
 			on(Event.CLICK, this, onClick);
+			
+			// todo 待处理这个
+			// on(Event.MOUSE_DOWN, this, onMouseDown);
 			ins = this;
+		}
+		
+		private function onMouseDown(evt:Event):void {
+			var index:int = imgDic.keys.indexOf(evt.target);
+			if (index < 0) return;
+			var point:Point = imgDic.values[index];
+			var arr:Array = BlockModel.ins.mapArr;
+			// todo 这个逻辑感觉有些复杂了，应该写一个根据点来找img的方法会好很多
+			for (var i:int = -1; i <= 1; i++) {
+				for (var j:int = -1; j <= 1; j++) {
+					if (i * j != 0) continue;
+					var row:int = point.x + i;
+					var col:int = point.y + j;
+					
+					var hasFound:Boolean = false;
+					for (var k:int = 0, kLen:int = imgDic.values.length; k < kLen; k++) {
+						if (imgDic.values[k].x == row && imgDic.values[k].y == col) {
+							hasFound = true;
+							break;
+						}
+					}
+					
+					if (hasFound) {
+						// 加入个滤镜一个皮肤
+						var img:Image = imgDic.keys[k];
+						var maskImg:Image = Pool.getItemByClass('Image', Image);
+						maskImg.alpha = 0.8;
+						maskImg.width = img.width * 0.7;
+						maskImg.height = img.height * 0.7;
+						
+						// todo 这里使用centerX可以用
+						// maskImg.pivot(maskImg.width, maskImg.height);
+						// maskImg.pos(img.width / 2, img.height / 2);
+						
+						// 这里做特殊处理了，不好调整
+						if (arr[row][col] == BlockConst.LIGHT_BLOCK) {
+							maskImg.centerX = -2;
+							maskImg.centerY = 2;
+						} else {
+							maskImg.centerX = -1;
+							maskImg.centerY = 2;
+						}
+						maskImg.skin = 'resources/press.png';
+						img.addChild(maskImg);
+					}
+					
+				}
+				
+			}
 		}
 		
 		private var imgDic:Dictionary = new Dictionary; // key:Image, value:Point
