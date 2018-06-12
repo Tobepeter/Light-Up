@@ -17,8 +17,8 @@ package module.enter {
 			var _this:Object = this;
 			Tween.to(_this, {alpha: 1}, 800, null, Handler.create(null, function ():void {
 				// 这个回调方式有些复杂，不过可以减少很多函数
-				var stepSkin:Array = [1, 2, 1, 2, 1, 3];
-				var stepDelay:Array = [100, 300, 300, 300, 300, 300];
+				var stepSkin:Array = [1, 2, 1, 2, 1, 2 ,1 ,3];
+				var stepDelay:Array = [100, 300, 300, 300, 300, 300, 300, 400];
 				var stepLen:int = stepSkin.length;
 				var curStep:int = 0;
 				
