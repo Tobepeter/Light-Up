@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad71ec0c-2df7-4bc1-8d72-61d3120622f2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/astool/debug.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/astool/debug.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics-spare.pma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1FD5A8-198C.pma" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" afterDir="false" />
@@ -22,13 +21,16 @@
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Local State" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Local State" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlMalware.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlMalware.store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlUws.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlUws.store" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/chrome_shutdown_ms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/chrome_shutdown_ms.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/h5/GameMain.max.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/GameMain.max.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/block/BlockComp.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockComp.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/GameMgr.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/GameMgr.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/enter/EnterModule.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/enter/EnterModule.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/event/EventType.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/event/EventType.as" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,11 +75,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockComp.as" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlockComp.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="152" column="34" selection-start-line="152" selection-start-column="34" selection-end-line="152" selection-end-column="34" />
+            <state relative-caret-position="141">
+              <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterAniView.as" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+              <folding>
+                <element signature="e#24#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameMgr.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/GameMgr.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterModule.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/module/enter/EnterModule.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="21" column="54" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="54" />
+              <folding>
+                <element signature="e#24#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterView.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/module/enter/EnterView.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+              <folding>
+                <element signature="e#24#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventType.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/module/event/EventType.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -87,24 +143,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-195">
               <caret line="101" column="38" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Component.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/Component.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sprite.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Sprite.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="946" column="24" selection-start-line="946" selection-start-column="24" selection-end-line="946" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -152,10 +190,8 @@
         <option value="$PROJECT_DIR$/src/core/EventCenter.as" />
         <option value="$PROJECT_DIR$/libs/laya/src/laya/utils/Dictionary.as" />
         <option value="$PROJECT_DIR$/src/utils/EventCenter.as" />
-        <option value="$PROJECT_DIR$/src/module/event/EventType.as" />
         <option value="$PROJECT_DIR$/libs/laya/src/laya/utils/Handler.as" />
         <option value="$PROJECT_DIR$/src/utils/RandomUtils.as" />
-        <option value="$PROJECT_DIR$/src/core/GameMgr.as" />
         <option value="$PROJECT_DIR$/src/utils/TestCenter.as" />
         <option value="$PROJECT_DIR$/src/config/GameConfig.as" />
         <option value="$PROJECT_DIR$/src/GameMain.as" />
@@ -164,6 +200,10 @@
         <option value="$PROJECT_DIR$/src/module/block/BlockModel.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockView.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockComp.as" />
+        <option value="$PROJECT_DIR$/src/module/event/EventType.as" />
+        <option value="$PROJECT_DIR$/src/module/enter/EnterModule.as" />
+        <option value="$PROJECT_DIR$/src/core/GameMgr.as" />
+        <option value="$PROJECT_DIR$/src/module/enter/EnterAniView.as" />
       </list>
     </option>
   </component>
@@ -202,6 +242,19 @@
               <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="enter" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -219,15 +272,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.ActionScript" />
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="module.enter" />
       <recent name="module.event" />
       <recent name="core" />
       <recent name="utils" />
       <recent name="module.block" />
-      <recent name="module.scene" />
     </key>
     <key name="com.intellij.javascript.flex.refactoring.moveClass.FlexMoveClassDialog.target_package">
       <recent name="utils" />
@@ -345,7 +398,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39413000" />
+    <option name="totallyTimeSpent" value="41730000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
@@ -365,7 +418,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992948" weight="0.23391421" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992948" visible="true" weight="0.19101876" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.6685473" />
       <window_info id="Structure" order="1" sideWeight="0.50070524" side_tool="true" weight="0.23391421" />
@@ -414,20 +467,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Sprite.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="780" column="28" selection-start-line="780" selection-start-column="28" selection-end-line="780" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1794">
@@ -604,25 +643,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/event/EventType.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/EventCenter.as" />
     <entry file="file://$PROJECT_DIR$/src/core/GameLayer.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/GameMgr.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -664,16 +689,6 @@
           <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
           <folding>
             <element signature="e#14#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -737,8 +752,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="152" column="34" selection-start-line="152" selection-start-column="34" selection-end-line="152" selection-end-column="34" />
+        <state relative-caret-position="141">
+          <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/event/EventType.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterModule.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="54" />
+          <folding>
+            <element signature="e#24#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/GameMgr.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding>
+            <element signature="e#24#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

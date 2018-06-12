@@ -23,7 +23,7 @@ package core {
             initModule();
     
             var complete:Handler = Handler.create(null, function ():void {
-                EventCenter.send(EventType.OPEN_ENTER_VIEW);
+                EventCenter.send(EventType.OPEN_ENTER_ANI_VIEW);
             });
             // todo 建议模块中加载
             loadRes(complete);
