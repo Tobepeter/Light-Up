@@ -17935,10 +17935,9 @@ var BlockComp=(function(_super){
 		var isWin=BlockModel.ins.isWin();
 		if (isWin)this.off("click",this,this.onClick);
 		this.tweenDic.set(target,true);
-		var delay=200;
-		var scale=0.8;
+		var delay=150;
+		var scale=0.9;
 		var tween=Tween.to(target,{scaleX:scale,scaleY:scale},delay,Ease.linearNone,Handler.create(null,function(){
-			_$this.updateImg(target);
 			Tween.to(target,{scaleX:1,scaleY:1},delay,Ease.linearNone,Handler.create(null,function(){
 				_$this.tweenDic.set(target,false);
 				tween && Tween.clear(tween);
@@ -27339,7 +27338,7 @@ var BlockViewUI=(function(_super){
 	}
 
 	__static(BlockViewUI,
-	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Button","props":{"y":46,"x":525,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":261,"x":68,"width":542,"var":"imgPCB","skin":"resources/background_pcb_1.png","height":719}},{"type":"Box","props":{"y":330,"x":125,"width":433,"var":"blockBox","height":582}},{"type":"Box","props":{"y":126,"x":20},"child":[{"type":"Image","props":{"skin":"resources/powerbody.png","mouseThrough":true}},{"type":"Image","props":{"y":86,"x":21,"skin":"resources/electricline_1.png"}},{"type":"Image","props":{"y":43,"x":119,"var":"powersmall1","skin":"resources/powersmall_1.png"}},{"type":"Image","props":{"y":75,"x":101,"var":"powersmall2","skin":"resources/powersmall_2.png"}},{"type":"Image","props":{"y":94,"x":68,"var":"powersmall3","skin":"resources/powersmall_3.png"}}]},{"type":"Box","props":{"y":913,"x":506},"child":[{"type":"Image","props":{"skin":"resources/electricline_2.png"}},{"type":"Image","props":{"y":87,"x":54,"var":"ligthBulb","skin":"resources/light_1.png"}}]}]};}
+	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Button","props":{"y":46,"x":525,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":261,"x":68,"width":542,"var":"imgPCB","skin":"resources/background_pcb_1.png","height":719}},{"type":"Box","props":{"y":330,"x":125,"width":433,"var":"blockBox","height":582}},{"type":"Box","props":{"y":126,"x":20},"child":[{"type":"Image","props":{"skin":"resources/powerbody.png","mouseThrough":true}},{"type":"Image","props":{"y":86,"x":21,"skin":"resources/electricline_1.png"}},{"type":"Image","props":{"y":43,"x":119,"var":"powersmall1","skin":"resources/powersmall_1.png"}},{"type":"Image","props":{"y":75,"x":101,"var":"powersmall2","skin":"resources/powersmall_2.png"}},{"type":"Image","props":{"y":94,"x":68,"var":"powersmall3","skin":"resources/powersmall_3.png"}}]},{"type":"Box","props":{"y":911,"x":495},"child":[{"type":"Image","props":{"y":2,"x":5,"skin":"resources/electricline_2.png"}},{"type":"Image","props":{"y":104,"x":31,"var":"ligthBulb","skin":"resources/light_1.png"}}]}]};}
 	]);
 	return BlockViewUI;
 })(View)

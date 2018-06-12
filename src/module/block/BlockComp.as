@@ -149,10 +149,11 @@ package module.block {
 			// @formatter:off
 			// todo 这里的target只是一份引用，不用担心太多内存消耗
 			tweenDic.set(target, true);
-			var delay:int = 200;
-			var scale:Number = 0.8;
+			var delay:int = 150;
+			var scale:Number = 0.9;
 			var tween:Tween = Tween.to(target, {scaleX: scale,scaleY: scale}, delay, Ease.linearNone, Handler.create(null, function ():void {
-				updateImg(target); //翻转的需要
+				// 这里只是更新特殊反转，不过由于效果不好，暂时不要了
+				// updateImg(target);
 				Tween.to(target, {scaleX: 1, scaleY: 1}, delay, Ease.linearNone, Handler.create(null, function ():void {
 					tweenDic.set(target, false);
 					// todo 这里的tween的内存应该是保留的
