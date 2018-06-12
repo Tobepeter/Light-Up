@@ -27334,6 +27334,7 @@ var BlockViewUI=(function(_super){
 		this.backBtn=null;
 		this.imgPCB=null;
 		this.blockBox=null;
+		this.imgPow=null;
 		this.powersmall1=null;
 		this.powersmall2=null;
 		this.powersmall3=null;
@@ -27348,7 +27349,7 @@ var BlockViewUI=(function(_super){
 		this.createView(BlockViewUI.uiView);
 	}
 
-	BlockViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Button","props":{"y":46,"x":525,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":261,"x":68,"width":542,"var":"imgPCB","skin":"resources/background_pcb_1.png","height":719}},{"type":"Box","props":{"y":330,"x":125,"width":433,"var":"blockBox","height":582}},{"type":"Box","props":{"y":126,"x":20},"child":[{"type":"Image","props":{"skin":"resources/powerbody.png","mouseThrough":true}},{"type":"Image","props":{"y":86,"x":21,"skin":"resources/electricline_1.png"}},{"type":"Image","props":{"y":43,"x":119,"var":"powersmall1","skin":"resources/powersmall_1.png"}},{"type":"Image","props":{"y":75,"x":101,"var":"powersmall2","skin":"resources/powersmall_2.png"}},{"type":"Image","props":{"y":94,"x":68,"var":"powersmall3","skin":"resources/powersmall_3.png"}}]},{"type":"Box","props":{"y":911,"x":495},"child":[{"type":"Image","props":{"y":2,"x":5,"skin":"resources/electricline_2.png"}},{"type":"Image","props":{"y":104,"x":31,"var":"ligthBulb","skin":"resources/light_1.png"}}]}]};
+	BlockViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Button","props":{"y":46,"x":525,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":261,"x":68,"width":542,"var":"imgPCB","skin":"resources/background_pcb_1.png","height":719}},{"type":"Box","props":{"y":330,"x":125,"width":433,"var":"blockBox","height":582}},{"type":"Box","props":{"y":126,"x":20},"child":[{"type":"Image","props":{"var":"imgPow","skin":"resources/powerBall_1.png","mouseThrough":true}},{"type":"Image","props":{"y":86,"x":21,"skin":"resources/electricline_1.png"}},{"type":"Image","props":{"y":43,"x":119,"var":"powersmall1","skin":"resources/powersmall_1.png"}},{"type":"Image","props":{"y":75,"x":101,"var":"powersmall2","skin":"resources/powersmall_2.png"}},{"type":"Image","props":{"y":94,"x":68,"var":"powersmall3","skin":"resources/powersmall_3.png"}}]},{"type":"Box","props":{"y":911,"x":495},"child":[{"type":"Image","props":{"y":2,"x":5,"skin":"resources/electricline_2.png"}},{"type":"Image","props":{"y":104,"x":31,"var":"ligthBulb","skin":"resources/light_1.png"}}]}]};
 	return BlockViewUI;
 })(View)
 
@@ -27367,7 +27368,7 @@ var EnterAniViewUI=(function(_super){
 		this.createView(EnterAniViewUI.uiView);
 	}
 
-	EnterAniViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Image","props":{"y":573,"x":120,"var":"imgAni","skin":"resources/enter_anim_1.png"}}]};
+	EnterAniViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Image","props":{"y":519,"x":84,"width":510,"var":"imgAni","skin":"resources/enter_anim_1.png","height":176}}]};
 	return EnterAniViewUI;
 })(View)
 
@@ -27959,16 +27960,29 @@ var BlockView=(function(_super){
 		this.powerNum=0;
 		this._isWin=false;
 		this.blockComp=null;
-		this.curPow=1;
 		BlockView.__super.call(this);
 		this.backBtn.on("click",this,this.onclick);
 		this.initBlockComp();
+		this.initPowerBall();
 		this.initPowerSmall();
-		this.onLoop();
 	}
 
 	__class(BlockView,'module.block.BlockView',_super);
 	var __proto=BlockView.prototype;
+	__proto.initPowerBall=function(){
+		var _$this=this;
+		var curPow=1;
+		Laya.timer.loop(300,null,onLoop);
+		function onLoop (){
+			_$this.imgPow.skin='resources/powerBall_'+curPow+'.png';
+			curPow++;
+			if (curPow > 5)curPow=1;
+			if(_$this._isWin){
+				Laya.timer.clear(null,onLoop);
+			}
+		}
+	}
+
 	__proto.movePowerSmall=function(){
 		var _$this=this;
 		var delay=600;
@@ -28041,9 +28055,6 @@ var BlockView=(function(_super){
 		}
 	}
 
-	// 1-4
-	__proto.onLoop=function(){}
-	// if (curPow > 4)curPow=1;
 	__proto.onclick=function(){
 		EventCenter.send("CLOSE_BLOCK_VIEW");
 		EventCenter.send("OPEN_LEVEL_SELECT_VIEW");
@@ -28065,9 +28076,10 @@ var EnterAniView=(function(_super){
 	var __proto=EnterAniView.prototype;
 	__proto.initView=function(){
 		var _$this=this;
-		Tween.to(this,{alpha:1},800,null,Handler.create(null,function(){
-			var stepSkin=[1,2,1,2,3];
-			var stepDelay=[100,300,300,300,300];
+		var _this=this;
+		Tween.to(_this,{alpha:1},800,null,Handler.create(null,function(){
+			var stepSkin=[1,2,1,2,1,3];
+			var stepDelay=[100,300,300,300,300,300];
 			var stepLen=stepSkin.length;
 			var curStep=0;
 			function nextStep (){
@@ -28077,7 +28089,7 @@ var EnterAniView=(function(_super){
 					if (curStep < stepLen){
 						nextStep();
 						}else {
-						Tween.to(this,{alpha:0},1000,null,Handler.create(null,function(){
+						Tween.to(_this,{alpha:0},1000,null,Handler.create(null,function(){
 							EventCenter.send("CLOSE_ENTER_ANI_VIEW");
 							EventCenter.send("OPEN_ENTER_VIEW");
 						}));

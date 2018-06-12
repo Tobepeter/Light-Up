@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad71ec0c-2df7-4bc1-8d72-61d3120622f2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/h5/GameMain.max.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/GameMain.max.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_4.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/laya/pages/BlockView.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/BlockView.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/block/BlockView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockView.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/BlockViewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/BlockViewUI.as" afterDir="false" />
     </list>
@@ -16,15 +26,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BlockModel.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EnterViewUI.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/EnterViewUI.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -40,10 +41,22 @@
       <file leaf-file-name="BlockView.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-943">
-              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+            <state relative-caret-position="230">
+              <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="e#24#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockViewUI.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/BlockViewUI.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,8 +74,8 @@
       <file leaf-file-name="EnterAniView.as" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
+            <state relative-caret-position="391">
+              <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
               <folding>
                 <element signature="e#24#50#0" expanded="true" />
               </folding>
@@ -172,11 +185,11 @@
         <option value="$PROJECT_DIR$/src/module/enter/EnterView.as" />
         <option value="$PROJECT_DIR$/src/ui/EnterViewUI.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockModel.as" />
-        <option value="$PROJECT_DIR$/src/module/block/BlockView.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockComp.as" />
         <option value="$PROJECT_DIR$/src/module/event/EventType.as" />
         <option value="$PROJECT_DIR$/src/module/enter/EnterModule.as" />
         <option value="$PROJECT_DIR$/src/core/GameMgr.as" />
+        <option value="$PROJECT_DIR$/src/module/block/BlockView.as" />
         <option value="$PROJECT_DIR$/src/module/enter/EnterAniView.as" />
       </list>
     </option>
@@ -190,7 +203,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -372,10 +385,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42142000" />
+    <option name="totallyTimeSpent" value="43146000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1536" height="864" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="846" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -667,15 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/BlockViewUI.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Sprite.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -710,16 +714,6 @@
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-943">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -765,10 +759,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/BlockViewUI.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
+        <state relative-caret-position="391">
+          <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
           <folding>
             <element signature="e#24#50#0" expanded="true" />
           </folding>

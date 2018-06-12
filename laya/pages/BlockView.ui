@@ -87,7 +87,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"skin":"resources/powerbody.png","name":"imgPow","mouseThrough":true},
+                    "props":{"var":"imgPow","skin":"resources/powerBall_1.png","mouseThrough":true},
                     "nodeParent":21,
                     "label":"Image(imgPow)",
                     "isDirectory":false,

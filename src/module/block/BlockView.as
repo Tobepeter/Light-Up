@@ -12,9 +12,22 @@ package module.block {
 		public function BlockView() {
 			backBtn.on(Event.CLICK, this, onclick);
 			initBlockComp();
-			// Laya.timer.loop(200, this, onLoop);
+			initPowerBall();
 			initPowerSmall();
-			onLoop();
+		}
+		
+		private function initPowerBall():void {
+			var curPow:int = 1; // 1-5
+			Laya.timer.loop(300, null, onLoop);
+			function onLoop():void {
+				// 充电动画
+				imgPow.skin = 'resources/powerBall_' + curPow + '.png';
+				curPow++;
+				if (curPow > 5) curPow = 1;
+				if(_isWin) {
+					Laya.timer.clear(null, onLoop);
+				}
+			}
 		}
 		
 		// private var powRawPosArr:Array = [[119, 43], [101, 75], [68, 94]];       //暂时把原始位置记下来
@@ -104,14 +117,6 @@ package module.block {
 				ligthBulb.skin = darkBulbSkin;
 				imgPCB.skin = darkPCBSkin;
 			}
-		}
-		
-		private var curPow:int = 1; // 1-4
-		private function onLoop():void {
-			// 充电动画
-			// imgPower.skin = 'resources/power' + curPow + '.png';
-			// curPow++;
-			// if (curPow > 4) curPow = 1;
 		}
 		
 		private function onclick():void {

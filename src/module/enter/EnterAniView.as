@@ -14,7 +14,8 @@ package module.enter {
 		}
 		
 		private function initView():void {
-			Tween.to(this, {alpha: 1}, 800, null, Handler.create(null, function ():void {
+			var _this:Object = this;
+			Tween.to(_this, {alpha: 1}, 800, null, Handler.create(null, function ():void {
 				// 这个回调方式有些复杂，不过可以减少很多函数
 				var stepSkin:Array = [1, 2, 1, 2, 1, 3];
 				var stepDelay:Array = [100, 300, 300, 300, 300, 300];
@@ -29,7 +30,8 @@ package module.enter {
 						if (curStep < stepLen) {
 							nextStep();
 						} else {
-							Tween.to(this, {alpha: 0}, 1000, null, Handler.create(null, function ():void {
+							// todo 这里莫名其妙this变成了window了,只好使用_this
+							Tween.to(_this, {alpha: 0}, 1000, null, Handler.create(null, function ():void {
 								// 派发动画结束
 								// Laya.timer.once(500, null, function():void{
 								EventCenter.send(EventType.CLOSE_ENTER_ANI_VIEW);
