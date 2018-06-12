@@ -28,7 +28,7 @@
             
             Laya.stage.alignH = Stage.ALIGN_CENTER;
             Laya.stage.alignV = Stage.ALIGN_MIDDLE;
-            Laya.stage.bgColor = '#ffffff';
+            Laya.stage.bgColor = '#FFFFFF';
             Laya.stage.scaleMode = Stage.SCALE_SHOWALL;
         }
     }
