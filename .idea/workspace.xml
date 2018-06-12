@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list id="e6dbfb0f-51a3-4913-aa6a-477217030f5c" name="Ignore" comment="" />
     <list default="true" id="326faa28-4ced-4f4b-bfd3-e88eb7225da1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/global/GameConfig.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/GameConfig.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laya/pages/EnterVIew.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/EnterVIew.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laya/pages/LevelSelectView.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/LevelSelectView.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global/GameColor.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/GameColor.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/EnterVIewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/EnterVIewUI.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/LevelSelectViewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/LevelSelectViewUI.as" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +58,8 @@
       <file leaf-file-name="BlockView.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+            <state relative-caret-position="437">
+              <caret line="48" column="55" lean-forward="true" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
               <folding>
                 <element signature="e#24#49#0" expanded="true" />
               </folding>
@@ -63,11 +67,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameConfig.as" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameConfig.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/global/GameConfig.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+            <state relative-caret-position="299">
+              <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameColor.as" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/global/GameColor.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -145,6 +158,7 @@
         <option value="$PROJECT_DIR$/src/utils/TestCenter.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockComp.as" />
         <option value="$PROJECT_DIR$/src/global/GameConfig.as" />
+        <option value="$PROJECT_DIR$/src/global/GameColor.as" />
       </list>
     </option>
   </component>
@@ -343,7 +357,7 @@
       <workItem from="1528787025323" duration="1980000" />
       <workItem from="1528791681294" duration="4056000" />
       <workItem from="1528799174891" duration="2439000" />
-      <workItem from="1528802280317" duration="2554000" />
+      <workItem from="1528802280317" duration="2919000" />
     </task>
     <task id="LOCAL-00001" summary="update enterview">
       <created>1528618204141</created>
@@ -405,7 +419,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45394000" />
+    <option name="totallyTimeSpent" value="45759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="846" extended-state="0" />
@@ -667,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/global/GameColor.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/module/event/EventType.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -740,16 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2898">
@@ -799,10 +796,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="48" column="55" lean-forward="true" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/global/GameConfig.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+        <state relative-caret-position="299">
+          <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/GameColor.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>

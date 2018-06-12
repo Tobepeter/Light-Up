@@ -94,7 +94,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":71,"x":222,"stateNum":"1","skin":"resources/button.png","labelSize":45,"label":"关卡选择"},
+            "props":{"y":71,"x":222,"stateNum":"1","skin":"resources/button.png","labelSize":45,"labelColors":"#595959","labelBold":true,"label":"关卡选择"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
