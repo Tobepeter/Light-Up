@@ -150,7 +150,8 @@ package module.block {
 			// todo 这里的target只是一份引用，不用担心太多内存消耗
 			tweenDic.set(target, true);
 			var delay:int = 200;
-			var tween:Tween = Tween.to(target, {scaleX: 0.65,scaleY: 0.65}, delay, Ease.linearNone, Handler.create(null, function ():void {
+			var scale:Number = 0.8;
+			var tween:Tween = Tween.to(target, {scaleX: scale,scaleY: scale}, delay, Ease.linearNone, Handler.create(null, function ():void {
 				updateImg(target); //翻转的需要
 				Tween.to(target, {scaleX: 1, scaleY: 1}, delay, Ease.linearNone, Handler.create(null, function ():void {
 					tweenDic.set(target, false);
