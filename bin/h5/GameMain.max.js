@@ -28089,7 +28089,7 @@ var EnterAniView=(function(_super){
 					if (curStep < stepLen){
 						nextStep();
 						}else {
-						Tween.to(_this,{alpha:0},1000,null,Handler.create(null,function(){
+						Tween.to(_this,{alpha:0},600,null,Handler.create(null,function(){
 							EventCenter.send("CLOSE_ENTER_ANI_VIEW");
 							EventCenter.send("OPEN_ENTER_VIEW");
 						}));

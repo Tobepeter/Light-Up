@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ad71ec0c-2df7-4bc1-8d72-61d3120622f2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/bin/h5/GameMain.max.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/GameMain.max.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/GameResources/power0_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laya/pages/BlockView.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/BlockView.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/block/BlockView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockView.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/BlockViewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/BlockViewUI.as" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,8 +63,8 @@
       <file leaf-file-name="EnterAniView.as" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
+            <state relative-caret-position="414">
+              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
               <folding>
                 <element signature="e#24#50#0" expanded="true" />
               </folding>
@@ -385,7 +374,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43146000" />
+    <option name="totallyTimeSpent" value="43279000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="846" extended-state="6" />
@@ -781,8 +770,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
+        <state relative-caret-position="414">
+          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
           <folding>
             <element signature="e#24#50#0" expanded="true" />
           </folding>

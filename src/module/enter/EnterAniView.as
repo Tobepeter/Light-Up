@@ -31,7 +31,7 @@ package module.enter {
 							nextStep();
 						} else {
 							// todo 这里莫名其妙this变成了window了,只好使用_this
-							Tween.to(_this, {alpha: 0}, 1000, null, Handler.create(null, function ():void {
+							Tween.to(_this, {alpha: 0}, 600, null, Handler.create(null, function ():void {
 								// 派发动画结束
 								// Laya.timer.once(500, null, function():void{
 								EventCenter.send(EventType.CLOSE_ENTER_ANI_VIEW);
