@@ -54,6 +54,8 @@ P 0891CEEF button2_play.png
 P E9880B0A button2_rank.png
 P A4375016 button2_restart.png
 P 24EFEDC5 button2_right.png
+P 713B4D27 electricline_1.png
+P F06C9A37 electricline_2.png
 P 40D20E7A levelmode_button_1.png
 P 19B2D064 levelmode_button_2.png
 P 8F9D5DC8 light_1.png
@@ -65,6 +67,10 @@ P 095A9333 power1.png
 P 06F9B504 power2.png
 P BE55896F power3.png
 P 57A1515C power4.png
+P 45621E8D powerbody.png
+P BD8EA88D powersmall_1.png
+P 829BE0E0 powersmall_2.png
+P 8EB1F0CA powersmall_3.png
 P 8EB8E660 press.png
 P 5F39C397 targetlight_dark.png
 P 11A0A137 targetlight_light.png

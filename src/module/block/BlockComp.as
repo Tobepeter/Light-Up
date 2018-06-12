@@ -27,7 +27,7 @@ package module.block {
 			// 如果需要规划大小，需要在外部进行设置
 			width = GameConfig.BLOCK_SIZE * GameConfig.H_BLCOK;
 			height = GameConfig.BLOCK_SIZE * GameConfig.V_BLOCK;
-			update(true);
+			update();
 			on(Event.CLICK, this, onClick);
 			ins = this;
 		}
@@ -47,16 +47,12 @@ package module.block {
 		}
 		
 		/**更新界面 */
-		public function update(isArrChanged:Boolean = false):void {
-			if (!isArrChanged) {
-				simpleUpdate();
-				return;
-			}
+		public function update():void {
 			recoverBlock();
 			var arr:Array = BlockModel.ins.mapArr;
 			var row:int = arr.length;
-			var col:int = BlockModel.ins.MaxRow;
-			var blockWidth:int = width / col;
+			var col:int = BlockModel.ins.MaxCol;
+			var wSize:int = width / col;
 			var hSize:int = height / row;
 			for (var i:int = 0, iLen:int = arr.length; i < iLen; i++) {
 				for (var j:int = 0; j < arr[i].length; j++) {
@@ -64,11 +60,11 @@ package module.block {
 					
 					// 初始化一个img
 					var img:Image = Pool.getItemByClass("Image", Image);
-					img.size(blockWidth, blockWidth);
+					img.size(wSize, wSize);
 					img.mouseEnabled = true;
-					img.pivot(blockWidth / 2, hSize / 2);
+					img.pivot(wSize / 2, hSize / 2);
 					img.mouseEnabled = true;
-					img.pos(j * blockWidth + blockWidth / 2, i * hSize + hSize / 2);
+					img.pos(j * wSize + wSize / 2, i * hSize + hSize / 2);
 					addChild(img);
 					
 					// 初始化行列
@@ -161,6 +157,8 @@ package module.block {
 					// todo 这里的tween的内存应该是保留的
 					tween && Tween.clear(tween);
 					tween = null;
+					
+					// todo 其实只要更新附近就好了
 					simpleUpdate();
 					// 打开胜利界面
 					if (isWin) {

@@ -1,5 +1,7 @@
 package module.block {
 	import laya.events.Event;
+	import laya.utils.Handler;
+	import laya.utils.Tween;
 	
 	import module.event.EventCenter;
 	import module.event.EventType;
@@ -10,8 +12,53 @@ package module.block {
 		public function BlockView() {
 			backBtn.on(Event.CLICK, this, onclick);
 			initBlockComp();
-			Laya.timer.loop(200, this, onLoop);
+			// Laya.timer.loop(200, this, onLoop);
+			initPowerSmall();
 			onLoop();
+		}
+		
+		// private var powRawPosArr:Array = [[119, 43], [101, 75], [68, 94]];       //暂时把原始位置记下来
+		// public var powTargetPosArr:Array = [[223, 81], [189, 149], [116, 198]];  //参考
+		private var powerNum:int = 0;
+		private var _isWin:Boolean;
+		
+		private function movePowerSmall():void {
+			var delay:int = 600;
+			Tween.to(powersmall1, {x: 223, y: 81}, delay, null, Handler.create(this, addPowerNum));
+			Tween.to(powersmall2, {x: 189, y: 149}, delay, null, Handler.create(this, addPowerNum));
+			Tween.to(powersmall3, {x: 116, y: 198}, delay, null, Handler.create(this, addPowerNum));
+			
+			function addPowerNum():void {
+				powerNum++;
+				if (powerNum >= 3) {
+					powerNum = 0;
+					initPowerSmall();
+				}
+			}
+		}
+		
+		private function initPowerSmall():void {
+			// 这只是一个动画过程，虽然看起来有些复杂
+			Laya.timer.once(50, null, function ():void {
+				powersmall1.pos(119, 43);
+				powersmall2.pos(101, 75);
+				powersmall3.pos(68, 94);
+				powersmall1.visible = false;
+				powersmall2.visible = false;
+				powersmall3.visible = false;
+			});
+			if (!_isWin) {
+				Laya.timer.once(500, null, function ():void {
+					powersmall1.visible = true;
+					powersmall2.visible = true;
+					powersmall3.visible = true;
+					movePowerSmall();
+				});
+			} else {
+				powersmall1.visible = true;
+				powersmall2.visible = true;
+				powersmall3.visible = true;
+			}
 		}
 		
 		private var blockComp:BlockComp;
@@ -36,9 +83,10 @@ package module.block {
 			// todo 弹出win界面应该在这里用callBack试试
 			// todo 还有电路板逻辑还没有做
 			var darkBulbSkin:String = 'resources/light_1.png';
-			var darkPCBSkin:String = 'resources/background_pcb_2_line.png';
-			var lightPCBSkin:String = 'resources/background_pcb_1_line.png';
+			var lightPCBSkin:String = 'resources/background_pcb_1.png';
+			var darkPCBSkin:String = 'resources/background_pcb_2.png';
 			if (isWin) {
+				_isWin = true;
 				imgPCB.skin = lightPCBSkin;
 				var index:int = 1;
 				
@@ -47,7 +95,7 @@ package module.block {
 					index++;
 					if (index > 5) {
 						Laya.timer.clear(null, onLoop);
-						if(callBack) callBack();
+						if (callBack) callBack();
 					}
 				}
 				
@@ -60,9 +108,10 @@ package module.block {
 		
 		private var curPow:int = 1; // 1-4
 		private function onLoop():void {
-			imgPower.skin = 'resources/power' + curPow + '.png';
-			curPow++;
-			if (curPow > 4) curPow = 1;
+			// 充电动画
+			// imgPower.skin = 'resources/power' + curPow + '.png';
+			// curPow++;
+			// if (curPow > 4) curPow = 1;
 		}
 		
 		private function onclick():void {

@@ -1,12 +1,12 @@
 package module.enter {
-    import laya.events.Event;
-    
-    import module.event.EventCenter;
-    import module.event.EventType;
-    
-    import ui.EnterViewUI;
-    
-    public class EnterView extends EnterViewUI {
+	import laya.events.Event;
+	
+	import module.event.EventCenter;
+	import module.event.EventType;
+	
+	import ui.EnterViewUI;
+	
+	public class EnterView extends EnterViewUI {
         public function EnterView() {
             on(Event.CLICK, this, onclick);
         }

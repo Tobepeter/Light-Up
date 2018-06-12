@@ -29,7 +29,7 @@ package module.block {
 		}
 		
 		/** 获取最宽的一行 */
-		public function get MaxRow():int {
+		public function get MaxCol():int {
 			var result:int = 0;
 			for (var i:int = 0, iLen:int = _mapArr.length; i < iLen; i++) {
 				if (result < _mapArr[i].length) result = _mapArr[i].length;
