@@ -24,8 +24,8 @@ package module.block {
             EventCenter.add(EventType.UPDATE_BLOCK_VIEW, this, onUpdateBlockView);
         }
         
-        private function onUpdateBlockView(data:Boolean = false):void {
-            blockView.changeLightBulb(data);
+        private function onUpdateBlockView(isWin:Boolean = false, callBack:Function = null):void {
+            blockView.changeLightBulb(isWin, callBack);
         }
         
         private function onCloseBLockView():void {

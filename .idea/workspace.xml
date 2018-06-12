@@ -3,11 +3,60 @@
   <component name="ChangeListManager">
     <list id="e6dbfb0f-51a3-4913-aa6a-477217030f5c" name="Ignore" comment="" />
     <list default="true" id="326faa28-4ced-4f4b-bfd3-e88eb7225da1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/config/GameColor.as" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/astool/debug.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/astool/debug.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1E8A4E-5A9C.pma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1E96E6-1AF4.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F477B-276C.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F482A-6464.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F4A41-1970.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F4AB4-4448.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F4AD2-6498.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F4B01-3444.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F4B64-1950.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F5E65-3744.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F5EC1-4628.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1F5FCE-4E70.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4511/_metadata/verified_contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4511/crl-set" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4511/manifest.fingerprint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4511/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_metadata/verified_contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/03019df3fd85a69a8ebd1facc6da9ba73e469774fe77f579fc5a08b8328c1d6b.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/15970488d7b997a05beb52512adee8d2e8b4a3165264121a9fabfbd5f85ad93f.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/2245450759552456963fa12ff1f76d86e0232663adc04b7f5dc6835c6ee20f02.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/293c519654c83965baaa50fc5807d4b76fbf587a2972dca4c30cf4e54547f478.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/34bb6ad6c3df9c03eea8a499ff7891486c9d5e5cac92d01f7bfd1bce19db48ef.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/41b2dc2e89e63ce4af1ba7bb29bf68c6dee6f9f1cc047e30dffae3b3ba259263.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/4494652eb0eeceafc44007d8a8fe28c0dae682bed8cb31b53fd33396b5b681a8.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/5581d4c2169036014aea0b9b573c53f0c0e43878702508172fa3aa1d0713d30c.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/5614069a2fd7c2ecd3f5e1bd44b23ec74676b9bc99115cc0ef949855d689d0dd.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/5cdc4392fee6ab4544b15e9ad456e61037fbd5fa47dca17394b25ee6f6c70eca.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/5ea773f9df56c0e7b536487dd049e0327a919a0c84a112128418759681714558.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/63f2dbcde83bcc2ccf0b728427576b33a48d61778fbd75a638b1c768544bd88d.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/68f698f81f6482be3a8ceeb9281d4cfc71515d6793d444d10a67acbb4f4ffbc4.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/6f5376ac31f03119d89900a45115ff77151c11d902c10029068db2089a37d913.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/7461b4a09cfb3d41d75159575b2e7649a445a8d27709b0cc564a6482b7eb41a3.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/747eda8331ad331091219cce254f4270c2bffd5e422008c6373579e6107bcc56.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/8775bfe7597cf88c43995fbdf36eff568d475636ff4ab560c1b4eaff5ea0830f.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/a4501269055a15545e6211ab37bc103f62ae5576a45e4b1714453e1b22106a25.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/a4b90990b418581487bb13a2cc67700a3c359804f91bdfb8e377cd0ec80ddc10.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/a577ac9ced7548dd8f025b67a241089df86e0f476ec203c2ecbedb185f282638.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/ac3b9aed7fa9674757159e6d7d575672f9d98100941e9bdeffeca1313b75782d.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/b21e05cc8ba2cd8a204e8766f92bb98a2520676bdafa70e7b249532def8b905e.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/bbd9dfbc1f8a71b593942397aa927b473857950aab52e81a909664368e1ed185.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/bc78e1dfc5f63c684649334da10fa15f0979692009c081b4f3f6917f3ed9b8a5.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/c1164ae0a772d2d4392dc80ac10770d4f0c49bde991a4840c1fa075164f63360.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/cdb5179b7fc1c046feea31136a3f8f002e6182faf8896fecc8b2f5b5ab604900.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/db74afeecb29ecb1feca3e716d2ce5b9aabb36f7847183c75d9d4f37b61fbf64.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/ddeb1d2b7a0d4fa6208b81ad8168707e2e8e9d01d55c888d3d11c4cdb6ecbecc.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/e2694bae26e8e94009e8861bb63b83d43ee7fe7488fba48f2893019dddf1dbfe.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/ee4bbdb775ce60bae142691fabe19e66a30f7e5fb072d88300c47b897aa8fdcb.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/f095a459f200d18240102d2f93888ead4bfe1d47e399e1d034a6b0a8aa8eb273.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/_platform_specific/all/sths/f65c942fd1773022145418083094568ee34d131933bfdf0c2f200bcc4ef164e3.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/manifest.fingerprint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/778/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CrashpadMetrics-active.pma" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/CrashpadMetrics-active.pma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" afterDir="false" />
@@ -15,46 +64,52 @@
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_3" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/History" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/History" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/History Provider Cache" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/History Provider Cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/History-journal" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/History-journal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Last Session" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Last Session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Last Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Last Tabs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/000003.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Network Persistent State" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Network Persistent State" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/000003.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Web Data" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Web Data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Local State" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Local State" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/ChromeExtMalware.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/ChromeExtMalware.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlCsdWhitelist.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlCsdWhitelist.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlMalBin.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlMalBin.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlMalware.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlMalware.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlSoceng.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlSoceng.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlSubresourceFilter.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlSubresourceFilter.store" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlUws.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlUws.store" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/chrome_shutdown_ms.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/h5/GameMain.max.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/GameMain.max.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/h5/resources/win.png" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/resources/win.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/unpack.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/unpack.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laya/assets/resources/win.png" beforeDir="false" afterPath="$PROJECT_DIR$/laya/assets/resources/win.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laya/pages/BlockView.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/BlockView.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laya/pages/EnterVIew.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/EnterVIew.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laya/pages/LevelSelectView.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/LevelSelectView.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laya/pages/WinView.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/WinView.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/GameLayer.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/GameLayer.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameMain.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameMain.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/GameColor.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/GameColor.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/GameConfig.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/GameConfig.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module/block/BlockComp.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockComp.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/block/BlockConst.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockConst.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module/block/BlockModel.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockModel.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module/block/BlockModule.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockModule.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module/block/BlockView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockView.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/enter/EnterView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/enter/EnterView.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/event/EventCenter.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/event/EventCenter.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/event/EventType.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/event/EventType.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/levelselect/LevelSelectModel.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/levelselect/LevelSelectModel.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/levelselect/LevelSelectView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/levelselect/LevelSelectView.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/win/WinView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/win/WinView.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/BlockViewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/BlockViewUI.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/EnterVIewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/EnterVIewUI.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/LevelSelectViewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/LevelSelectViewUI.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/WinViewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/WinViewUI.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/TestCenter.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/TestCenter.as" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,56 +121,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BlockComp.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventCenter.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/event/EventCenter.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelSelectView.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/levelselect/LevelSelectView.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelSelectModel.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/levelselect/LevelSelectModel.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="48" column="21" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WinView.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/win/WinView.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="21" column="39" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlockModule.as" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlockModule.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockModule.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="37" column="46" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="46" />
+            <state relative-caret-position="552">
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -123,11 +133,26 @@
       <file leaf-file-name="BlockModel.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="27" />
-              <folding>
-                <element signature="e#27#52#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2898">
+              <caret line="128" column="57" selection-start-line="128" selection-start-column="57" selection-end-line="128" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockConst.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/module/block/BlockConst.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestCenter.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3174">
+              <caret line="150" column="30" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -136,7 +161,37 @@
         <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="26" column="39" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="39" />
+              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+              <folding>
+                <element signature="e#24#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameConfig.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/global/GameConfig.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockComp.as" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tween.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Tween.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3266">
+              <caret line="143" column="25" selection-start-line="143" selection-start-column="25" selection-end-line="143" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -155,6 +210,10 @@
       <find>rendertype</find>
       <find>render</find>
       <find>close</find>
+      <find>UPDATE_BLOCK_VIEW</find>
+      <find>update</find>
+      <find>win</find>
+      <find>simple</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,7 +229,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/module/enter/EnterModule.as" />
         <option value="$PROJECT_DIR$/libs/laya/src/laya/display/Sprite.as" />
-        <option value="$PROJECT_DIR$/src/utils/TestCenter.as" />
         <option value="$PROJECT_DIR$/src/module/levelselect/LevelSelectModule.as" />
         <option value="$PROJECT_DIR$/src/module/win/WinVIew.as" />
         <option value="$PROJECT_DIR$/src/module/win/winModule.as" />
@@ -181,15 +239,18 @@
         <option value="$PROJECT_DIR$/src/utils/GameColor.as" />
         <option value="$PROJECT_DIR$/src/config/GameColor.as" />
         <option value="$PROJECT_DIR$/src/module/enter/EnterView.as" />
-        <option value="$PROJECT_DIR$/src/module/block/BlockView.as" />
         <option value="$PROJECT_DIR$/src/module/event/EventType.as" />
-        <option value="$PROJECT_DIR$/src/module/block/BlockModel.as" />
         <option value="$PROJECT_DIR$/src/module/levelselect/LevelSelectModel.as" />
-        <option value="$PROJECT_DIR$/src/module/block/BlockComp.as" />
         <option value="$PROJECT_DIR$/src/module/event/EventCenter.as" />
         <option value="$PROJECT_DIR$/src/module/win/WinView.as" />
         <option value="$PROJECT_DIR$/src/module/levelselect/LevelSelectView.as" />
+        <option value="$PROJECT_DIR$/src/module/block/BlockView.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockModule.as" />
+        <option value="$PROJECT_DIR$/src/module/block/BlockModel.as" />
+        <option value="$PROJECT_DIR$/src/module/block/BlockConst.as" />
+        <option value="$PROJECT_DIR$/src/utils/TestCenter.as" />
+        <option value="$PROJECT_DIR$/src/global/GameConfig.as" />
+        <option value="$PROJECT_DIR$/src/module/block/BlockComp.as" />
       </list>
     </option>
   </component>
@@ -216,8 +277,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,35 +304,22 @@
               <item name="module" type="462c0819:PsiDirectoryNode" />
               <item name="block" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="levelselect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LightUp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="win" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="directory" />
+    <property name="SearchEverywhereHistoryKey" value="generatemap&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
@@ -397,7 +445,11 @@
       <workItem from="1528684664287" duration="156000" />
       <workItem from="1528685755366" duration="73000" />
       <workItem from="1528721755265" duration="12237000" />
-      <workItem from="1528771992059" duration="6682000" />
+      <workItem from="1528771992059" duration="7752000" />
+      <workItem from="1528787025323" duration="1980000" />
+      <workItem from="1528791681294" duration="4056000" />
+      <workItem from="1528799174891" duration="2439000" />
+      <workItem from="1528802280317" duration="2213000" />
     </task>
     <task id="LOCAL-00001" summary="update enterview">
       <created>1528618204141</created>
@@ -459,7 +511,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33295000" />
+    <option name="totallyTimeSpent" value="45053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="846" extended-state="6" />
@@ -478,10 +530,9 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49788433" visible="true" weight="0.19839142" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49788433" weight="0.20375335" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.7291961" />
-      <window_info id="Structure" order="6" sideWeight="0.50211567" weight="0.19571045" />
+      <window_info id="Structure" order="6" sideWeight="0.50211567" side_tool="true" weight="0.19571045" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -493,6 +544,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.7291961" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,37 +592,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/module/levelselect/LevelSelectView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-          <folding>
-            <element signature="e#20#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/List.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16215">
-          <caret line="705" column="19" lean-forward="true" selection-start-line="705" selection-start-column="19" selection-end-line="705" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/module/levelselect/LevelSelectView.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -629,30 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="48" lean-forward="true" selection-start-column="48" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/h5/GameMain.max.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="279" column="44" selection-start-line="279" selection-start-column="44" selection-end-line="279" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Sprite.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28106">
-          <caret line="1243" column="38" selection-start-line="1243" selection-start-column="38" selection-end-line="1243" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2783">
-          <caret line="133" column="17" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
-          <folding>
-            <element signature="e#20#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/Component.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="68" column="37" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/Dialog.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -769,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Tween.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="271" column="20" selection-start-line="271" selection-start-column="20" selection-end-line="271" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/EnterViewUI.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -787,13 +770,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="23" column="24" selection-start-line="22" selection-start-column="26" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="e#27#52#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/GameColor.as">
+    <entry file="file://$PROJECT_DIR$/src/global/GameColor.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
@@ -810,13 +790,6 @@
     <entry file="file://$PROJECT_DIR$/laya/pages/WinView.ui">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/module/event/EventCenter.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -828,23 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="48" column="21" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="27" />
-          <folding>
-            <element signature="e#27#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -862,10 +818,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/GameMain.max.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="893" column="4" selection-start-line="893" selection-start-column="4" selection-end-line="893" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Sprite.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="202" column="17" selection-start-line="202" selection-start-column="17" selection-end-line="202" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/events/EventDispatcher.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/module/block/BlockModule.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="37" column="46" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="46" />
+        <state relative-caret-position="552">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2898">
+          <caret line="128" column="57" selection-start-line="128" selection-start-column="57" selection-end-line="128" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockConst.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3174">
+          <caret line="150" column="30" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/GameConfig.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Tween.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3266">
+          <caret line="143" column="25" selection-start-line="143" selection-start-column="25" selection-end-line="143" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Dictionary.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-161">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/Component.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="106" column="19" selection-start-line="102" selection-start-column="12" selection-end-line="106" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
         </state>
       </provider>
     </entry>

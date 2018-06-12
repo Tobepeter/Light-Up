@@ -417,19 +417,6 @@ var ___Laya=(function(){
 })()
 
 
-//class config.GameConfig
-var GameConfig=(function(){
-	function GameConfig(){}
-	__class(GameConfig,'config.GameConfig');
-	GameConfig.H_BLCOK=5;
-	GameConfig.V_BLOCK=5;
-	GameConfig.BLOCK_SIZE=100;
-	GameConfig.GAME_WIDHT=678;
-	GameConfig.GAME_HEIGHT=1200;
-	return GameConfig;
-})()
-
-
 //class core.GameLayer
 var GameLayer=(function(){
 	function GameLayer(){
@@ -516,6 +503,20 @@ var GameMain=(function(){
 	}
 
 	return GameMain;
+})()
+
+
+//class global.GameConfig
+var GameConfig=(function(){
+	function GameConfig(){}
+	__class(GameConfig,'global.GameConfig');
+	GameConfig.H_BLCOK=5;
+	GameConfig.V_BLOCK=5;
+	GameConfig.BLOCK_SIZE=100;
+	GameConfig.GAME_WIDHT=678;
+	GameConfig.GAME_HEIGHT=1200;
+	GameConfig.IS_DEBUG=true;
+	return GameConfig;
 })()
 
 
@@ -825,8 +826,8 @@ var BlockConst=(function(){
 	function BlockConst(){}
 	__class(BlockConst,'module.block.BlockConst');
 	BlockConst.NONE=0;
-	BlockConst.RED_BLOCK=1;
-	BlockConst.WHITE_BLOCK=2;
+	BlockConst.DARK_BLOCK=1;
+	BlockConst.LIGHT_BLOCK=2;
 	return BlockConst;
 })()
 
@@ -872,6 +873,22 @@ var BlockModel=(function(){
 		}
 	}
 
+	/**设置地图大小 */
+	__proto.setMapSize=function(width,height){
+		if (width <=0 || height <=0){
+			console.warn('设置地图大小有误');
+			return;
+		}
+		this._mapArr=[];
+		for (var i=0;i < width;i++){
+			var arr=[];
+			this._mapArr.push(arr);
+			for (var j=0;j < height;j++){
+				arr.push(2);
+			}
+		}
+	}
+
 	/**随机点击 */
 	__proto.randomSwitch=function(){
 		var _$this=this;
@@ -888,6 +905,17 @@ var BlockModel=(function(){
 		}
 		search();
 		this.switchPoint(row,col);
+	}
+
+	/**单翻转--用于调试 */
+	__proto.singleSwitch=function(row,col){
+		if (this._mapArr[row]==undefined || this._mapArr[row][col]==undefined)return;
+		if (this._mapArr[row][col]==0)return;
+		if(this._mapArr[row][col]==2){
+			this._mapArr[row][col]=1;
+			}else{
+			this._mapArr[row][col]=2;
+		}
 	}
 
 	/**生成能赢的地图 */
@@ -933,8 +961,8 @@ var BlockModel=(function(){
 	/**获取最宽的一行 */
 	__getset(0,__proto,'MaxRow',function(){
 		var result=0;
-		for(var i=0,iLen=this._mapArr.length;i<iLen;i++){
-			if(result < this._mapArr[i].length)result=this._mapArr[i].length;
+		for (var i=0,iLen=this._mapArr.length;i < iLen;i++){
+			if (result < this._mapArr[i].length)result=this._mapArr[i].length;
 		}
 		return result;
 	});
@@ -963,9 +991,9 @@ var BlockModule=(function(){
 		EventCenter.add("UPDATE_BLOCK_VIEW",this,this.onUpdateBlockView);
 	}
 
-	__proto.onUpdateBlockView=function(data){
-		(data===void 0)&& (data=false);
-		this.blockView.changeLightBulb(data);
+	__proto.onUpdateBlockView=function(isWin,callBack){
+		(isWin===void 0)&& (isWin=false);
+		this.blockView.changeLightBulb(isWin,callBack);
 	}
 
 	__proto.onCloseBLockView=function(){
@@ -17800,19 +17828,18 @@ var HTMLCanvas=(function(_super){
 
 /**
 *砖块地图界面
+*@desc 这个类有点复杂，主要是自己什么都想写通用的就搞成这样了
+*@desc 以后有机会再整理吧
 */
 //class module.block.BlockComp extends laya.ui.Component
 var BlockComp=(function(_super){
 	function BlockComp(){
-		// key:Image,value:Point
-		this.curArr=null;
-		/**点击事件 */
-		this.tween=null;
 		BlockComp.__super.call(this);
 		this.imgDic=new Dictionary;
+		this.tweenDic=new Dictionary;
 		this.width=100 *5;
 		this.height=100 *5;
-		this.update();
+		this.update(true);
 		this.on("click",this,this.onClick);
 		BlockComp.ins=this;
 	}
@@ -17820,75 +17847,114 @@ var BlockComp=(function(_super){
 	__class(BlockComp,'module.block.BlockComp',_super);
 	var __proto=BlockComp.prototype;
 	/**更新界面 */
-	__proto.update=function(){
+	__proto.update=function(isArrChanged){
+		(isArrChanged===void 0)&& (isArrChanged=false);
+		if (!isArrChanged){
+			this.simpleUpdate();
+			return;
+		}
 		this.recoverBlock();
-		this.curArr=BlockModel.ins.mapArr;
-		var row=this.curArr.length;
+		var arr=BlockModel.ins.mapArr;
+		var row=arr.length;
 		var col=BlockModel.ins.MaxRow;
-		var size=this.width / col;
-		for (var i=0,iLen=this.curArr.length;i < iLen;i++){
-			for (var j=0;j < this.curArr[i].length;j++){
-				if (this.curArr[i][j]==0)continue ;
+		var blockWidth=this.width / col;
+		var hSize=this.height / row;
+		for (var i=0,iLen=arr.length;i < iLen;i++){
+			for (var j=0;j < arr[i].length;j++){
+				if (arr[i][j]==0)continue ;
 				var img=Pool.getItemByClass("Image",Image);
-				img.size(size,size);
+				img.size(blockWidth,blockWidth);
 				img.mouseEnabled=true;
-				img.pivot(size / 2,size / 2);
+				img.pivot(blockWidth / 2,hSize / 2);
 				img.mouseEnabled=true;
+				img.pos(j *blockWidth+blockWidth / 2,i *hSize+hSize / 2);
+				this.addChild(img);
 				var point=Pool.getItemByClass("Point",Point);
 				point.x=i;
 				point.y=j;
 				this.imgDic.set(img,point);
-				switch (this.curArr[i][j]){
+				switch (arr[i][j]){
 					case 1:
-						img.pos(j *size+size / 2,i *size+size / 2);
-						img.skin='resources/block1.png';
-						this.addChild(img);
+						img.skin='resources/block_dark.png';
 						break ;
 					case 2:
-						img.pos(j *size+size / 2,i *size+size / 2);
-						img.skin='resources/block2.png';
-						this.addChild(img);
+						img.skin='resources/block_light.png';
 						break ;
 					}
 			}
 		}
 	}
 
-	// TODO 暂时未使用 有待于逻辑优化，img不一定每次都要回收
-	__proto.update2=function(){
+	// 在数组没有外界更改的时候调用这个，不用img全部重新摆放
+	__proto.simpleUpdate=function(){
 		var arr=BlockModel.ins.mapArr;
-		for (var i=0,iLen=arr.length;i < iLen;i++){
-			for (var j=0;j < arr[i].length;j++){
-				if (this.curArr){}
-					}
+		for (var i=0,iLen=this.imgDic.values.length;i < iLen;i++){
+			var row=this.imgDic.values[i].x;
+			var col=this.imgDic.values[i].y;
+			var img=this.imgDic.keys[i];
+			switch (arr[row][col]){
+				case 1:
+					img.skin='resources/block_dark.png';
+					break ;
+				case 2:
+					img.skin='resources/block_light.png';
+					break ;
+				default :
+					break ;
+				}
+		}
+	}
+
+	__proto.updateImg=function(img){
+		var point=this.imgDic.get(img);
+		if (point){
+			var arr=BlockModel.ins.mapArr;
+			switch (arr[point.x][point.y]){
+				case 1:
+					img.skin='resources/block_dark.png';
+					break ;
+				case 2:
+					img.skin='resources/block_light.png';
+					break ;
+				default :
+					break ;
+				}
 		}
 	}
 
 	__proto.onClick=function(evt){
 		var _$this=this;
-		if (this.tween)return;
 		var index=this.imgDic.keys.indexOf(evt.target);
 		if (index < 0)return;
 		var target=this.imgDic.keys[index];
+		var isTween=this.tweenDic.get(target);
+		if (isTween)return;
 		var point=this.imgDic.values[index];
-		this.tween=Tween.to(target,{
-			scaleX:0.65,
-			scaleY:0.65
-			},100,Ease.linearNone,Handler.create(null,function(){
-			Tween.to(target,{scaleX:1,scaleY:1},100,Ease.linearNone,Handler.create(null,function(){
-				var row=point.x;
-				var col=point.y;
-				_$this.tween && Tween.clear(_$this.tween);
-				_$this.tween=null;
-				BlockModel.ins.switchPoint(row,col);
-				_$this.update();
-				if (BlockModel.ins.isWin()){
-					EventCenter.send("UPDATE_BLOCK_VIEW",[true]);
-					_$this.off("click",this,_$this.onClick);
-					Laya.timer.once(1000,null,function(){
-						EventCenter.send("OPEN_WIN_VIEW");
-						_$this.off("click",this,_$this.onClick);
-					});
+		var row=point.x;
+		var col=point.y;
+		if (GameConfig.IS_DEBUG){
+			BlockModel.ins.singleSwitch(row,col);
+			}else {
+			BlockModel.ins.switchPoint(row,col);
+		};
+		var isWin=BlockModel.ins.isWin();
+		if (isWin)this.off("click",this,this.onClick);
+		this.tweenDic.set(target,true);
+		var delay=200;
+		var tween=Tween.to(target,{scaleX:0.65,scaleY:0.65},delay,Ease.linearNone,Handler.create(null,function(){
+			_$this.updateImg(target);
+			Tween.to(target,{scaleX:1,scaleY:1},delay,Ease.linearNone,Handler.create(null,function(){
+				_$this.tweenDic.set(target,false);
+				tween && Tween.clear(tween);
+				tween=null;
+				_$this.simpleUpdate();
+				if (isWin){
+					var callBack=function (){
+						Laya.timer.once(1000,null,function(){
+							EventCenter.send("OPEN_WIN_VIEW");
+						});
+					};
+					EventCenter.send("UPDATE_BLOCK_VIEW",[true,callBack]);
 				}
 			}));
 		}));
@@ -17914,6 +17980,7 @@ var BlockComp=(function(_super){
 		this.graphics.drawRect(0,0,this.width,this.height,null,'#000000',2);
 	}
 
+	// key:Image,value:Point
 	__getset(0,__proto,'width',_super.prototype._$get_width,function(value){
 		Laya.superSet(Component,this,'width',value);
 	});
@@ -27258,9 +27325,11 @@ var GraphicAnimation=(function(_super){
 //class ui.BlockViewUI extends laya.ui.View
 var BlockViewUI=(function(_super){
 	function BlockViewUI(){
-		this.blockBox=null;
 		this.backBtn=null;
+		this.imgPCB=null;
 		this.ligthBulb=null;
+		this.imgPower=null;
+		this.blockBox=null;
 		BlockViewUI.__super.call(this);
 	}
 
@@ -27272,7 +27341,7 @@ var BlockViewUI=(function(_super){
 	}
 
 	__static(BlockViewUI,
-	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Box","props":{"y":313,"x":52,"width":573,"var":"blockBox","height":573}},{"type":"Button","props":{"y":48,"x":520,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":871,"x":471,"var":"ligthBulb","skin":"resources/targetlight_dark.png"}}]};}
+	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Button","props":{"y":48,"x":520,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":195,"x":75,"width":517,"var":"imgPCB","skin":"resources/background_pcb_2_line.png","height":894}},{"type":"Image","props":{"y":1012,"x":475,"var":"ligthBulb","skin":"resources/light_1.png"}},{"type":"Image","props":{"y":94,"x":18,"var":"imgPower","skin":"resources/power1.png","mouseThrough":true}},{"type":"Box","props":{"y":343,"x":98,"width":482,"var":"blockBox","height":578}}]};}
 	]);
 	return BlockViewUI;
 })(View)
@@ -27868,30 +27937,53 @@ var TextArea=(function(_super){
 var BlockView=(function(_super){
 	function BlockView(){
 		this.blockComp=null;
+		this.curPow=1;
 		BlockView.__super.call(this);
 		this.backBtn.on("click",this,this.onclick);
 		this.initBlockComp();
+		Laya.timer.loop(200,this,this.onLoop);
+		this.onLoop();
 	}
 
 	__class(BlockView,'module.block.BlockView',_super);
 	var __proto=BlockView.prototype;
 	__proto.initBlockComp=function(){this.blockComp=this.blockComp|| new BlockComp();
-		var size=this.blockBox.width;
-		this.blockComp.size(size,size);
+		var width=this.blockBox.width;
+		var height=this.blockBox.height;
+		this.blockComp.size(width,height);
 		this.blockComp.update();
-		var len=5;
-		this.blockBox.graphics.drawRect(-len,-len,this.blockBox.width+len *2,this.blockBox.height+len *2,undefined,'#000',len-2);
 		this.blockBox.addChild(this.blockComp);
 	}
 
-	__proto.changeLightBulb=function(isWin){
-		var darkSkin='resources/targetlight_dark.png';
-		var lightSkin='resources/targetlight_light.png';
-		if(isWin){
-			this.ligthBulb.skin=lightSkin;
+	__proto.changeLightBulb=function(isWin,callBack){
+		var _$this=this;
+		(callBack===void 0)&& (callBack=undefined);
+		var darkBulbSkin='resources/light_1.png';
+		var darkPCBSkin='resources/background_pcb_2_line.png';
+		var lightPCBSkin='resources/background_pcb_1_line.png';
+		if (isWin){
+			this.imgPCB.skin=lightPCBSkin;
+			var index=1;
+			function onLoop (){
+				_$this.ligthBulb.skin='resources/light_'+index+'.png';
+				index++;
+				if (index > 5){
+					Laya.timer.clear(null,onLoop);
+					if(callBack)callBack();
+				}
+			}
+			Laya.timer.loop(200,null,onLoop);
 			}else {
-			this.ligthBulb.skin=darkSkin;
+			this.ligthBulb.skin=darkBulbSkin;
+			this.imgPCB.skin=darkPCBSkin;
 		}
+	}
+
+	// 1-4
+	__proto.onLoop=function(){
+		this.imgPower.skin='resources/power'+this.curPow+'.png';
+		this.curPow++;
+		if (this.curPow > 4)this.curPow=1;
 	}
 
 	__proto.onclick=function(){

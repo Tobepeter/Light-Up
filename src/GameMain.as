@@ -1,5 +1,5 @@
 ﻿package {
-    import config.GameConfig;
+    import global.GameConfig;
     
     import core.GameMgr;
     
