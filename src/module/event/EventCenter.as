@@ -45,6 +45,7 @@ package module.event {
         }
         
         public static function send(type:String, args:Array = null):void {
+            // todo 这里应该不是一次性派发完全，可能存在性能问题（超过最大数下一帧派发）
             var arr:* = eventDic.get(type);
             if (arr) {
                 for (var i:int = 0; i < arr.length; i++) {

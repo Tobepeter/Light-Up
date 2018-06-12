@@ -19,6 +19,7 @@ package core {
             windowLayer.mouseEnabled = true;
             popLayer.mouseEnabled = true;
             topLayer.mouseEnabled = true;
+            
             Laya.stage.addChild(mainLayer);
             Laya.stage.addChild(windowLayer);
             Laya.stage.addChild(popLayer);

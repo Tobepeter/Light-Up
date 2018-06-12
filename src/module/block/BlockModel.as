@@ -16,6 +16,7 @@ package module.block {
         }
         
         private var _mapArr:Array;
+        public var curLevel:int = -1; //  当前关卡，如果为-1是不考虑关卡因素
     
         /** 获取砖块地图 */
         public function get mapArr():Array {

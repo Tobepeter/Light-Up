@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":7,
-    "props":{"width":678,"sceneColor":"#000000","sceneBg":"laya/views/EnterVIew.png","height":1200},
+    "selecteID":16,
+    "props":{"width":678,"sceneColor":"#000000","height":1200},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,13 +15,14 @@
         {
             "x":15,
             "type":"Rect",
-            "props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"},
+            "props":{"width":678,"lineWidth":0,"height":1200,"fillColor":"#fff"},
             "nodeParent":1,
             "label":"Rect",
+            "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":4,
+            "compId":12,
             "child":[
                 ],
             "$HIDDEN":false
@@ -35,7 +36,7 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":13,
             "child":[
                 ],
             "$HIDDEN":false
@@ -43,13 +44,13 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":107,"x":86,"skin":"resources/title.png"},
+            "props":{"y":107,"x":98,"skin":"resources/title.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":14,
             "child":[
                 ],
             "$HIDDEN":false
@@ -57,13 +58,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":951,"x":92,"var":"btnLevelMode","stateNum":"1","skin":"resources/button.png","labelSize":45,"label":"关卡模式"},
+            "props":{"y":961,"x":92,"var":"btnLevelMode","stateNum":"1","skin":"resources/button.png","labelSize":45,"label":"关卡模式"},
             "nodeParent":1,
             "label":"Button(btnLevelMode)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":6,
+            "compId":15,
             "child":[
                 ],
             "$HIDDEN":false
@@ -71,13 +72,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":951,"x":382,"var":"btnEndlessMode","stateNum":"1","skin":"resources/button.png","labelSize":45,"label":"无尽模式"},
+            "props":{"y":961,"x":382,"var":"btnEndlessMode","stateNum":"1","skin":"resources/button.png","labelSize":45,"label":"无尽模式"},
             "nodeParent":1,
             "label":"Button(btnEndlessMode)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":7,
+            "compId":16,
             "child":[
                 ],
             "$HIDDEN":false

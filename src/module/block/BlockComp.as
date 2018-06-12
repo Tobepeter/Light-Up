@@ -113,22 +113,34 @@ package module.block {
         }
         
         /**点击事件 */
+        private var tween:Tween;
+        
         private function onClick(evt:Event):void {
+            if (tween) return;
             var index:int = imgDic.keys.indexOf(evt.target);
             if (index < 0) return;
             var target:Image = imgDic.keys[index];
             var point:Point = imgDic.values[index];
-            
-            Tween.to(target, {scaleX: 0.65, scaleY: 0.65}, 100, Ease.linearNone, Handler.create(null, function ():void {
+            tween = Tween.to(target, {
+                scaleX: 0.65,
+                scaleY: 0.65
+            }, 100, Ease.linearNone, Handler.create(null, function ():void {
                 Tween.to(target, {scaleX: 1, scaleY: 1}, 100, Ease.linearNone, Handler.create(null, function ():void {
                     var row:int = point.x;
                     var col:int = point.y;
+                    tween && Tween.clear(tween);
+                    tween = null;
                     BlockModel.ins.switchPoint(row, col);
                     update();
                     if (BlockModel.ins.isWin()) {
-                        // todo 胜利
-                        EventCenter.send(EventType.OPEN_WIN_VIEW);
+                        EventCenter.send(EventType.UPDATE_BLOCK_VIEW, [true]);
                         off(Event.CLICK, this, onClick);
+                        // 这里延迟1秒执行,可以看到灯泡亮的状态
+                        Laya.timer.once(1000, null, function ():void {
+                            EventCenter.send(EventType.OPEN_WIN_VIEW);
+                            off(Event.CLICK, this, onClick);
+                        });
+                        
                     }
                 }));
             }));

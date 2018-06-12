@@ -18,21 +18,21 @@ package module.levelselect {
         public const openSkin:String = 'resources/levelmode_button_1.png';
         public const closeSkin:String = 'resources/levelmode_button_2.png';
     
-        private var _curLevel:int;
+        private var _openLevel:int;
     
-        public function get curLevel():int {
-            return _curLevel;
+        public function get openLevel():int {
+            return _openLevel;
         }
     
-        public function set curLevel(value:int):void {
-            _curLevel = value;
+        public function set openLevel(value:int):void {
+            _openLevel = value;
             updateSkin();
         }
     
         /**开启下一关 */
         public function nextLevel():void {
-            if (_curLevel == maxLevel) return;
-            curLevel = curLevel + 1;
+            if (_openLevel == maxLevel) return;
+            openLevel = openLevel + 1;
         }
         
         private function init():void {
@@ -46,13 +46,13 @@ package module.levelselect {
             }
     
             // 第一关开启
-            curLevel = 1;
-            leverSource[_curLevel - 1].itemBg = openSkin;
+            openLevel = 1;
+            leverSource[_openLevel - 1].itemBg = openSkin;
         }
     
         private function updateSkin():void {
             for (var i:int = 0, iLen:int = leverSource.length; i < iLen; i++) {
-                if (i + 1 <= curLevel) {
+                if (i + 1 <= openLevel) {
                     leverSource[i].itemBg = openSkin;
                 } else {
                     leverSource[i].itemBg = closeSkin;

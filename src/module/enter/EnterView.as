@@ -4,9 +4,9 @@ package module.enter {
     import module.event.EventCenter;
     import module.event.EventType;
     
-    import ui.EnterVIewUI;
+    import ui.EnterViewUI;
     
-    public class EnterView extends EnterVIewUI {
+    public class EnterView extends EnterViewUI {
         public function EnterView() {
             on(Event.CLICK, this, onclick);
         }

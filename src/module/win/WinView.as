@@ -1,6 +1,8 @@
 package module.win {
     import laya.events.Event;
     
+    import module.block.BlockModel;
+    
     import module.event.EventCenter;
     import module.event.EventType;
     import module.levelselect.LevelSelectModel;
@@ -16,8 +18,10 @@ package module.win {
         }
         
         private function onclick():void {
-            // 下一关
-            LevelSelectModel.ins.nextLevel();
+            // 只有当前关卡是最新关卡才会解锁
+            if (BlockModel.ins.curLevel == LevelSelectModel.ins.openLevel) {
+                LevelSelectModel.ins.nextLevel();
+            }
             
             EventCenter.send(EventType.CLOSE_BLOCK_VIEW);
             EventCenter.send(EventType.CLOSE_WIN_VIEW);

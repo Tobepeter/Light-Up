@@ -13,7 +13,6 @@ package module.block {
         }
         
         private var blockComp:BlockComp;
-        
         private function initBlockComp():void {
             blockComp ||= new BlockComp();
             var size:int = blockBox.width;
@@ -23,6 +22,16 @@ package module.block {
             var len:int = 5;
             blockBox.graphics.drawRect(-len, -len, blockBox.width + len * 2, blockBox.height + len * 2, undefined, '#000', len-2);
             blockBox.addChild(blockComp);
+        }
+    
+        public function changeLightBulb(isWin:Boolean):void {
+            var darkSkin:String = 'resources/targetlight_dark.png';
+            var lightSkin:String = 'resources/targetlight_light.png';
+            if(isWin) {
+                ligthBulb.skin = lightSkin;
+            } else {
+                ligthBulb.skin = darkSkin;
+            }
         }
         
         private function onclick():void {
