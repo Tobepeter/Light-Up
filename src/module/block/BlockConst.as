@@ -3,9 +3,9 @@ package module.block {
         
         public static const NONE:int = 0;
         
-        public static const RED_BLOCK:int = 1;
+        public static const DARK_BLOCK:int = 1;
         
-        public static const WHITE_BLOCK:int = 2;
+        public static const LIGHT_BLOCK:int = 2;
         
     }
 }

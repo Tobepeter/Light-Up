@@ -1,0 +1,25 @@
+<res>
+   <item name="resources/background.png" type="Image" compress="0" pack="0" quality="80" props="width=678@@!@@height =1200" picType="0"/>
+   <html type="Button" props="label=关卡模式@@!@@x=80@@!@@y=49@@!@@stateNum=1@@!@@labelSize=45">
+      <body>
+         <parsererror style="display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black">
+             <h3>This page contains the following errors:</h3>
+            <div style="font-family:monospace;font-size:12px">error on line 1 at column 48: attributes construct error
+            </div>
+             <h3>Below is a rendering of the page up to the first error.</h3>
+         </parsererror>
+      </body>
+   </html>
+    <html type="Button" props="y=71@@!@@x=222@@!@@stateNum=1@@!@@labelSize=45@@!@@label=关卡模式">
+        <body>
+            <parsererror
+                    style="display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black">
+                <h3>This page contains the following errors:</h3>
+                <div style="font-family:monospace;font-size:12px">error on line 1 at column 48: attributes construct
+                    error
+                </div>
+                <h3>Below is a rendering of the page up to the first error.</h3>
+            </parsererror>
+        </body>
+    </html>
+</res>
