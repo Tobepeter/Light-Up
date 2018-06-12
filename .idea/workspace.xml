@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad71ec0c-2df7-4bc1-8d72-61d3120622f2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/astool/debug.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/astool/debug.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/History" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/History" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/History Provider Cache" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/History Provider Cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Last Session" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Last Session" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Last Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Last Tabs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/Local State" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Local State" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/chrome_shutdown_ms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/chrome_shutdown_ms.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/GameMain.max.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/GameMain.max.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.atlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/resources.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/GameMgr.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/GameMgr.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/enter/EnterModule.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/enter/EnterModule.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/event/EventType.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/event/EventType.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laya/pages/BlockView.ui" beforeDir="false" afterPath="$PROJECT_DIR$/laya/pages/BlockView.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/enter/EnterAniView.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/BlockViewUI.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/BlockViewUI.as" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,8 +61,8 @@
       <file leaf-file-name="EnterAniView.as" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            <state relative-caret-position="299">
+              <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
               <folding>
                 <element signature="e#24#50#0" expanded="true" />
               </folding>
@@ -398,7 +372,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41730000" />
+    <option name="totallyTimeSpent" value="42142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
@@ -793,8 +767,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="299">
+          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
           <folding>
             <element signature="e#24#50#0" expanded="true" />
           </folding>
