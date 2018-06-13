@@ -16,7 +16,7 @@ package global {
 		public static const GAME_HEIGHT:int = 1200;
 		
 		/** 作弊模式 */
-		public static const IS_DEBUG:Boolean = false;
+		public static var IS_DEBUG:Boolean = false; //todo 这里临时处理下
 		
 	}
 }

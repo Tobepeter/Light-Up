@@ -126,6 +126,39 @@ package utils {
 				Laya.stage.once(Event.KEY_DOWN, null, onKeyDown);
 			}
 		}
+
+		/**作弊模式 */
+		public static function useCheat():void {
+			// dosomething
+			var callBack:Function = function():void {
+				GameConfig.IS_DEBUG = true;
+			}
+
+			var up:int = Keyboard.UP;
+			var down:int = Keyboard.DOWN;
+			var left:int = Keyboard.LEFT;
+			var right:int = Keyboard.RIGHT;
+			var a:int = Keyboard.A;
+			var b:int = Keyboard.B;
+			var cheatArr:Array = [up, up, down, down, left, right,left,right,b,a,b,a];
+			var inputArr:Array = [];
+			Laya.stage.on(Event.KEY_UP, this, function(e:Event):void {
+				var len:int = inputArr.length
+				var targetCode:int = cheatArr[len];
+				if(e.keyCode == targetCode) {
+					if(len + 1 == cheatArr.length) {
+						// dosomething
+						callBack();
+
+						inputArr.length = 0;
+						return;
+					}
+					inputArr.push(e.keyCode);
+				} else {
+					inputArr.length = 0;
+				}
+			})
+		}
 		
 		/** 使用调试工具 */
 		public static function useDebugPanel():void {
