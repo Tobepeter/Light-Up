@@ -15,8 +15,11 @@
 			
 			// todo
 			// TestCenter.useDebugPanel();
+			TestCenter.test();
 			TestCenter.useTest();
+			TestCenter.useCheat();
 			// TestCenter.test();
+			
 		}
 		
 		private static function initStage():void {

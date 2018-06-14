@@ -1,19 +1,2 @@
-1,0.00,,0,Project command:c:\Users\58359\Desktop\workspace\git\Light-Up/.actionScriptProperties;iflash=false;windowshow=false;chromerun=false;quickcompile=true
-Project configuration:c:\Users\58359\Desktop\workspace\git\Light-Up/.actionScriptProperties.
-1,0.00,,0,output path:c:/Users/58359/Desktop/workspace/git/Light-Up/bin/h5/
-1,0.00,,0,Main Class:c:/Users/58359/Desktop/workspace/git/Light-Up/src/GameMain.as
-1,0.00,,0,output file:GameMain
-1,0.00,,0,compilerSourcePath c:/Users/58359/Desktop/workspace/git/Light-Up/libs/laya/src/
-
-1,0.00,,0,Compile Path:c:/Users/58359/Desktop/workspace/git/Light-Up/src/
-
-1,0.00,,0,Compile Path:c:/Users/58359/Desktop/workspace/git/Light-Up/libs/laya/src/
-
-1,0.00,c:/Users/58359/Desktop/workspace/git/Light-Up/src,0,Collect
-1,0.00,c:/Users/58359/Desktop/workspace/git/Light-Up/libs/laya/src,0,Collect
-1,2.00,,0,read class message
-1,89.84,,0,Disable Flash3D c:/Users/58359/Desktop/workspace/git/Light-Up/src/GameMain.as
-12,89.84,c:/Users/58359/Desktop/workspace/git/Light-Up/bin/h5/GameMain.max.js,856787,
-11,89.84,c:/Users/58359/Desktop/workspace/git/Light-Up/bin/h5/GameMain.max.html,891,
+Project configuration:d:\Documents\myLayaaaaqaaaaaqqsaaaaaaaareqaaaaasaaqq/.actionScriptProperties.
 ******************************************************************************
-14,89.84,,0,

@@ -8,10 +8,13 @@ package utils {
 	import laya.display.Sprite;
 	import laya.events.Event;
 	import laya.events.Keyboard;
+	import laya.utils.Log;
 	
 	import module.block.BlockComp;
 	import module.block.BlockConst;
 	import module.block.BlockModel;
+	import module.event.EventCenter;
+	import module.event.EventType;
 	
 	public class TestCenter {
 		
@@ -21,6 +24,15 @@ package utils {
 		/** 测试方法，注意删除 */
 		public static function test():void {
 			// 测试animation
+			
+			// 测试飘字
+			// EventCenter.send(EventType.OPEN_TEXT_TIP_VIEW, ["ttt"]);
+			//
+			// Laya.stage.on(Event.CLICK, null, function ():void {
+			// 	EventCenter.send(EventType.OPEN_TEXT_TIP_VIEW, ["ttt1", "ttt2", "ttt3"]);
+			// });
+			
+			// 测试TipManager
 		}
 		
 		/** 添加白色挡板 */
@@ -126,30 +138,30 @@ package utils {
 				Laya.stage.once(Event.KEY_DOWN, null, onKeyDown);
 			}
 		}
-
+		
 		/**作弊模式 */
 		public static function useCheat():void {
 			// dosomething
-			var callBack:Function = function():void {
+			var callBack:Function = function ():void {
 				GameConfig.IS_DEBUG = true;
-			}
-
+			};
+			
 			var up:int = Keyboard.UP;
 			var down:int = Keyboard.DOWN;
 			var left:int = Keyboard.LEFT;
 			var right:int = Keyboard.RIGHT;
 			var a:int = Keyboard.A;
 			var b:int = Keyboard.B;
-			var cheatArr:Array = [up, up, down, down, left, right,left,right,b,a,b,a];
+			var cheatArr:Array = [up, up, down, down, left, right, left, right, b, a, b, a];
 			var inputArr:Array = [];
-			Laya.stage.on(Event.KEY_UP, this, function(e:Event):void {
-				var len:int = inputArr.length
+			Laya.stage.on(Event.KEY_UP, null, function (e:Event):void {
+				var len:int = inputArr.length;
 				var targetCode:int = cheatArr[len];
-				if(e.keyCode == targetCode) {
-					if(len + 1 == cheatArr.length) {
+				if (e.keyCode == targetCode) {
+					if (len + 1 == cheatArr.length) {
 						// dosomething
 						callBack();
-
+						
 						inputArr.length = 0;
 						return;
 					}
@@ -157,7 +169,7 @@ package utils {
 				} else {
 					inputArr.length = 0;
 				}
-			})
+			});
 		}
 		
 		/** 使用调试工具 */
@@ -185,6 +197,17 @@ package utils {
 		public static function useEditMode():void {
 			addWhiteBg();
 			// todo 考虑成本挺大的，算了
+		}
+		
+		public static function drawBound(obj:Sprite):void {
+			if (!obj instanceof Sprite) return;
+			obj.graphics.clear();
+			obj.graphics.drawRect(0, 0, obj.width, obj.height, undefined, '#FF0000', 3);
+		}
+		
+		public static function log(str:*):void {
+			Log.enable();
+			Log.print(str.toString());
 		}
 		
 		public function TestCenter() {

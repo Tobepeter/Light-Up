@@ -120,6 +120,7 @@ package module.block {
 		}
 		
 		private function onclick():void {
+			if(_isWin) return;
 			EventCenter.send(EventType.CLOSE_BLOCK_VIEW);
 			EventCenter.send(EventType.OPEN_LEVEL_SELECT_VIEW);
 		}

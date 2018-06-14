@@ -477,6 +477,7 @@ var GameMgr=(function(){
 		LevelSelectModule.ins.addListener();
 		BlockModule.ins.addListener();
 		WinModule.ins.addListener();
+		TipModule.ins.addListener();
 	}
 
 	GameMgr.loadRes=function(complete){
@@ -494,7 +495,9 @@ var GameMain=(function(){
 	function GameMain(){
 		GameMain.initStage();
 		GameMgr.start();
+		TestCenter.test();
 		TestCenter.useTest();
+		TestCenter.useCheat();
 	}
 
 	__class(GameMain,'GameMain');
@@ -1144,12 +1147,14 @@ var EventType=(function(){
 	EventType.OPEN_ENTER_VIEW="OPEN_ENTER_VIEW";
 	EventType.OPEN_LEVEL_SELECT_VIEW="OPEN_LEVEL_SELECT_VIEW";
 	EventType.OPEN_WIN_VIEW="OPEN_WIN_VIEW";
+	EventType.OPEN_TEXT_TIP_VIEW="OPEN_TEXT_TIP_VIEW";
 	EventType.UPDATE_BLOCK_VIEW="UPDATE_BLOCK_VIEW";
 	EventType.CLOSE_BLOCK_VIEW="CLOSE_BLOCK_VIEW";
 	EventType.CLOSE_ENTER_ANI_VIEW="CLOSE_ENTER_ANI_VIEW";
 	EventType.CLOSE_ENTER_VIEW="CLOSE_ENTER_VIEW";
 	EventType.CLOSE_LEVEL_SELECT_VIEW="CLOSE_LEVEL_SELECT_VIEW";
 	EventType.CLOSE_WIN_VIEW="CLOSE_WIN_VIEW";
+	EventType.CLOSE_TEXT_TIP_VIEW="CLOSE_TEXT_TIP_VIEW";
 	return EventType;
 })()
 
@@ -1247,6 +1252,61 @@ var LevelSelectModule=(function(){
 })()
 
 
+//class module.texttip.TipModule
+var TipModule=(function(){
+	function TipModule(){
+		this.ctn=new Sprite;
+	}
+
+	__class(TipModule,'module.texttip.TipModule');
+	var __proto=TipModule.prototype;
+	__proto.addListener=function(){
+		EventCenter.add("OPEN_TEXT_TIP_VIEW",this,this.onOpenTextTipView);
+		EventCenter.add("CLOSE_TEXT_TIP_VIEW",this,this.onCloseTextTipView);
+	}
+
+	__proto.onCloseTextTipView=function(){}
+	__proto.onOpenTextTipView=function(__args){
+		var _$this=this;
+		var args=arguments;
+		this.ctn.removeChildren();
+		this.ctn.pos(Laya.stage.width / 2,Laya.stage.height / 2);
+		GameLayer.ins.topLayer.addChild(this.ctn);
+		var tipItem;
+		var tipItemArr=[];
+		for (var i=0,iLen=args.length;i < iLen;i++){
+			var str=args[i].toString();
+			tipItem=Pool.getItemByClass('TipItem',TipItem);
+			tipItem.text=str;
+			this.ctn.addChild(tipItem);
+			tipItemArr.push(tipItem);
+		};
+		var height=tipItem.height;
+		for (var j=0;j < tipItemArr.length;j++){
+			var targetY=height *(tipItemArr.length-j);
+			targetY *=1.2;
+			(function(){
+				var target=tipItemArr[j];
+				Tween.to(target,{y:-targetY,alpha:1},300,null,Handler.create(null,function(){
+					Tween.to(target,{alpha:0},800,null,Handler.create(null,function(){
+						target.recover();
+						_$this.ctn.removeSelf();
+						target.removeSelf();
+					}));
+				}));
+			})();
+		}
+	}
+
+	__getset(1,TipModule,'ins',function(){
+		return TipModule._ins=TipModule._ins|| new TipModule;
+	});
+
+	TipModule._ins=null;
+	return TipModule;
+})()
+
+
 //class module.win.WinModule
 var WinModule=(function(){
 	function WinModule(){
@@ -1317,10 +1377,15 @@ var RandomUtils=(function(){
 
 //class utils.TestCenter
 var TestCenter=(function(){
-	// todo 考虑成本挺大的，算了
 	function TestCenter(){}
 	__class(TestCenter,'utils.TestCenter');
-	TestCenter.test=function(){}
+	TestCenter.test=function(){
+		EventCenter.send("OPEN_TEXT_TIP_VIEW",["ttt"]);
+		Laya.stage.on("click",null,function(){
+			EventCenter.send("OPEN_TEXT_TIP_VIEW",["ttt1","ttt2","ttt3"]);
+		});
+	}
+
 	TestCenter.addWhiteBg=function(){
 		var sp=new Sprite;
 		sp.graphics.drawRect(0,0,Laya.stage.desginWidth,Laya.stage.desginHeight,'#FFF');
@@ -1390,6 +1455,34 @@ var TestCenter=(function(){
 		}
 	}
 
+	TestCenter.useCheat=function(){
+		var callBack=function (){
+			GameConfig.IS_DEBUG=true;
+		};
+		var up=38;
+		var down=40;
+		var left=37;
+		var right=39;
+		var a=65;
+		var b=66;
+		var cheatArr=[up,up,down,down,left,right,left,right,b,a,b,a];
+		var inputArr=[];
+		Laya.stage.on("keyup",null,function(e){
+			var len=inputArr.length;
+			var targetCode=cheatArr[len];
+			if (e.keyCode==targetCode){
+				if (len+1==cheatArr.length){
+					callBack();
+					inputArr.length=0;
+					return;
+				}
+				inputArr.push(e.keyCode);
+				}else {
+				inputArr.length=0;
+			}
+		});
+	}
+
 	TestCenter.useDebugPanel=function(){
 		DebugPanel.init();
 	}
@@ -1401,6 +1494,17 @@ var TestCenter=(function(){
 	TestCenter.uiTest=function(){}
 	TestCenter.useEditMode=function(){
 		TestCenter.addWhiteBg();
+	}
+
+	TestCenter.drawBound=function(obj){
+		if (!obj instanceof Sprite)return;
+		obj.graphics.clear();
+		obj.graphics.drawRect(0,0,obj.width,obj.height,undefined,'#FF0000',3);
+	}
+
+	TestCenter.log=function(str){
+		Log.enable();
+		Log.print(str.toString());
 	}
 
 	TestCenter.someThing=null;
@@ -15769,6 +15873,51 @@ var HTMLChar=(function(){
 
 
 /**
+*<code>Log</code> 类用于在界面内显示日志记录信息。
+*/
+//class laya.utils.Log
+var Log=(function(){
+	function Log(){}
+	__class(Log,'laya.utils.Log');
+	Log.enable=function(){
+		if (!Log._logdiv){
+			Log._logdiv=Browser.window.document.createElement('div');
+			Browser.window.document.body.appendChild(Log._logdiv);
+			Log._logdiv.style.cssText="pointer-events:none;border:white;overflow:hidden;z-index:1000000;background:rgba(100,100,100,0.6);color:white;position: absolute;left:0px;top:0px;width:50%;height:50%;";
+		}
+	}
+
+	Log.toggle=function(){
+		var style=Log._logdiv.style;
+		if (style.width=="1px"){
+			style.width=style.height="50%";
+			}else {
+			style.width=style.height="1px";
+		}
+	}
+
+	Log.print=function(value){
+		if (Log._logdiv){
+			if (Log._count >=Log.maxCount)Log.clear();
+			Log._count++;
+			Log._logdiv.innerText+=value+"\n";
+			Log._logdiv.scrollTop=Log._logdiv.scrollHeight;
+		}
+	}
+
+	Log.clear=function(){
+		Log._logdiv.innerText="";
+		Log._count=0;
+	}
+
+	Log._logdiv=null;
+	Log._count=0;
+	Log.maxCount=20;
+	return Log;
+})()
+
+
+/**
 *<p> <code>Pool</code> 是对象池类，用于对象的存贮、重复使用。</p>
 *<p>合理使用对象池，可以有效减少对象创建的开销，避免频繁的垃圾回收，从而优化游戏流畅度。</p>
 */
@@ -25895,7 +26044,6 @@ var BlockComp=(function(_super){
 		this.height=100 *5;
 		this.update();
 		this.on("click",this,this.onClick);
-		this.on("mousedown",this,this.onMouseDown);
 		BlockComp.ins=this;
 	}
 
@@ -26105,6 +26253,42 @@ var Box=(function(_super){
 	});
 
 	return Box;
+})(Component)
+
+
+/**
+*飘字
+*/
+//class module.texttip.TipItem extends laya.ui.Component
+var TipItem=(function(_super){
+	function TipItem(str){
+		this.lb=null;
+		TipItem.__super.call(this);
+		(str===void 0)&& (str='');
+		this.lb=Pool.getItemByClass('Label',Label);
+		this.lb.fontSize=60;
+		this.addChild(this.lb);
+		this.text=str;
+	}
+
+	__class(TipItem,'module.texttip.TipItem',_super);
+	var __proto=TipItem.prototype;
+	__proto.recover=function(){
+		Pool.recover('Label',this.lb);
+	}
+
+	__getset(0,__proto,'text',function(){
+		return this.lb.text;
+		},function(value){
+		this.lb.text=value;
+		this.width=this.lb.width;
+		this.height=this.lb.height;
+		this.graphics.clear();
+		this.graphics.drawRect(0,0,this.width,this.height,'#FFF');
+		this.pivot(this.width / 2,this.height / 2);
+	});
+
+	return TipItem;
 })(Component)
 
 
@@ -38652,6 +38836,7 @@ var BlockView=(function(_super){
 	}
 
 	__proto.onclick=function(){
+		if(this._isWin)return;
 		EventCenter.send("CLOSE_BLOCK_VIEW");
 		EventCenter.send("OPEN_LEVEL_SELECT_VIEW");
 	}
@@ -38868,6 +39053,25 @@ var DebugPage=(function(_super){
 *...
 *@author ww
 */
+//class laya.debug.view.nodeInfo.nodetree.FindNodeSmall extends laya.debug.ui.debugui.FindNodeSmallUI
+var FindNodeSmall=(function(_super){
+	function FindNodeSmall(){
+		FindNodeSmall.__super.call(this);
+		Base64AtlasManager.replaceRes(FindNodeSmallUI.uiView);
+		this.createView(FindNodeSmallUI.uiView);
+	}
+
+	__class(FindNodeSmall,'laya.debug.view.nodeInfo.nodetree.FindNodeSmall',_super);
+	var __proto=FindNodeSmall.prototype;
+	__proto.createChildren=function(){}
+	return FindNodeSmall;
+})(FindNodeSmallUI)
+
+
+/**
+*...
+*@author ww
+*/
 //class laya.debug.view.nodeInfo.nodetree.FindNode extends laya.debug.ui.debugui.FindNodeUI
 var FindNode=(function(_super){
 	function FindNode(){
@@ -38884,25 +39088,6 @@ var FindNode=(function(_super){
 
 	return FindNode;
 })(FindNodeUI)
-
-
-/**
-*...
-*@author ww
-*/
-//class laya.debug.view.nodeInfo.nodetree.FindNodeSmall extends laya.debug.ui.debugui.FindNodeSmallUI
-var FindNodeSmall=(function(_super){
-	function FindNodeSmall(){
-		FindNodeSmall.__super.call(this);
-		Base64AtlasManager.replaceRes(FindNodeSmallUI.uiView);
-		this.createView(FindNodeSmallUI.uiView);
-	}
-
-	__class(FindNodeSmall,'laya.debug.view.nodeInfo.nodetree.FindNodeSmall',_super);
-	var __proto=FindNodeSmall.prototype;
-	__proto.createChildren=function(){}
-	return FindNodeSmall;
-})(FindNodeSmallUI)
 
 
 /**
@@ -39426,7 +39611,7 @@ var ToolBar=(function(_super){
 })(ToolBarUI)
 
 
-	Laya.__init([LoaderManager,EventDispatcher,Render,Browser,View,Timer,GraphicAnimation,LocalStorage]);
+	Laya.__init([EventDispatcher,LoaderManager,Render,Browser,View,Timer,GraphicAnimation,LocalStorage]);
 	/**LayaGameStart**/
 	new GameMain();
 
