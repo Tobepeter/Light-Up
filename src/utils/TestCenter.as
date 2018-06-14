@@ -143,7 +143,14 @@ package utils {
 		public static function useCheat():void {
 			// dosomething
 			var callBack:Function = function ():void {
-				GameConfig.IS_DEBUG = true;
+				if(GameConfig.IS_DEBUG) {
+					GameConfig.IS_DEBUG = false;
+					EventCenter.send(EventType.OPEN_TEXT_TIP_VIEW, ["关闭作弊模式"]);
+				} else{
+					GameConfig.IS_DEBUG = true;
+					EventCenter.send(EventType.OPEN_TEXT_TIP_VIEW, ["开启作弊模式"]);
+				}
+				
 			};
 			
 			var up:int = Keyboard.UP;

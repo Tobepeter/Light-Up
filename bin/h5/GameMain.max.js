@@ -1,6 +1,6 @@
 
 /***********************************/
-/*http://www.layabox.com  2017/12/12*/
+/*http://www.layabox.com  2017/3/23*/
 /***********************************/
 var Laya=window.Laya=(function(window,document){
 	var Laya={
@@ -73,10 +73,7 @@ var Laya=window.Laya=(function(window,document){
 		},
 		__as:function(value,type){
 			return (this.__typeof(value,type))?value:null;
-		},
-        __int:function(value){
-            return value?parseInt(value):0;
-        },
+		},		
 		interface:function(name,_super){
 			Laya.__package(name,{});
 			var ins=Laya.__internals;
@@ -161,10 +158,10 @@ var Laya=window.Laya=(function(window,document){
 				setfn && (o['_$SET_'+name]=setfn);
 			}
 			if(getfn && setfn) 
-				Object.defineProperty(o,name,{get:getfn,set:setfn,enumerable:false,configurable:true});
+				Object.defineProperty(o,name,{get:getfn,set:setfn,enumerable:false});
 			else{
-				getfn && Object.defineProperty(o,name,{get:getfn,enumerable:false,configurable:true});
-				setfn && Object.defineProperty(o,name,{set:setfn,enumerable:false,configurable:true});
+				getfn && Object.defineProperty(o,name,{get:getfn,enumerable:false});
+				setfn && Object.defineProperty(o,name,{set:setfn,enumerable:false});
 			}
 		},
 		static:function(_class,def){
@@ -695,7 +692,9 @@ var EventDispatcher=(function(){
 		return EventDispatcher.MOUSE_EVENTS[type];
 	}
 
-	EventDispatcher.MOUSE_EVENTS={"rightmousedown":true,"rightmouseup":true,"rightclick":true,"mousedown":true,"mouseup":true,"mousemove":true,"mouseover":true,"mouseout":true,"click":true,"doubleclick":true};
+	__static(EventDispatcher,
+	['MOUSE_EVENTS',function(){return this.MOUSE_EVENTS={"rightmousedown":true,"rightmouseup":true,"rightclick":true,"mousedown":true,"mouseup":true,"mousemove":true,"mouseover":true,"mouseout":true,"click":true,"doubleclick":true};}
+	]);
 	EventDispatcher.__init$=function(){
 		Object.defineProperty(laya.events.EventDispatcher.prototype,"_events",{enumerable:false,writable:true});
 		/**@private */
@@ -1379,13 +1378,7 @@ var RandomUtils=(function(){
 var TestCenter=(function(){
 	function TestCenter(){}
 	__class(TestCenter,'utils.TestCenter');
-	TestCenter.test=function(){
-		EventCenter.send("OPEN_TEXT_TIP_VIEW",["ttt"]);
-		Laya.stage.on("click",null,function(){
-			EventCenter.send("OPEN_TEXT_TIP_VIEW",["ttt1","ttt2","ttt3"]);
-		});
-	}
-
+	TestCenter.test=function(){}
 	TestCenter.addWhiteBg=function(){
 		var sp=new Sprite;
 		sp.graphics.drawRect(0,0,Laya.stage.desginWidth,Laya.stage.desginHeight,'#FFF');
@@ -1457,7 +1450,13 @@ var TestCenter=(function(){
 
 	TestCenter.useCheat=function(){
 		var callBack=function (){
-			GameConfig.IS_DEBUG=true;
+			if(GameConfig.IS_DEBUG){
+				GameConfig.IS_DEBUG=false;
+				EventCenter.send("OPEN_TEXT_TIP_VIEW",["关闭作弊模式"]);
+				}else{
+				GameConfig.IS_DEBUG=true;
+				EventCenter.send("OPEN_TEXT_TIP_VIEW",["开启作弊模式"]);
+			}
 		};
 		var up=38;
 		var down=40;
@@ -9202,10 +9201,12 @@ var Font=(function(){
 	Font.defaultSize=12;
 	Font.defaultFamily="Arial";
 	Font.defaultFont="12px Arial";
-	Font._STROKE=[0,"#000000"];
 	Font._ITALIC=0x200;
 	Font._PASSWORD=0x400;
 	Font._BOLD=0x800;
+	__static(Font,
+	['_STROKE',function(){return this._STROKE=[0,"#000000"];}
+	]);
 	return Font;
 })()
 
@@ -9661,7 +9662,6 @@ var Event=(function(){
 		return Laya.stage.mouseX;
 	});
 
-	Event.EMPTY=new Event();
 	Event.MOUSE_DOWN="mousedown";
 	Event.MOUSE_UP="mouseup";
 	Event.CLICK="click";
@@ -9728,6 +9728,9 @@ var Event=(function(){
 	Event.TRIGGER_ENTER="triggerenter";
 	Event.TRIGGER_STAY="triggerstay";
 	Event.TRIGGER_EXIT="triggerexit";
+	__static(Event,
+	['EMPTY',function(){return this.EMPTY=new Event();}
+	]);
 	return Event;
 })()
 
@@ -11471,9 +11474,10 @@ var Matrix=(function(){
 		return mat;
 	}
 
-	Matrix.EMPTY=new Matrix();
-	Matrix.TEMP=new Matrix();
 	Matrix._cache=[];
+	__static(Matrix,
+	['EMPTY',function(){return this.EMPTY=new Matrix();},'TEMP',function(){return this.TEMP=new Matrix();}
+	]);
 	return Matrix;
 })()
 
@@ -11535,8 +11539,9 @@ var Point=(function(){
 		}
 	}
 
-	Point.TEMP=new Point();
-	Point.EMPTY=new Point();
+	__static(Point,
+	['TEMP',function(){return this.TEMP=new Point();},'EMPTY',function(){return this.EMPTY=new Point();}
+	]);
 	return Point;
 })()
 
@@ -11757,10 +11762,11 @@ var Rectangle=(function(){
 		return rst.setTo(minX,minY,maxX-minX,maxY-minY);
 	}
 
-	Rectangle.EMPTY=new Rectangle();
-	Rectangle.TEMP=new Rectangle();
 	Rectangle._temB=[];
 	Rectangle._temA=[];
+	__static(Rectangle,
+	['EMPTY',function(){return this.EMPTY=new Rectangle();},'TEMP',function(){return this.TEMP=new Rectangle();}
+	]);
 	return Rectangle;
 })()
 
@@ -12778,7 +12784,9 @@ var RenderContext=(function(){
 		this.ctx.fillTrangles(args[0],args[1],args[2],args[3],args.length > 4 ? args[4] :null);
 	}
 
-	RenderContext.PI2=2 *Math.PI;
+	__static(RenderContext,
+	['PI2',function(){return this.PI2=2 *Math.PI;}
+	]);
 	return RenderContext;
 })()
 
@@ -13160,7 +13168,9 @@ var RenderSprite=(function(){
 	RenderSprite.CHILDS=0x800;
 	RenderSprite.INIT=0x11111;
 	RenderSprite.renders=[];
-	RenderSprite.NORENDER=new RenderSprite(0,null);
+	__static(RenderSprite,
+	['NORENDER',function(){return this.NORENDER=new RenderSprite(0,null);}
+	]);
 	return RenderSprite;
 })()
 
@@ -13472,10 +13482,9 @@ var Context=(function(){
 		return true;
 	}
 
-	Context._default=new Context();
 	Context.newKeys=[];
 	__static(Context,
-	['replaceKeys',function(){return this.replaceKeys=["font","fillStyle","textBaseline"];}
+	['_default',function(){return this._default=new Context();},'replaceKeys',function(){return this.replaceKeys=["font","fillStyle","textBaseline"];}
 	]);
 	return Context;
 })()
@@ -13986,26 +13995,26 @@ var Browser=(function(){
 		Browser.document.__createElement=Browser.document.createElement;
 		window.requestAnimationFrame=window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (c){return window.setTimeout(c,1000 / 60);};;
 		var $BS=window.document.body.style;$BS.margin=0;$BS.overflow='hidden';;
-		Browser.userAgent=/*[SAFE]*/ Browser.window.navigator.userAgent;
-		Browser.u=/*[SAFE]*/ Browser.userAgent;
-		Browser.onIOS=/*[SAFE]*/ !!Browser.u.match(/\(i[^;]+;(U;)? CPU.+Mac OS X/);
-		Browser.onMobile=/*[SAFE]*/ Browser.u.indexOf("Mobile")>-1;
-		Browser.onIPhone=/*[SAFE]*/ Browser.u.indexOf("iPhone")>-1;
-		Browser.onIPad=/*[SAFE]*/ Browser.u.indexOf("iPad")>-1;
-		Browser.onAndriod=/*[SAFE]*/ Browser.u.indexOf('Android')>-1 || Browser.u.indexOf('Adr')>-1;
-		Browser.onWP=/*[SAFE]*/ Browser.u.indexOf("Windows Phone")>-1;
-		Browser.onQQBrowser=/*[SAFE]*/ Browser.u.indexOf("QQBrowser")>-1;
-		Browser.onMQQBrowser=/*[SAFE]*/ Browser.u.indexOf("MQQBrowser")>-1 || (Browser.u.indexOf("Mobile")>-1 && Browser.u.indexOf("QQ")>-1);
-		Browser.onIE=/*[SAFE]*/ !!Browser.window.ActiveXObject || "ActiveXObject" in Browser.window;
-		Browser.onWeiXin=/*[SAFE]*/ Browser.u.indexOf('MicroMessenger')>-1;
-		Browser.onPC=/*[SAFE]*/ !Browser.onMobile;
-		Browser.onSafari=/*[SAFE]*/ !!Browser.u.match(/Version\/\d+\.\d\x20Mobile\/\S+\x20Safari/);
-		Browser.onFirefox=/*[SAFE]*/ Browser.u.indexOf('Firefox')>-1;
-		Browser.onEdge=/*[SAFE]*/ Browser.u.indexOf('Edge')>-1;
-		Browser.onMiniGame=/*[SAFE]*/ Browser.u.indexOf('MiniGame')>-1;
-		Browser.httpProtocol=/*[SAFE]*/ Browser.window.location.protocol=="http:";
-		Browser.webAudioEnabled=/*[SAFE]*/ Browser.window["AudioContext"] || Browser.window["webkitAudioContext"] || Browser.window["mozAudioContext"] ? true :false;
-		Browser.soundType=/*[SAFE]*/ Browser.webAudioEnabled ? "WEBAUDIOSOUND" :"AUDIOSOUND";
+		Browser.userAgent=Browser.window.navigator.userAgent;
+		Browser.u=Browser.userAgent;
+		Browser.onIOS=!!Browser.u.match(/\(i[^;]+;(U;)? CPU.+Mac OS X/);
+		Browser.onMobile=Browser.u.indexOf("Mobile")>-1;
+		Browser.onIPhone=Browser.u.indexOf("iPhone")>-1;
+		Browser.onIPad=Browser.u.indexOf("iPad")>-1;
+		Browser.onAndriod=Browser.u.indexOf('Android')>-1 || Browser.u.indexOf('Adr')>-1;
+		Browser.onWP=Browser.u.indexOf("Windows Phone")>-1;
+		Browser.onQQBrowser=Browser.u.indexOf("QQBrowser")>-1;
+		Browser.onMQQBrowser=Browser.u.indexOf("MQQBrowser")>-1 || (Browser.u.indexOf("Mobile")>-1 && Browser.u.indexOf("QQ")>-1);
+		Browser.onIE=!!Browser.window.ActiveXObject || "ActiveXObject" in Browser.window;
+		Browser.onWeiXin=Browser.u.indexOf('MicroMessenger')>-1;
+		Browser.onPC=!Browser.onMobile;
+		Browser.onSafari=!!Browser.u.match(/Version\/\d+\.\d\x20Mobile\/\S+\x20Safari/);
+		Browser.onFirefox=Browser.u.indexOf('Firefox')>-1;
+		Browser.onEdge=Browser.u.indexOf('Edge')>-1;
+		Browser.onMiniGame=Browser.u.indexOf('MiniGame')>-1;
+		Browser.httpProtocol=Browser.window.location.protocol=="http:";
+		Browser.webAudioEnabled=Browser.window["AudioContext"] || Browser.window["webkitAudioContext"] || Browser.window["mozAudioContext"] ? true :false;
+		Browser.soundType=Browser.webAudioEnabled ? "WEBAUDIOSOUND" :"AUDIOSOUND";
 		Sound=Browser.webAudioEnabled?WebAudioSound:AudioSound;;
 		if (Browser.webAudioEnabled)WebAudioSound.initWebAudio();;
 		AudioSound._initMusicAudio();
@@ -14976,7 +14985,6 @@ var ClassUtils=(function(){
 	}
 
 	ClassUtils._temParam=[];
-	ClassUtils._classMap={'Sprite':'laya.display.Sprite','Text':'laya.display.Text','Animation':'laya.display.Animation','Skeleton':'laya.ani.bone.Skeleton','Particle2D':'laya.particle.Particle2D','div':'laya.html.dom.HTMLDivElement','p':'laya.html.dom.HTMLElement','img':'laya.html.dom.HTMLImageElement','span':'laya.html.dom.HTMLElement','br':'laya.html.dom.HTMLBrElement','style':'laya.html.dom.HTMLStyleElement','font':'laya.html.dom.HTMLElement','a':'laya.html.dom.HTMLElement','#text':'laya.html.dom.HTMLElement'};
 	ClassUtils.getClass=function(className){
 		var classObject=ClassUtils._classMap[className] || className;
 		if ((typeof classObject=='string'))
@@ -14987,7 +14995,7 @@ var ClassUtils=(function(){
 	ClassUtils._tM=null;
 	ClassUtils._alpha=NaN;
 	__static(ClassUtils,
-	['DrawTypeDic',function(){return this.DrawTypeDic={"Rect":["drawRect",[["x",0],["y",0],["width",0],["height",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Circle":["drawCircle",[["x",0],["y",0],["radius",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Pie":["drawPie",[["x",0],["y",0],["radius",0],["startAngle",0],["endAngle",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Image":["drawTexture",[["x",0],["y",0],["width",0],["height",0]]],"Texture":["drawTexture",[["skin",null],["x",0],["y",0],["width",0],["height",0]],1,"_adptTextureData"],"FillTexture":["fillTexture",[["skin",null],["x",0],["y",0],["width",0],["height",0],["repeat",null]],1,"_adptTextureData"],"FillText":["fillText",[["text",""],["x",0],["y",0],["font",null],["color",null],["textAlign",null]],1],"Line":["drawLine",[["x",0],["y",0],["toX",0],["toY",0],["lineColor",null],["lineWidth",0]],0,"_adptLineData"],"Lines":["drawLines",[["x",0],["y",0],["points",""],["lineColor",null],["lineWidth",0]],0,"_adptLinesData"],"Curves":["drawCurves",[["x",0],["y",0],["points",""],["lineColor",null],["lineWidth",0]],0,"_adptLinesData"],"Poly":["drawPoly",[["x",0],["y",0],["points",""],["fillColor",null],["lineColor",null],["lineWidth",1]],0,"_adptLinesData"]};}
+	['DrawTypeDic',function(){return this.DrawTypeDic={"Rect":["drawRect",[["x",0],["y",0],["width",0],["height",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Circle":["drawCircle",[["x",0],["y",0],["radius",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Pie":["drawPie",[["x",0],["y",0],["radius",0],["startAngle",0],["endAngle",0],["fillColor",null],["lineColor",null],["lineWidth",1]]],"Image":["drawTexture",[["x",0],["y",0],["width",0],["height",0]]],"Texture":["drawTexture",[["skin",null],["x",0],["y",0],["width",0],["height",0]],1,"_adptTextureData"],"FillTexture":["fillTexture",[["skin",null],["x",0],["y",0],["width",0],["height",0],["repeat",null]],1,"_adptTextureData"],"FillText":["fillText",[["text",""],["x",0],["y",0],["font",null],["color",null],["textAlign",null]],1],"Line":["drawLine",[["x",0],["y",0],["toX",0],["toY",0],["lineColor",null],["lineWidth",0]],0,"_adptLineData"],"Lines":["drawLines",[["x",0],["y",0],["points",""],["lineColor",null],["lineWidth",0]],0,"_adptLinesData"],"Curves":["drawCurves",[["x",0],["y",0],["points",""],["lineColor",null],["lineWidth",0]],0,"_adptLinesData"],"Poly":["drawPoly",[["x",0],["y",0],["points",""],["fillColor",null],["lineColor",null],["lineWidth",1]],0,"_adptLinesData"]};},'_classMap',function(){return this._classMap={'Sprite':'laya.display.Sprite','Text':'laya.display.Text','Animation':'laya.display.Animation','Skeleton':'laya.ani.bone.Skeleton','Particle2D':'laya.particle.Particle2D','div':'laya.html.dom.HTMLDivElement','p':'laya.html.dom.HTMLElement','img':'laya.html.dom.HTMLImageElement','span':'laya.html.dom.HTMLElement','br':'laya.html.dom.HTMLBrElement','style':'laya.html.dom.HTMLStyleElement','font':'laya.html.dom.HTMLElement','a':'laya.html.dom.HTMLElement','#text':'laya.html.dom.HTMLElement'};}
 	]);
 	return ClassUtils;
 })()
@@ -15055,9 +15063,10 @@ var Color=(function(){
 
 	Color._SAVE={};
 	Color._SAVE_SIZE=0;
-	Color._COLOR_MAP={"white":'#FFFFFF',"red":'#FF0000',"green":'#00FF00',"blue":'#0000FF',"black":'#000000',"yellow":'#FFFF00','gray':'#AAAAAA'};
-	Color._DEFAULT=Color._initDefault();
 	Color._COLODID=1;
+	__static(Color,
+	['_COLOR_MAP',function(){return this._COLOR_MAP={"white":'#FFFFFF',"red":'#FF0000',"green":'#00FF00',"blue":'#0000FF',"black":'#000000',"yellow":'#FFFF00','gray':'#AAAAAA'};},'_DEFAULT',function(){return this._DEFAULT=Color._initDefault();}
+	]);
 	return Color;
 })()
 
@@ -15609,8 +15618,9 @@ var Ease=(function(){
 		return c *Math.sqrt(1-(t=t / d-1)*t)+b;
 	}
 
-	Ease.HALF_PI=Math.PI *0.5;
-	Ease.PI2=Math.PI *2;
+	__static(Ease,
+	['HALF_PI',function(){return this.HALF_PI=Math.PI *0.5;},'PI2',function(){return this.PI2=Math.PI *2;}
+	]);
 	return Ease;
 })()
 
@@ -15867,7 +15877,9 @@ var HTMLChar=(function(){
 		this._h=value;
 	});
 
-	HTMLChar._isWordRegExp=new RegExp("[\\w\.]","");
+	__static(HTMLChar,
+	['_isWordRegExp',function(){return this._isWordRegExp=new RegExp("[\\w\.]","");}
+	]);
 	return HTMLChar;
 })()
 
@@ -16943,9 +16955,6 @@ var Utils=(function(){
 	}
 
 	Utils._gid=1;
-	Utils._pi=180 / Math.PI;
-	Utils._pi2=Math.PI / 180;
-	Utils._extReg=/\.(\w+)\??/g;
 	Utils.parseXMLFromString=function(value){
 		var rst;
 		value=value.replace(/>\s+</g,'><');
@@ -16956,6 +16965,9 @@ var Utils=(function(){
 		return rst;
 	}
 
+	__static(Utils,
+	['_pi',function(){return this._pi=180 / Math.PI;},'_pi2',function(){return this._pi2=Math.PI / 180;},'_extReg',function(){return this._extReg=/\.(\w+)\??/g;}
+	]);
 	return Utils;
 })()
 
@@ -19526,7 +19538,6 @@ var Loader=(function(_super){
 	Loader.ATLAS="atlas";
 	Loader.FONT="font";
 	Loader.PKM="pkm";
-	Loader.typeMap={"png":"image","jpg":"image","jpeg":"image","txt":"text","json":"json","xml":"xml","als":"atlas","atlas":"atlas","mp3":"sound","ogg":"sound","wav":"sound","part":"json","fnt":"font","pkm":"pkm"};
 	Loader.parserMap={};
 	Loader.groupMap={};
 	Loader.maxTimeOut=100;
@@ -19537,6 +19548,9 @@ var Loader=(function(_super){
 	Loader._isWorking=false;
 	Loader._startIndex=0;
 	Loader.imgCache={};
+	__static(Loader,
+	['typeMap',function(){return this.typeMap={"png":"image","jpg":"image","jpeg":"image","txt":"text","json":"json","xml":"xml","als":"atlas","atlas":"atlas","mp3":"sound","ogg":"sound","wav":"sound","part":"json","fnt":"font","pkm":"pkm"};}
+	]);
 	return Loader;
 })(EventDispatcher)
 
@@ -19846,10 +19860,9 @@ var Texture=(function(_super){
 		return tex;
 	}
 
-	Texture.DEF_UV=[0,0,1.0,0,1.0,1.0,0,1.0];
-	Texture.INV_UV=[0,1,1.0,1,1.0,0.0,0,0.0];
-	Texture._rect1=new Rectangle();
-	Texture._rect2=new Rectangle();
+	__static(Texture,
+	['DEF_UV',function(){return this.DEF_UV=[0,0,1.0,0,1.0,1.0,0,1.0];},'INV_UV',function(){return this.INV_UV=[0,1,1.0,1,1.0,0.0,0,0.0];},'_rect1',function(){return this._rect1=new Rectangle();},'_rect2',function(){return this._rect2=new Rectangle();}
+	]);
 	return Texture;
 })(EventDispatcher)
 
@@ -20719,11 +20732,6 @@ var CSSStyle=(function(_super){
 		}
 	}
 
-	CSSStyle.EMPTY=new CSSStyle(null);
-	CSSStyle._CSSTOVALUE={'letter-spacing':'letterSpacing','line-spacing':'lineSpacing','white-space':'whiteSpace','line-height':'lineHeight','scale-x':'scaleX','scale-y':'scaleY','translate-x':'translateX','translate-y':'translateY','font-family':'fontFamily','font-weight':'fontWeight','vertical-align':'valign','text-decoration':'textDecoration','background-color':'backgroundColor','border-color':'borderColor','float':'cssFloat'};
-	CSSStyle._parseCSSRegExp=new RegExp("([\.\#]\\w+)\\s*{([\\s\\S]*?)}","g");
-	CSSStyle._aligndef={'left':0,'center':1,'right':2,0:'left',1:'center',2:'right'};
-	CSSStyle._valigndef={'top':0,'middle':1,'bottom':2,0:'top',1:'middle',2:'bottom'};
 	CSSStyle.styleSheets={};
 	CSSStyle.ALIGN_CENTER=1;
 	CSSStyle.ALIGN_RIGHT=2;
@@ -20733,10 +20741,6 @@ var CSSStyle=(function(_super){
 	CSSStyle._DISPLAY_NONE=0x2;
 	CSSStyle._ABSOLUTE=0x4;
 	CSSStyle._WIDTH_SET=0x8;
-	CSSStyle._PADDING=[0,0,0,0];
-	CSSStyle._RECT=[-1,-1,-1,-1];
-	CSSStyle._SPACING=[0,0];
-	CSSStyle._ALIGNS=[0,0,0];
 	CSSStyle.ADDLAYOUTED=0x200;
 	CSSStyle._NEWFONT=0x1000;
 	CSSStyle._HEIGHT_SET=0x2000;
@@ -20746,6 +20750,9 @@ var CSSStyle=(function(_super){
 	CSSStyle._NOWARP=0x20000;
 	CSSStyle._WIDTHAUTO=0x40000;
 	CSSStyle._LISTERRESZIE=0x80000;
+	__static(CSSStyle,
+	['EMPTY',function(){return this.EMPTY=new CSSStyle(null);},'_CSSTOVALUE',function(){return this._CSSTOVALUE={'letter-spacing':'letterSpacing','line-spacing':'lineSpacing','white-space':'whiteSpace','line-height':'lineHeight','scale-x':'scaleX','scale-y':'scaleY','translate-x':'translateX','translate-y':'translateY','font-family':'fontFamily','font-weight':'fontWeight','vertical-align':'valign','text-decoration':'textDecoration','background-color':'backgroundColor','border-color':'borderColor','float':'cssFloat'};},'_parseCSSRegExp',function(){return this._parseCSSRegExp=new RegExp("([\.\#]\\w+)\\s*{([\\s\\S]*?)}","g");},'_aligndef',function(){return this._aligndef={'left':0,'center':1,'right':2,0:'left',1:'center',2:'right'};},'_valigndef',function(){return this._valigndef={'top':0,'middle':1,'bottom':2,0:'top',1:'middle',2:'bottom'};},'_PADDING',function(){return this._PADDING=[0,0,0,0];},'_RECT',function(){return this._RECT=[-1,-1,-1,-1];},'_SPACING',function(){return this._SPACING=[0,0];},'_ALIGNS',function(){return this._ALIGNS=[0,0,0];}
+	]);
 	return CSSStyle;
 })(Style)
 
@@ -36616,104 +36623,6 @@ var VScrollBar=(function(_super){
 
 
 /**
-*使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
-*<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
-*
-*@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
-*package
-*{
-	*import laya.ui.HSlider;
-	*import laya.ui.VSlider;
-	*import laya.utils.Handler;
-	*public class VSlider_Example
-	*{
-		*private var vSlider:VSlider;
-		*public function VSlider_Example()
-		*{
-			*Laya.init(640,800);//设置游戏画布宽高。
-			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
-			*}
-		*private function onLoadComplete():void
-		*{
-			*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-			*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-			*vSlider.min=0;//设置 vSlider 最低位置值。
-			*vSlider.max=10;//设置 vSlider 最高位置值。
-			*vSlider.value=2;//设置 vSlider 当前位置值。
-			*vSlider.tick=1;//设置 vSlider 刻度值。
-			*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-			*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-			*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
-			*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-			*}
-		*private function onChange(value:Number):void
-		*{
-			*trace("滑块的位置： value="+value);
-			*}
-		*}
-	*}
-*@example
-*Laya.init(640,800);//设置游戏画布宽高
-*Laya.stage.bgColor="#efefef";//设置画布的背景颜色
-*var vSlider;
-*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
-*function onLoadComplete(){
-	*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-	*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-	*vSlider.min=0;//设置 vSlider 最低位置值。
-	*vSlider.max=10;//设置 vSlider 最高位置值。
-	*vSlider.value=2;//设置 vSlider 当前位置值。
-	*vSlider.tick=1;//设置 vSlider 刻度值。
-	*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-	*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-	*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
-	*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-	*}
-*function onChange(value){
-	*console.log("滑块的位置： value="+value);
-	*}
-*@example
-*import HSlider=laya.ui.HSlider;
-*import VSlider=laya.ui.VSlider;
-*import Handler=laya.utils.Handler;
-*class VSlider_Example {
-	*private vSlider:VSlider;
-	*constructor(){
-		*Laya.init(640,800);//设置游戏画布宽高。
-		*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-		*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
-		*}
-	*private onLoadComplete():void {
-		*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-		*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-		*this.vSlider.min=0;//设置 vSlider 最低位置值。
-		*this.vSlider.max=10;//设置 vSlider 最高位置值。
-		*this.vSlider.value=2;//设置 vSlider 当前位置值。
-		*this.vSlider.tick=1;//设置 vSlider 刻度值。
-		*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-		*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-		*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
-		*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
-		*}
-	*private onChange(value:number):void {
-		*console.log("滑块的位置： value="+value);
-		*}
-	*}
-*@see laya.ui.Slider
-*/
-//class laya.ui.VSlider extends laya.ui.Slider
-var VSlider=(function(_super){
-	function VSlider(){
-		VSlider.__super.call(this);;
-	}
-
-	__class(VSlider,'laya.ui.VSlider',_super);
-	return VSlider;
-})(Slider)
-
-
-/**
 *<code>TextInput</code> 类用于创建显示对象以显示和输入文本。
 *
 *@example <caption>以下示例代码，创建了一个 <code>TextInput</code> 实例。</caption>
@@ -37036,6 +36945,104 @@ var TextInput=(function(_super){
 
 	return TextInput;
 })(Label)
+
+
+/**
+*使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
+*<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
+*
+*@example <caption>以下示例代码，创建了一个 <code>VSlider</code> 实例。</caption>
+*package
+*{
+	*import laya.ui.HSlider;
+	*import laya.ui.VSlider;
+	*import laya.utils.Handler;
+	*public class VSlider_Example
+	*{
+		*private var vSlider:VSlider;
+		*public function VSlider_Example()
+		*{
+			*Laya.init(640,800);//设置游戏画布宽高。
+			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
+			*}
+		*private function onLoadComplete():void
+		*{
+			*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+			*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+			*vSlider.min=0;//设置 vSlider 最低位置值。
+			*vSlider.max=10;//设置 vSlider 最高位置值。
+			*vSlider.value=2;//设置 vSlider 当前位置值。
+			*vSlider.tick=1;//设置 vSlider 刻度值。
+			*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+			*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+			*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
+			*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+			*}
+		*private function onChange(value:Number):void
+		*{
+			*trace("滑块的位置： value="+value);
+			*}
+		*}
+	*}
+*@example
+*Laya.init(640,800);//设置游戏画布宽高
+*Laya.stage.bgColor="#efefef";//设置画布的背景颜色
+*var vSlider;
+*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
+*function onLoadComplete(){
+	*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+	*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+	*vSlider.min=0;//设置 vSlider 最低位置值。
+	*vSlider.max=10;//设置 vSlider 最高位置值。
+	*vSlider.value=2;//设置 vSlider 当前位置值。
+	*vSlider.tick=1;//设置 vSlider 刻度值。
+	*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+	*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+	*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
+	*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+	*}
+*function onChange(value){
+	*console.log("滑块的位置： value="+value);
+	*}
+*@example
+*import HSlider=laya.ui.HSlider;
+*import VSlider=laya.ui.VSlider;
+*import Handler=laya.utils.Handler;
+*class VSlider_Example {
+	*private vSlider:VSlider;
+	*constructor(){
+		*Laya.init(640,800);//设置游戏画布宽高。
+		*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+		*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
+		*}
+	*private onLoadComplete():void {
+		*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+		*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+		*this.vSlider.min=0;//设置 vSlider 最低位置值。
+		*this.vSlider.max=10;//设置 vSlider 最高位置值。
+		*this.vSlider.value=2;//设置 vSlider 当前位置值。
+		*this.vSlider.tick=1;//设置 vSlider 刻度值。
+		*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+		*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+		*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
+		*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
+		*}
+	*private onChange(value:number):void {
+		*console.log("滑块的位置： value="+value);
+		*}
+	*}
+*@see laya.ui.Slider
+*/
+//class laya.ui.VSlider extends laya.ui.Slider
+var VSlider=(function(_super){
+	function VSlider(){
+		VSlider.__super.call(this);;
+	}
+
+	__class(VSlider,'laya.ui.VSlider',_super);
+	return VSlider;
+})(Slider)
 
 
 /**
@@ -37506,12 +37513,11 @@ var GraphicAnimation=(function(_super){
 		return rst;
 	}
 
-	GraphicAnimation._drawTextureCmd=[["skin",null],["x",0],["y",0],["width",-1],["height",-1],["pivotX",0],["pivotY",0],["scaleX",1],["scaleY",1],["rotation",0],["alpha",1],["skewX",0],["skewY",0],["anchorX",0],["anchorY",0]];
 	GraphicAnimation._temParam=[];
 	GraphicAnimation._I=null;
 	GraphicAnimation._rootMatrix=null;
 	__static(GraphicAnimation,
-	['_tempMt',function(){return this._tempMt=new Matrix();}
+	['_drawTextureCmd',function(){return this._drawTextureCmd=[["skin",null],["x",0],["y",0],["width",-1],["height",-1],["pivotX",0],["pivotY",0],["scaleX",1],["scaleY",1],["rotation",0],["alpha",1],["skewX",0],["skewY",0],["anchorX",0],["anchorY",0]];},'_tempMt',function(){return this._tempMt=new Matrix();}
 	]);
 	GraphicAnimation.__init$=function(){
 		//class GraphicNode
@@ -37573,7 +37579,9 @@ var BlockViewUI=(function(_super){
 		this.createView(BlockViewUI.uiView);
 	}
 
-	BlockViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Button","props":{"y":46,"x":525,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":261,"x":68,"width":542,"var":"imgPCB","skin":"resources/background_pcb_1.png","height":719}},{"type":"Box","props":{"y":330,"x":125,"width":433,"var":"blockBox","height":582}},{"type":"Box","props":{"y":126,"x":20},"child":[{"type":"Image","props":{"var":"imgPow","skin":"resources/powerBall_1.png","mouseThrough":true}},{"type":"Image","props":{"y":86,"x":21,"skin":"resources/electricline_1.png"}},{"type":"Image","props":{"y":43,"x":119,"var":"powersmall1","skin":"resources/powersmall_1.png"}},{"type":"Image","props":{"y":75,"x":101,"var":"powersmall2","skin":"resources/powersmall_2.png"}},{"type":"Image","props":{"y":94,"x":68,"var":"powersmall3","skin":"resources/powersmall_3.png"}}]},{"type":"Box","props":{"y":911,"x":495},"child":[{"type":"Image","props":{"y":2,"x":5,"skin":"resources/electricline_2.png"}},{"type":"Image","props":{"y":104,"x":31,"var":"ligthBulb","skin":"resources/light_1.png"}}]}]};
+	__static(BlockViewUI,
+	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Button","props":{"y":46,"x":525,"width":104,"var":"backBtn","stateNum":1,"skin":"resources/button2_close.png","labelSize":45,"height":104}},{"type":"Image","props":{"y":261,"x":68,"width":542,"var":"imgPCB","skin":"resources/background_pcb_1.png","height":719}},{"type":"Box","props":{"y":330,"x":125,"width":433,"var":"blockBox","height":582}},{"type":"Box","props":{"y":126,"x":20},"child":[{"type":"Image","props":{"var":"imgPow","skin":"resources/powerBall_1.png","mouseThrough":true}},{"type":"Image","props":{"y":86,"x":21,"skin":"resources/electricline_1.png"}},{"type":"Image","props":{"y":43,"x":119,"var":"powersmall1","skin":"resources/powersmall_1.png"}},{"type":"Image","props":{"y":75,"x":101,"var":"powersmall2","skin":"resources/powersmall_2.png"}},{"type":"Image","props":{"y":94,"x":68,"var":"powersmall3","skin":"resources/powersmall_3.png"}}]},{"type":"Box","props":{"y":911,"x":495},"child":[{"type":"Image","props":{"y":2,"x":5,"skin":"resources/electricline_2.png"}},{"type":"Image","props":{"y":104,"x":31,"var":"ligthBulb","skin":"resources/light_1.png"}}]}]};}
+	]);
 	return BlockViewUI;
 })(View)
 
@@ -37592,7 +37600,9 @@ var EnterAniViewUI=(function(_super){
 		this.createView(EnterAniViewUI.uiView);
 	}
 
-	EnterAniViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Image","props":{"y":519,"x":84,"width":510,"var":"imgAni","skin":"resources/enter_anim_1.png","height":176}}]};
+	__static(EnterAniViewUI,
+	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Image","props":{"y":519,"x":84,"width":510,"var":"imgAni","skin":"resources/enter_anim_1.png","height":176}}]};}
+	]);
 	return EnterAniViewUI;
 })(View)
 
@@ -37612,7 +37622,9 @@ var EnterViewUI=(function(_super){
 		this.createView(EnterViewUI.uiView);
 	}
 
-	EnterViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"width":678,"lineWidth":0,"height":1200,"fillColor":"#fff"}},{"type":"Image","props":{"y":0,"x":0,"width":678,"skin":"resources/background.png","height":1200,"height ":1200}},{"type":"Image","props":{"y":107,"x":98,"skin":"resources/title.png"}},{"type":"Button","props":{"y":961,"x":92,"var":"btnLevelMode","stateNum":1,"skin":"resources/button.png","labelSize":45,"labelColors":"#595959","labelBold":true,"label":"关卡模式"}},{"type":"Button","props":{"y":961,"x":382,"var":"btnEndlessMode","stateNum":1,"skin":"resources/button.png","labelSize":45,"labelColors":"#595959","labelBold":true,"label":"无尽模式"}}]};
+	__static(EnterViewUI,
+	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Rect","props":{"width":678,"lineWidth":0,"height":1200,"fillColor":"#fff"}},{"type":"Image","props":{"y":0,"x":0,"width":678,"skin":"resources/background.png","height":1200,"height ":1200}},{"type":"Image","props":{"y":107,"x":98,"skin":"resources/title.png"}},{"type":"Button","props":{"y":961,"x":92,"var":"btnLevelMode","stateNum":1,"skin":"resources/button.png","labelSize":45,"labelColors":"#595959","labelBold":true,"label":"关卡模式"}},{"type":"Button","props":{"y":961,"x":382,"var":"btnEndlessMode","stateNum":1,"skin":"resources/button.png","labelSize":45,"labelColors":"#595959","labelBold":true,"label":"无尽模式"}}]};}
+	]);
 	return EnterViewUI;
 })(View)
 
@@ -37631,7 +37643,9 @@ var LevelSelectViewUI=(function(_super){
 		this.createView(LevelSelectViewUI.uiView);
 	}
 
-	LevelSelectViewUI.uiView={"type":"View","props":{"width":678,"mouseEnabled":false,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Image","props":{"y":4,"x":2,"width":678,"skin":"resources/background.png","height":1200,"height ":1200}},{"type":"List","props":{"y":257,"x":33,"width":612,"var":"levelList","spaceY":50,"spaceX":50,"height":815,"dataSource":"[1,2,3]"},"child":[{"type":"Box","props":{"y":4,"renderType":"render"},"child":[{"type":"Image","props":{"x":10,"skin":"resources/levelmode_button_1.png","name":"itemBg"}},{"type":"Label","props":{"y":28,"width":158,"text":"1","name":"itemLb","fontSize":85,"font":"Microsoft YaHei","color":"#000000","align":"center"}}]}]},{"type":"Button","props":{"y":71,"x":222,"stateNum":1,"skin":"resources/button.png","labelSize":45,"labelColors":"#595959","labelBold":true,"label":"关卡选择"}}]};
+	__static(LevelSelectViewUI,
+	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"mouseEnabled":false,"height":1200},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#fff"}},{"type":"Image","props":{"y":4,"x":2,"width":678,"skin":"resources/background.png","height":1200,"height ":1200}},{"type":"List","props":{"y":257,"x":33,"width":612,"var":"levelList","spaceY":50,"spaceX":50,"height":815,"dataSource":"[1,2,3]"},"child":[{"type":"Box","props":{"y":4,"renderType":"render"},"child":[{"type":"Image","props":{"x":10,"skin":"resources/levelmode_button_1.png","name":"itemBg"}},{"type":"Label","props":{"y":28,"width":158,"text":"1","name":"itemLb","fontSize":85,"font":"Microsoft YaHei","color":"#000000","align":"center"}}]}]},{"type":"Button","props":{"y":71,"x":222,"stateNum":1,"skin":"resources/button.png","labelSize":45,"labelColors":"#595959","labelBold":true,"label":"关卡选择"}}]};}
+	]);
 	return LevelSelectViewUI;
 })(View)
 
@@ -37650,7 +37664,9 @@ var WinViewUI=(function(_super){
 		this.createView(WinViewUI.uiView);
 	}
 
-	WinViewUI.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Sprite","props":{"alpha":0.9},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#000","alpha":0.7}}]},{"type":"Image","props":{"y":291,"x":59,"width":578,"skin":"resources/win.png","height":567}},{"type":"Image","props":{"y":707,"x":192,"var":"nextBtn","skin":"resources/win_button.png"}}]};
+	__static(WinViewUI,
+	['uiView',function(){return this.uiView={"type":"View","props":{"width":678,"height":1200},"child":[{"type":"Sprite","props":{"alpha":0.9},"child":[{"type":"Rect","props":{"y":0,"x":0,"width":678,"lineWidth":1,"height":1200,"fillColor":"#000","alpha":0.7}}]},{"type":"Image","props":{"y":291,"x":59,"width":578,"skin":"resources/win.png","height":567}},{"type":"Image","props":{"y":707,"x":192,"var":"nextBtn","skin":"resources/win_button.png"}}]};}
+	]);
 	return WinViewUI;
 })(View)
 
@@ -39612,7 +39628,6 @@ var ToolBar=(function(_super){
 
 
 	Laya.__init([EventDispatcher,LoaderManager,Render,Browser,View,Timer,GraphicAnimation,LocalStorage]);
-	/**LayaGameStart**/
 	new GameMain();
 
 })(window,document,Laya);
