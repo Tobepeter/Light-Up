@@ -2,6 +2,7 @@ package utils {
 	import core.GameLayer;
 	
 	import global.GameConfig;
+	import global.MapConfig;
 	
 	import laya.debug.DebugPanel;
 	import laya.debug.DebugTool;
@@ -33,6 +34,15 @@ package utils {
 			// });
 			
 			// 测试TipManager
+			
+			// 测试读取配置
+			// Laya.loader.load('config/map1_1.json', Handler.create(null, function (data:*):void {
+			// 	console.log(data);
+			// }));
+			
+			// 测试mapConfig
+			// console.log('~~');
+			// console.log(MapConfig.mapDic);
 		}
 		
 		/** 添加白色挡板 */
@@ -143,10 +153,10 @@ package utils {
 		public static function useCheat():void {
 			// dosomething
 			var callBack:Function = function ():void {
-				if(GameConfig.IS_DEBUG) {
+				if (GameConfig.IS_DEBUG) {
 					GameConfig.IS_DEBUG = false;
 					EventCenter.send(EventType.OPEN_TEXT_TIP_VIEW, ["关闭作弊模式"]);
-				} else{
+				} else {
 					GameConfig.IS_DEBUG = true;
 					EventCenter.send(EventType.OPEN_TEXT_TIP_VIEW, ["开启作弊模式"]);
 				}
@@ -180,8 +190,8 @@ package utils {
 		}
 		
 		/** 使用调试工具 */
-		public static function useDebugPanel():void {
-			DebugPanel.init();
+		public static function useDebugPanel(bool:Boolean = true):void {
+			DebugPanel.init(bool);
 		}
 		
 		public static function useDebugTool():void {

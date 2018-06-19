@@ -2,32 +2,84 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad71ec0c-2df7-4bc1-8d72-61d3120622f2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/module/texttip/TipItem.as" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module/texttip/TipModule.as" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/global/MapConfig.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/astool/debug.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/astool/debug.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1FD6CC-49E4.pma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1FD801-49C8.pma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1FD889-47B0.pma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1FDE65-43C4.pma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B1FDEBA-3D0.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B21186D-49D4.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B21196B-DF8.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/BrowserMetrics/BrowserMetrics-5B220130-485C.pma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4513/_metadata/verified_contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4513/crl-set" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4513/manifest.fingerprint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateRevocation/4513/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_metadata/verified_contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/03019df3fd85a69a8ebd1facc6da9ba73e469774fe77f579fc5a08b8328c1d6b.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/15970488d7b997a05beb52512adee8d2e8b4a3165264121a9fabfbd5f85ad93f.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/2245450759552456963fa12ff1f76d86e0232663adc04b7f5dc6835c6ee20f02.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/293c519654c83965baaa50fc5807d4b76fbf587a2972dca4c30cf4e54547f478.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/34bb6ad6c3df9c03eea8a499ff7891486c9d5e5cac92d01f7bfd1bce19db48ef.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/41b2dc2e89e63ce4af1ba7bb29bf68c6dee6f9f1cc047e30dffae3b3ba259263.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/4494652eb0eeceafc44007d8a8fe28c0dae682bed8cb31b53fd33396b5b681a8.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/5581d4c2169036014aea0b9b573c53f0c0e43878702508172fa3aa1d0713d30c.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/5614069a2fd7c2ecd3f5e1bd44b23ec74676b9bc99115cc0ef949855d689d0dd.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/5cdc4392fee6ab4544b15e9ad456e61037fbd5fa47dca17394b25ee6f6c70eca.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/5ea773f9df56c0e7b536487dd049e0327a919a0c84a112128418759681714558.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/63f2dbcde83bcc2ccf0b728427576b33a48d61778fbd75a638b1c768544bd88d.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/68f698f81f6482be3a8ceeb9281d4cfc71515d6793d444d10a67acbb4f4ffbc4.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/6f5376ac31f03119d89900a45115ff77151c11d902c10029068db2089a37d913.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/7461b4a09cfb3d41d75159575b2e7649a445a8d27709b0cc564a6482b7eb41a3.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/747eda8331ad331091219cce254f4270c2bffd5e422008c6373579e6107bcc56.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/8775bfe7597cf88c43995fbdf36eff568d475636ff4ab560c1b4eaff5ea0830f.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/a4501269055a15545e6211ab37bc103f62ae5576a45e4b1714453e1b22106a25.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/a4b90990b418581487bb13a2cc67700a3c359804f91bdfb8e377cd0ec80ddc10.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/a577ac9ced7548dd8f025b67a241089df86e0f476ec203c2ecbedb185f282638.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/ac3b9aed7fa9674757159e6d7d575672f9d98100941e9bdeffeca1313b75782d.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/b21e05cc8ba2cd8a204e8766f92bb98a2520676bdafa70e7b249532def8b905e.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/bbd9dfbc1f8a71b593942397aa927b473857950aab52e81a909664368e1ed185.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/bc78e1dfc5f63c684649334da10fa15f0979692009c081b4f3f6917f3ed9b8a5.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/c1164ae0a772d2d4392dc80ac10770d4f0c49bde991a4840c1fa075164f63360.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/cdb5179b7fc1c046feea31136a3f8f002e6182faf8896fecc8b2f5b5ab604900.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/db74afeecb29ecb1feca3e716d2ce5b9aabb36f7847183c75d9d4f37b61fbf64.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/ddeb1d2b7a0d4fa6208b81ad8168707e2e8e9d01d55c888d3d11c4cdb6ecbecc.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/e2694bae26e8e94009e8861bb63b83d43ee7fe7488fba48f2893019dddf1dbfe.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/ee4bbdb775ce60bae142691fabe19e66a30f7e5fb072d88300c47b897aa8fdcb.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/f095a459f200d18240102d2f93888ead4bfe1d47e399e1d034a6b0a8aa8eb273.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/_platform_specific/all/sths/f65c942fd1773022145418083094568ee34d131933bfdf0c2f200bcc4ef164e3.sth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/manifest.fingerprint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/CertificateTransparency/780/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_2" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_3" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cache/data_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Cookies" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Cookies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Current Tabs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Download Service/EntryDB/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Favicons" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Favicons" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Feature Engagement Tracker/AvailabilityDB/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Feature Engagement Tracker/EventDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Feature Engagement Tracker/EventDB/LOG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_3" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/GPUCache/data_3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/History" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/History" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/History Provider Cache" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/History Provider Cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Last Session" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Last Session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Last Tabs" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Last Tabs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/000003.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Local Storage/leveldb/LOG.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Login Data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Network Action Predictor" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Network Action Predictor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Network Persistent State" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Network Persistent State" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Preferences" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/000003.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Session Storage/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Shortcuts" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Shortcuts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Top Sites" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Top Sites" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Visited Links" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Visited Links" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/Default/Web Data" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Default/Web Data" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Local State" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Local State" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/ChromeExtMalware.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/ChromeExtMalware.store" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlCsdWhitelist.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlCsdWhitelist.store" afterDir="false" />
@@ -38,12 +90,14 @@
       <change beforePath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlUws.store" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/Safe Browsing/UrlUws.store" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_3" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/ShaderCache/GPUCache/data_3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.laya/chrome/chrome_shutdown_ms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.laya/chrome/chrome_shutdown_ms.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/h5/GameMain.max.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/GameMain.max.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" beforeDir="false" afterPath="$PROJECT_DIR$/bin/h5/res/atlas/.rec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/block1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/h5/res/block2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameMain.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameMain.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/GameMgr.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/GameMgr.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/block/BlockView.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockView.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module/event/EventType.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/event/EventType.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module/block/BlockModule.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/module/block/BlockModule.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/TestCenter.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/TestCenter.as" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,57 +108,61 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Light-Up" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TipModule.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/texttip/TipModule.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-              <folding>
-                <element signature="e#26#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TipManager.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/TipManager.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TipItem.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/module/texttip/TipItem.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-              <folding>
-                <element signature="e#26#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pool.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Pool.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestCenter.as" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="TestCenter.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+            <state relative-caret-position="-184">
+              <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+              <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
               <folding>
                 <element signature="e#17#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapConfig.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/global/MapConfig.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="35" column="57" lean-forward="true" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+              <folding>
+                <element signature="e#18#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectTools.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/debug/tools/ObjectTools.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="143" column="34" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockModel.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="116" column="16" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockModule.as" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/module/block/BlockModule.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="51" column="71" selection-start-line="51" selection-start-column="71" selection-end-line="51" selection-end-column="71" />
+              <folding>
+                <element signature="e#24#46#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,6 +173,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Singleton" />
         <option value="ActionScript Class" />
       </list>
     </option>
@@ -133,6 +192,9 @@
       <find>continue</find>
       <find>mousedo</find>
       <find>width</find>
+      <find>arr.</find>
+      <find>getres</find>
+      <find>copy</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -144,14 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.actionScriptProperties" />
-        <option value="$PROJECT_DIR$/asconfig.json" />
-        <option value="$PROJECT_DIR$/WayOut.as3proj" />
-        <option value="$PROJECT_DIR$/src/LayaSample.as" />
-        <option value="$PROJECT_DIR$/src/module/BlockView.as" />
-        <option value="$PROJECT_DIR$/src/BlockView.as" />
-        <option value="$PROJECT_DIR$/src/module/scene/BlockView.as" />
-        <option value="$PROJECT_DIR$/src/module/scene/BlockModel.as" />
         <option value="$PROJECT_DIR$/src/module/block/BlockConst.as" />
         <option value="$PROJECT_DIR$/src/utils/UniqueID.as" />
         <option value="$PROJECT_DIR$/src/utils/CachePool.as" />
@@ -174,10 +228,35 @@
         <option value="$PROJECT_DIR$/src/module/texttip/TextTipView.as" />
         <option value="$PROJECT_DIR$/src/module/texttip/TextTipModule.as" />
         <option value="$PROJECT_DIR$/src/core/GameMgr.as" />
-        <option value="$PROJECT_DIR$/src/GameMain.as" />
         <option value="$PROJECT_DIR$/src/module/texttip/TipItem.as" />
         <option value="$PROJECT_DIR$/src/module/texttip/TipModule.as" />
+        <option value="$PROJECT_DIR$/src/config/map1_1.json" />
+        <option value="$PROJECT_DIR$/src/GameMain.as" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_1.json" />
         <option value="$PROJECT_DIR$/src/utils/TestCenter.as" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_4.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_5.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_7.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_8.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_9.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_10.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_11.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_12.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_2.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_3.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_4.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_5.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_6.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_7.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_8.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_9.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_10.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_11.json" />
+        <option value="$PROJECT_DIR$/laya/assets/config/map1_12.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_2.json" />
+        <option value="$PROJECT_DIR$/bin/h5/config/map1_3.json" />
+        <option value="$PROJECT_DIR$/src/global/MapConfig.as" />
+        <option value="$PROJECT_DIR$/src/module/block/BlockModule.as" />
       </list>
     </option>
   </component>
@@ -191,21 +270,21 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1939" />
-    <option name="height" value="1059" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,7 +295,94 @@
             <path>
               <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
               <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="h5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="h5" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laya" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
@@ -224,30 +390,43 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="block" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Light-Up" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Light-Up" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="directory" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/laya/assets/comp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="global" />
       <recent name="module.texttip" />
       <recent name="module.enter" />
       <recent name="module.event" />
       <recent name="core" />
-      <recent name="utils" />
     </key>
     <key name="com.intellij.javascript.flex.refactoring.moveClass.FlexMoveClassDialog.target_package">
       <recent name="utils" />
@@ -273,8 +452,8 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="LayaSample (WayOut)" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="LayaSample" />
+    <configuration name="LightUp" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="GameMain" />
       <option name="IOSSimulatorSdkPath" value="" />
       <option name="adlOptions" value="" />
       <option name="airProgramParameters" value="" />
@@ -296,7 +475,7 @@
         </LauncherParameters>
       </option>
       <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="WayOut" />
+      <option name="moduleName" value="LightUp" />
       <option name="overriddenMainClass" value="" />
       <option name="overriddenOutputFileName" value="" />
       <option name="overrideMainClass" value="false" />
@@ -362,45 +541,80 @@
       <workItem from="1528288405231" duration="3198000" />
       <workItem from="1528806606582" duration="125000" />
       <workItem from="1528895200478" duration="8795000" />
+      <workItem from="1529082814946" duration="208000" />
+      <workItem from="1529083054697" duration="380000" />
+      <workItem from="1529083464109" duration="907000" />
+      <workItem from="1529338812483" duration="877000" />
+      <workItem from="1529410058132" duration="6712000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54804000" />
+    <option name="totallyTimeSpent" value="63888000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1551" height="847" extended-state="0" />
+    <frame x="0" y="0" width="1536" height="864" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32957748" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23375754" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32957748" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24086604" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.66712517" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24966533" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="5" side_tool="true" weight="0.3299866" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32630098" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.6685473" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32909784" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.6685473" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2435724" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24966533" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32957748" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32630098" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info id="Favorites" order="5" side_tool="true" weight="0.3299866" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -414,304 +628,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GameMain.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/GameMgr.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1771">
-          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="65" column="47" lean-forward="true" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameMain.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2001">
-          <caret line="87" column="9" lean-forward="true" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameMain.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/asconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WayOut.laya" />
-    <entry file="file://$PROJECT_DIR$/WayOut.as3proj" />
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.actionScriptProperties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" selection-start-line="8" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Stage.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1638">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/UniqueID.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/CachePool.as" />
-    <entry file="file://$PROJECT_DIR$/bin/h5/GameMain.max.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="492" column="14" selection-start-line="492" selection-start-column="4" selection-end-line="492" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/maths/Point.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-437">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Adobe/Adobe Flash Builder 4.7 (64 Bit)/eclipse/plugins/com.adobe.flash.compiler_4.7.0.349722/AIRSDK/frameworks/libs/player/11.4/playerglobal.swc!/library.swf" />
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Dictionary.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Handler.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="112" column="31" selection-start-line="112" selection-start-column="31" selection-end-line="112" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/EventCenter.as" />
-    <entry file="file://$PROJECT_DIR$/src/core/GameLayer.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/GameConfig.as" />
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockConst.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="712">
-            <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Sprite.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="946" column="24" selection-start-line="946" selection-start-column="24" selection-end-line="946" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/EnterViewUI.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterModule.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="e#24#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/BlockViewUI.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-          <folding>
-            <element signature="e#24#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/event/EventType.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="79" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/RandomUtils.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1177">
-          <caret line="111" column="21" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
-          <folding>
-            <element signature="e#24#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/display/Node.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="354" column="24" selection-start-line="354" selection-start-column="24" selection-end-line="354" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/module/event/EventCenter.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="989">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/GameMgr.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
-          <folding>
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameMain.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#11#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/Label.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="354" column="22" selection-start-line="354" selection-start-column="16" selection-end-line="354" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/ui/Component.as">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -735,24 +651,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Pool.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="897">
           <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/texttip/TipItem.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
+        <state relative-caret-position="713">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="e#26#51#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/module/texttip/TipModule.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="667">
           <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
           <folding>
             <element signature="e#26#48#0" expanded="true" />
@@ -760,12 +673,310 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterAniView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="37" column="74" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/enter/EnterModule.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/GameMain.max.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/map1_1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/event/EventCenter.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="53" column="47" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/levelselect/LevelSelectModule.as">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/GameConfig.as">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameMain.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <element signature="e#11#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/net/Loader.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="483" column="42" selection-start-line="483" selection-start-column="33" selection-end-line="483" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/net/LoaderManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="281" column="29" lean-forward="true" selection-start-line="281" selection-start-column="29" selection-end-line="281" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockComp.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/levelselect/LevelSelectModel.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_5.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_6.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_7.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_8.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_9.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_10.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_11.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_12.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laya/assets/config/map1_3.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_1.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_3.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_5.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_6.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_7.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_9.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_8.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_11.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_12.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/levelselect/LevelSelectView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/utils/Dictionary.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/h5/config/map1_10.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="111" column="21" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/TestCenter.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        <state relative-caret-position="-184">
+          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+          <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
           <folding>
             <element signature="e#17#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/MapConfig.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="35" column="57" lean-forward="true" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+          <folding>
+            <element signature="e#18#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/laya/src/laya/debug/tools/ObjectTools.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="143" column="34" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModel.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="116" column="16" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module/block/BlockModule.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="51" column="71" selection-start-line="51" selection-start-column="71" selection-end-line="51" selection-end-column="71" />
+          <folding>
+            <element signature="e#24#46#0" expanded="true" />
           </folding>
         </state>
       </provider>

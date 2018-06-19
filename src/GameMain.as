@@ -2,8 +2,10 @@
 	import core.GameMgr;
 	
 	import global.GameConfig;
+	import global.MapConfig;
 	
 	import laya.display.Stage;
+	import laya.utils.Handler;
 	
 	import utils.TestCenter;
 	
@@ -11,6 +13,14 @@
 		
 		public function GameMain() {
 			initStage();
+			loadAssets(Handler.create(this, onLoaded));
+		}
+		
+		private function loadAssets(handler:Handler):void {
+			MapConfig.load(handler);
+		}
+		
+		private function onLoaded():void {
 			GameMgr.start();
 			
 			// todo
@@ -18,8 +28,9 @@
 			TestCenter.test();
 			TestCenter.useTest();
 			TestCenter.useCheat();
+			// TestCenter.useDebugTool();
+			// TestCenter.useDebugPanel(false);
 			// TestCenter.test();
-			
 		}
 		
 		private static function initStage():void {
